@@ -1,4 +1,4 @@
-class ConfirmationController < Devise::ConfirmationsController
+class ConfirmationsController < Devise::ConfirmationsController
 
 
     private

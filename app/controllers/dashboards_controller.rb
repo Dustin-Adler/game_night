@@ -5,7 +5,7 @@ class DashboardsController < ApplicationController
         
     end
 
-    def dashboard
-        redirect_to new_user_session_path
-    end
+    # def dashboard
+    #     redirect_to new_user_session_path
+    # end
 end
