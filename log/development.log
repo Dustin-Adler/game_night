@@ -1850,3 +1850,1309 @@ Processing by Users::SessionsController#new as HTML
 Completed 200 OK in 45ms (Views: 43.7ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/users/sign_in" for ::1 at 2022-01-29 05:53:11 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Users::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (0.8ms)
+  Rendered users/sessions/new.html.erb within layouts/application (11.7ms)
+  Rendered dashboard/_navbar.html.haml (5.8ms)
+  Rendered dashboard/_footer.html.haml (1.2ms)
+Completed 200 OK in 139ms (Views: 127.8ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2022-01-29 05:53:47 -0600
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.5ms)
+  Rendered devise/shared/_links.html.erb (0.7ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (4.6ms)
+  Rendered dashboard/_navbar.html.haml (23.6ms)
+  Rendered dashboard/_footer.html.haml (1.7ms)
+Completed 200 OK in 44ms (Views: 43.4ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8350563894896004495);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateGames (20220129120904)
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (9.6ms)[0m  [1m[35mCREATE TABLE "games" ("id" serial primary key, "game_name" character varying, "description" text, "video_game" boolean, "genre" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220129120904"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(8350563894896004495)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8350563894896004495);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddDBconstraintsToGames (20220129121536)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "games" ALTER "game_name" SET NOT NULL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "games" ALTER "description" SET NOT NULL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "games" ALTER "video_game" SET NOT NULL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "games" ALTER "genre" SET NOT NULL[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220129121536"]]
+  [1m[35m (6.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(8350563894896004495)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/games" for ::1 at 2022-01-29 06:30:42 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  Rendered games/index.html.erb within layouts/application (2.7ms)
+  Rendered dashboards/_navbar.html.haml (7.1ms)
+  Rendered dashboards/_footer.html.haml (1.8ms)
+Completed 200 OK in 160ms (Views: 156.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/games/new" for ::1 at 2022-01-29 06:31:07 -0600
+Processing by GamesController#new as HTML
+  Rendering games/new.html.erb within layouts/application
+  Rendered games/_form.html.haml (4.7ms)
+  Rendered games/new.html.erb within layouts/application (5.7ms)
+  Rendered dashboards/_navbar.html.haml (4.8ms)
+  Rendered dashboards/_footer.html.haml (0.9ms)
+Completed 200 OK in 34ms (Views: 28.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/games" for ::1 at 2022-01-29 06:31:19 -0600
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  Rendered games/index.html.erb within layouts/application (2.4ms)
+  Rendered dashboards/_navbar.html.haml (6.0ms)
+  Rendered dashboards/_footer.html.haml (1.0ms)
+Completed 200 OK in 31ms (Views: 28.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/games" for ::1 at 2022-01-31 09:15:20 -0600
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  Rendered games/index.html.erb within layouts/application (2.0ms)
+  Rendered dashboards/_navbar.html.haml (5.5ms)
+  Rendered dashboards/_footer.html.haml (1.2ms)
+Completed 200 OK in 30ms (Views: 28.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2022-01-31 09:15:25 -0600
+Processing by DashboardsController#dashboard as HTML
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2022-01-31 09:15:25 -0600
+Processing by Users::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (0.6ms)
+  Rendered users/sessions/new.html.erb within layouts/application (4.0ms)
+  Rendered dashboards/_navbar.html.haml (5.5ms)
+  Rendered dashboards/_footer.html.haml (1.2ms)
+Completed 200 OK in 29ms (Views: 23.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2022-01-31 09:15:30 -0600
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.4ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (8.4ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `location' for #<User:0x0000556bbd9a58e8>:
+  app/views/devise/registrations/new.html.erb:31:in `block in _app_views_devise_registrations_new_html_erb__232938657632263983_46960615371440'
+  app/views/devise/registrations/new.html.erb:3:in `_app_views_devise_registrations_new_html_erb__232938657632263983_46960615371440'
+
+Started POST "/__better_errors/47fff9795e3aa29c/variables" for ::1 at 2022-01-31 09:15:30 -0600
+Started GET "/users/sign_up" for ::1 at 2022-01-31 09:16:38 -0600
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.4ms)
+  Rendered devise/shared/_links.html.erb (0.6ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (3.7ms)
+  Rendered dashboards/_navbar.html.haml (4.4ms)
+  Rendered dashboards/_footer.html.haml (0.9ms)
+Completed 200 OK in 22ms (Views: 20.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2022-01-31 09:25:16 -0600
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.3ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (8.4ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `location' for #<User:0x00007f6e4c2acdf0>:
+  app/views/devise/registrations/new.html.haml:26:in `block in _app_views_devise_registrations_new_html_haml___1594302757697315386_70055819031600'
+  app/views/devise/registrations/new.html.haml:2:in `_app_views_devise_registrations_new_html_haml___1594302757697315386_70055819031600'
+
+Started POST "/__better_errors/9f21043b24154fad/variables" for ::1 at 2022-01-31 09:25:16 -0600
+Started GET "/users/sign_up" for ::1 at 2022-01-31 09:25:54 -0600
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.3ms)
+  Rendered devise/shared/_links.html.erb (0.7ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (6.6ms)
+  Rendered dashboards/_navbar.html.haml (4.4ms)
+  Rendered dashboards/_footer.html.haml (0.9ms)
+Completed 200 OK in 31ms (Views: 30.5ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8350563894896004495);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to ChangeTimeZoneToLocationOnUsers (20220131152715)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.5ms)[0m  [1m[35mALTER TABLE "users" RENAME COLUMN "time_zone" TO "location"[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220131152715"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(8350563894896004495)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/users/sign_up" for ::1 at 2022-01-31 09:30:11 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.3ms)
+  Rendered devise/shared/_links.html.erb (0.5ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (4.7ms)
+  Rendered dashboards/_navbar.html.haml (4.0ms)
+  Rendered dashboards/_footer.html.haml (0.8ms)
+Completed 200 OK in 26ms (Views: 20.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2022-01-31 11:26:31 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.4ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (18.2ms)
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 1.6ms)
+
+
+
+NoMethodError - undefined method `city' for #<IPinfo::Response:0x0000558dd90adc98>:
+  app/helpers/application_helper.rb:4:in `city'
+  app/views/devise/registrations/new.html.haml:26:in `block in _app_views_devise_registrations_new_html_haml__3124874939725917474_47033872619740'
+  app/views/devise/registrations/new.html.haml:2:in `_app_views_devise_registrations_new_html_haml__3124874939725917474_47033872619740'
+
+Started POST "/__better_errors/8638ecc47a5acab2/variables" for ::1 at 2022-01-31 11:26:31 -0600
+Started GET "/users/sign_up" for ::1 at 2022-01-31 11:28:00 -0600
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.3ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (5.5ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 1.3ms)
+
+
+
+NoMethodError - undefined method `city' for #<IPinfo::Response:0x0000558dd7762130>:
+  app/helpers/application_helper.rb:4:in `city'
+  app/views/devise/registrations/new.html.haml:26:in `block in _app_views_devise_registrations_new_html_haml__3124874939725917474_47033854245440'
+  app/views/devise/registrations/new.html.haml:2:in `_app_views_devise_registrations_new_html_haml__3124874939725917474_47033854245440'
+
+Started POST "/__better_errors/3d2925b48429a7fe/variables" for ::1 at 2022-01-31 11:28:00 -0600
+Started POST "/__better_errors/3d2925b48429a7fe/variables" for ::1 at 2022-01-31 11:29:18 -0600
+Started POST "/__better_errors/3d2925b48429a7fe/variables" for ::1 at 2022-01-31 11:29:24 -0600
+Started GET "/users/sign_up" for ::1 at 2022-01-31 11:30:30 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.4ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (18.8ms)
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 1.9ms)
+
+
+
+NoMethodError - undefined method `city' for #<IPinfo::Response:0x00005640f4843470>:
+  app/helpers/application_helper.rb:4:in `city'
+  app/views/devise/registrations/new.html.haml:26:in `block in _app_views_devise_registrations_new_html_haml___2119416956072012639_47418495253900'
+  app/views/devise/registrations/new.html.haml:2:in `_app_views_devise_registrations_new_html_haml___2119416956072012639_47418495253900'
+
+Started POST "/__better_errors/8d57fdecc0199fca/variables" for ::1 at 2022-01-31 11:30:31 -0600
+Started GET "/" for 67.162.39.150 at 2022-01-31 12:31:59 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardsController#dashboard as HTML
+Redirected to http://7747-67-162-39-150.ngrok.io/users/sign_in
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 67.162.39.150 at 2022-01-31 12:31:59 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (0.6ms)
+  Rendered users/sessions/new.html.erb within layouts/application (3.6ms)
+  Rendered dashboards/_navbar.html.haml (14.0ms)
+  Rendered dashboards/_footer.html.haml (6.5ms)
+Completed 200 OK in 204ms (Views: 203.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 67.162.39.150 at 2022-01-31 12:35:00 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.4ms)
+  Rendered devise/shared/_links.html.erb (0.9ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (15.9ms)
+  Rendered dashboards/_navbar.html.haml (9.3ms)
+  Rendered dashboards/_footer.html.haml (1.8ms)
+Completed 200 OK in 186ms (Views: 173.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2022-01-31 13:51:40 -0600
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.4ms)
+  Rendered devise/shared/_links.html.erb (0.6ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (19.4ms)
+  Rendered dashboards/_navbar.html.haml (4.4ms)
+  Rendered dashboards/_footer.html.haml (0.9ms)
+Completed 200 OK in 39ms (Views: 38.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2022-01-31 14:07:21 -0600
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Yy6dlU5E+QIjSEdaorqJyY8NohfXldegyuWkfDG2XkcjnwPwezx3nlV1VMsxHP1z4VlF20YmiArEiiSsRTHF2g==", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "location"=>""}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.8ms)
+  Rendered devise/shared/_links.html.erb (0.5ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (5.4ms)
+  Rendered dashboards/_navbar.html.haml (4.9ms)
+  Rendered dashboards/_footer.html.haml (1.1ms)
+Completed 200 OK in 31ms (Views: 23.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users" for ::1 at 2022-01-31 14:07:21 -0600
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R7QwgVO6GooQQYfAvD8fI7kSJsmw6U6kinfAinjkEocHBa7kZsKUFmZ8lFEvmWuZ10bBBSFaEQ6EGEBaDGOJGg==", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "location"=>""}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (1.2ms)
+  Rendered devise/shared/_links.html.erb (0.8ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (8.1ms)
+  Rendered dashboards/_navbar.html.haml (7.9ms)
+  Rendered dashboards/_footer.html.haml (1.6ms)
+Completed 200 OK in 38ms (Views: 32.8ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users" for ::1 at 2022-01-31 14:07:22 -0600
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xMkjQQxyqseO6yQ2E8abKaDz1knJl4Gl4a/opcnDI3qEeL0kOQokW/jWN6eAYO+TzqcxhVgk3g/vwGh1vUS45w==", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "location"=>""}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (1.2ms)
+  Rendered devise/shared/_links.html.erb (0.8ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (7.7ms)
+  Rendered dashboards/_navbar.html.haml (4.9ms)
+  Rendered dashboards/_footer.html.haml (1.2ms)
+Completed 200 OK in 32ms (Views: 26.6ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users" for ::1 at 2022-01-31 14:07:22 -0600
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DDuKJxvhs/gTtSzk/m+gTvr1S6vh3NWCa9tcrqHRm8tMihRCLpk9ZGWIP3VtydT0lKGsZ3BviihltNx+1VYAVg==", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "location"=>""}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (1.1ms)
+  Rendered devise/shared/_links.html.erb (0.6ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (6.2ms)
+  Rendered dashboards/_navbar.html.haml (5.5ms)
+  Rendered dashboards/_footer.html.haml (1.2ms)
+Completed 200 OK in 29ms (Views: 25.2ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/users" for ::1 at 2022-01-31 14:34:41 -0600
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AJlnV3u0sMTVZ8DHhVLbbNO2JJiGD9p+fwOfxwTL8HlAKPkyTsw+WKNa01YW9K/WveLDVBe8hdRxbB8XcExr5A==", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "location"=>""}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.9ms)
+  Rendered devise/shared/_links.html.erb (0.5ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (6.5ms)
+  Rendered dashboards/_navbar.html.haml (5.1ms)
+  Rendered dashboards/_footer.html.haml (1.0ms)
+Completed 200 OK in 27ms (Views: 22.8ms | ActiveRecord: 0.2ms)
+
+
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8350563894896004495);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddTimeZoneToUsers (20220131203551)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "users" RENAME COLUMN "location" TO "time_zone"[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220131203551"]]
+  [1m[35m (6.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(8350563894896004495)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/users" for ::1 at 2022-01-31 14:39:43 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.0.7.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.7.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.7.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.7.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.7.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.0.7.2) lib/rails/engine.rb:522:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered collection of /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [27 times] (3.9ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.9ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.6ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (24.4ms)
+Started GET "/users/sign_up" for 67.162.39.150 at 2022-01-31 14:39:47 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.4ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (15.0ms)
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 1.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `time_zone' for #<IPinfo::Response:0x0000563dc9c64988>
+Did you mean?  timezone
+               timezone=):
+    23:   .field
+    24:     = f.label :time_zone
+    25:     %br/
+    26:     = f.text_field :time_zone, class: "input", value: time_zone
+    27:   .actions
+    28:     = f.submit "Sign up"
+    29: = render "devise/shared/links"
+  
+app/helpers/application_helper.rb:4:in `time_zone'
+app/views/devise/registrations/new.html.haml:26:in `block in _app_views_devise_registrations_new_html_haml___2408154299505524759_47411691501380'
+app/views/devise/registrations/new.html.haml:2:in `_app_views_devise_registrations_new_html_haml___2408154299505524759_47411691501380'
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.4ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.4ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (12.4ms)
+Started GET "/users/sign_up" for 67.162.39.150 at 2022-01-31 14:40:45 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.6ms)
+  Rendered devise/shared/_links.html.erb (0.9ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (8.1ms)
+  Rendered dashboards/_navbar.html.haml (5.8ms)
+  Rendered dashboards/_footer.html.haml (1.5ms)
+Completed 200 OK in 163ms (Views: 154.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users" for ::1 at 2022-01-31 14:40:47 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.0.7.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.7.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.7.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.7.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.7.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.0.7.2) lib/rails/engine.rb:522:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.7ms)
+  Rendered collection of /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [27 times] (6.7ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.6ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (27.3ms)
+Started GET "/users" for ::1 at 2022-01-31 14:40:49 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.0.7.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.7.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.7.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.7.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.7.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.0.7.2) lib/rails/engine.rb:522:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered collection of /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [27 times] (8.2ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.6ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (27.4ms)
+Started GET "/users/sign_up" for 67.162.39.150 at 2022-01-31 14:40:57 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.5ms)
+  Rendered devise/shared/_links.html.erb (0.7ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (7.0ms)
+  Rendered dashboards/_navbar.html.haml (7.5ms)
+  Rendered dashboards/_footer.html.haml (1.6ms)
+Completed 200 OK in 32ms (Views: 31.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 67.162.39.150 at 2022-01-31 14:41:18 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.4ms)
+  Rendered devise/shared/_links.html.erb (0.6ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (6.3ms)
+  Rendered dashboards/_navbar.html.haml (7.2ms)
+  Rendered dashboards/_footer.html.haml (1.3ms)
+Completed 200 OK in 30ms (Views: 28.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2022-01-31 14:41:21 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.0.7.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.7.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.7.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.7.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.7.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.0.7.2) lib/rails/engine.rb:522:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered collection of /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [27 times] (2.7ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.6ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (15.3ms)
+Started GET "/users" for ::1 at 2022-01-31 14:42:11 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.0.7.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.7.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.7.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.7.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.7.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.0.7.2) lib/rails/engine.rb:522:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered collection of /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [27 times] (4.3ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.9ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.6ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (31.4ms)
+Started GET "/" for 67.162.39.150 at 2022-01-31 14:43:15 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardsController#dashboard as HTML
+Redirected to https://bb2a-67-162-39-150.ngrok.io/users/sign_in
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 67.162.39.150 at 2022-01-31 14:43:15 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (0.9ms)
+  Rendered users/sessions/new.html.erb within layouts/application (9.6ms)
+  Rendered dashboards/_navbar.html.haml (6.5ms)
+  Rendered dashboards/_footer.html.haml (1.1ms)
+Completed 200 OK in 187ms (Views: 177.2ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users" for ::1 at 2022-01-31 14:43:23 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.0.7.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.7.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.7.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.7.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.7.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.0.7.2) lib/rails/engine.rb:522:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.6ms)
+  Rendered collection of /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [27 times] (2.8ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.8ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (15.5ms)
+Started GET "/" for ::1 at 2022-01-31 14:43:27 -0600
+Processing by DashboardsController#dashboard as HTML
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2022-01-31 14:43:27 -0600
+Processing by Users::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (0.6ms)
+  Rendered users/sessions/new.html.erb within layouts/application (2.5ms)
+  Rendered dashboards/_navbar.html.haml (4.7ms)
+  Rendered dashboards/_footer.html.haml (1.1ms)
+Completed 200 OK in 22ms (Views: 20.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2022-01-31 14:43:33 -0600
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.4ms)
+  Rendered devise/shared/_links.html.erb (1.2ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (7.1ms)
+  Rendered dashboards/_navbar.html.haml (6.4ms)
+  Rendered dashboards/_footer.html.haml (1.2ms)
+Completed 200 OK in 29ms (Views: 28.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 67.162.39.150 at 2022-01-31 14:43:38 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.4ms)
+  Rendered devise/shared/_links.html.erb (1.2ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (6.8ms)
+  Rendered dashboards/_navbar.html.haml (12.0ms)
+  Rendered dashboards/_footer.html.haml (3.2ms)
+Completed 200 OK in 49ms (Views: 48.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 67.162.39.150 at 2022-01-31 14:43:46 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.7ms)
+  Rendered devise/shared/_links.html.erb (0.9ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (14.4ms)
+  Rendered dashboards/_navbar.html.haml (7.3ms)
+  Rendered dashboards/_footer.html.haml (1.5ms)
+Completed 200 OK in 50ms (Views: 47.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 67.162.39.150 at 2022-01-31 14:47:07 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.3ms)
+  Rendered devise/shared/_links.html.erb (0.5ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (6.1ms)
+  Rendered dashboards/_navbar.html.haml (5.3ms)
+  Rendered dashboards/_footer.html.haml (1.1ms)
+Completed 200 OK in 30ms (Views: 24.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2022-01-31 14:47:14 -0600
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.4ms)
+  Rendered devise/shared/_links.html.erb (0.6ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (5.8ms)
+  Rendered dashboards/_navbar.html.haml (5.1ms)
+  Rendered dashboards/_footer.html.haml (1.2ms)
+Completed 200 OK in 24ms (Views: 23.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 67.162.39.150 at 2022-01-31 14:47:34 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aATawg+6xERUcpPcgPAKGQ5UCfS85LVqTz+TW56XvA9JWjI/wfWqmmCAEbouYMmh75kBuSFR9B+WC1o34+qUpA==", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "time_zone"=>"America/Chicago"}, "commit"=>"Sign up"}
+Unpermitted parameter: time_zone
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.8ms)
+  Rendered devise/shared/_links.html.erb (0.7ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (5.6ms)
+  Rendered dashboards/_navbar.html.haml (4.3ms)
+  Rendered dashboards/_footer.html.haml (1.3ms)
+Completed 200 OK in 26ms (Views: 21.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users" for 67.162.39.150 at 2022-01-31 14:49:53 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.0.7.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.7.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.7.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.7.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.7.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.0.7.2) lib/rails/engine.rb:522:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.7ms)
+  Rendered collection of /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [27 times] (3.1ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.7ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (16.0ms)
+Started GET "/users/sign_up" for 67.162.39.150 at 2022-01-31 14:50:12 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.3ms)
+  Rendered devise/shared/_links.html.erb (0.6ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (5.3ms)
+  Rendered dashboards/_navbar.html.haml (4.4ms)
+  Rendered dashboards/_footer.html.haml (1.2ms)
+Completed 200 OK in 24ms (Views: 23.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 67.162.39.150 at 2022-01-31 14:50:31 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"P+typwNcOuhcOP3np3ligRFEKo+FT+AbMlvB1ewjtfAetZpazRNUNmjKf4EJ6aE58Ikiwhj6oW7rbwi5kV6dWw==", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "time_zone"=>"America/Chicago"}, "commit"=>"Sign up"}
+Unpermitted parameter: time_zone
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.8ms)
+  Rendered devise/shared/_links.html.erb (0.7ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (5.3ms)
+  Rendered dashboards/_navbar.html.haml (4.4ms)
+  Rendered dashboards/_footer.html.haml (0.9ms)
+Completed 200 OK in 24ms (Views: 20.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/sign_in" for 67.162.39.150 at 2022-01-31 14:50:42 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (0.6ms)
+  Rendered users/sessions/new.html.erb within layouts/application (2.5ms)
+  Rendered dashboards/_navbar.html.haml (4.3ms)
+  Rendered dashboards/_footer.html.haml (0.9ms)
+Completed 200 OK in 20ms (Views: 18.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 67.162.39.150 at 2022-01-31 14:50:46 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.3ms)
+  Rendered devise/shared/_links.html.erb (0.5ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (5.2ms)
+  Rendered dashboards/_navbar.html.haml (4.3ms)
+  Rendered dashboards/_footer.html.haml (0.9ms)
+Completed 200 OK in 26ms (Views: 24.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 67.162.39.150 at 2022-01-31 14:53:42 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yaW/89GM0rkjQwlVcSaCgJZKMUcOGuk9gx6IMigiAywjH969vKqZdtqm5zpCY/AI1HNKU3SRntrmaIwWc50+fQ==", "user"=>{"username"=>"FirstZion", "email"=>"demo@demo.demo", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "time_zone"=>"America/Chicago"}, "commit"=>"Sign up"}
+Unpermitted parameter: time_zone
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "demo@demo.demo"], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "username", "confirmation_token", "confirmation_sent_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["email", "demo@demo.demo"], ["encrypted_password", "$2a$12$Nmg.c3get9fVmMxvJ4uFpenvwvsLZQYLiPrGTioy/KQpbtQl8fAU."], ["username", "FirstZion"], ["confirmation_token", "HU_urEETo42JxwprLjhe"], ["confirmation_sent_at", "2022-01-31 20:53:42.991760"], ["created_at", "2022-01-31 20:53:42.991649"], ["updated_at", "2022-01-31 20:53:42.991649"]]
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 195ms (ActiveRecord: 1.5ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::NotNullViolation: ERROR:  null value in column "time_zone" violates not-null constraint
+DETAIL:  Failing row contains (3, demo@demo.demo, $2a$12$Nmg.c3get9fVmMxvJ4uFpenvwvsLZQYLiPrGTioy/KQpbtQl8fAU., FirstZion, null, null, null, null, HU_urEETo42JxwprLjhe, null, 2022-01-31 20:53:42.99176, null, 2022-01-31 20:53:42.991649, 2022-01-31 20:53:42.991649).
+: INSERT INTO "users" ("email", "encrypted_password", "username", "confirmation_token", "confirmation_sent_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"):
+  
+activerecord (5.0.7.2) lib/active_record/connection_adapters/postgresql_adapter.rb:600:in `async_exec'
+activerecord (5.0.7.2) lib/active_record/connection_adapters/postgresql_adapter.rb:600:in `block in exec_no_cache'
+activerecord (5.0.7.2) lib/active_record/connection_adapters/abstract_adapter.rb:590:in `block in log'
+activesupport (5.0.7.2) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activerecord (5.0.7.2) lib/active_record/connection_adapters/abstract_adapter.rb:583:in `log'
+activerecord (5.0.7.2) lib/active_record/connection_adapters/postgresql_adapter.rb:600:in `exec_no_cache'
+activerecord (5.0.7.2) lib/active_record/connection_adapters/postgresql_adapter.rb:589:in `execute_and_clear'
+activerecord (5.0.7.2) lib/active_record/connection_adapters/postgresql/database_statements.rb:103:in `exec_query'
+activerecord (5.0.7.2) lib/active_record/connection_adapters/postgresql/database_statements.rb:137:in `exec_insert'
+activerecord (5.0.7.2) lib/active_record/connection_adapters/abstract/database_statements.rb:124:in `insert'
+activerecord (5.0.7.2) lib/active_record/connection_adapters/abstract/query_cache.rb:17:in `insert'
+activerecord (5.0.7.2) lib/active_record/relation.rb:65:in `insert'
+activerecord (5.0.7.2) lib/active_record/persistence.rb:572:in `_create_record'
+activerecord (5.0.7.2) lib/active_record/counter_cache.rb:128:in `_create_record'
+activerecord (5.0.7.2) lib/active_record/locking/optimistic.rb:75:in `_create_record'
+activerecord (5.0.7.2) lib/active_record/attribute_methods/dirty.rb:123:in `_create_record'
+activerecord (5.0.7.2) lib/active_record/callbacks.rb:302:in `block in _create_record'
+activesupport (5.0.7.2) lib/active_support/callbacks.rb:126:in `call'
+activesupport (5.0.7.2) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+activesupport (5.0.7.2) lib/active_support/callbacks.rb:455:in `call'
+activesupport (5.0.7.2) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+activesupport (5.0.7.2) lib/active_support/callbacks.rb:750:in `_run_create_callbacks'
+activerecord (5.0.7.2) lib/active_record/callbacks.rb:302:in `_create_record'
+activerecord (5.0.7.2) lib/active_record/timestamp.rb:68:in `_create_record'
+activerecord (5.0.7.2) lib/active_record/persistence.rb:548:in `create_or_update'
+activerecord (5.0.7.2) lib/active_record/callbacks.rb:298:in `block in create_or_update'
+activesupport (5.0.7.2) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.7.2) lib/active_support/callbacks.rb:750:in `_run_save_callbacks'
+activerecord (5.0.7.2) lib/active_record/callbacks.rb:298:in `create_or_update'
+activerecord (5.0.7.2) lib/active_record/persistence.rb:129:in `save'
+activerecord (5.0.7.2) lib/active_record/validations.rb:44:in `save'
+activerecord (5.0.7.2) lib/active_record/attribute_methods/dirty.rb:22:in `save'
+activerecord (5.0.7.2) lib/active_record/transactions.rb:319:in `block (2 levels) in save'
+activerecord (5.0.7.2) lib/active_record/transactions.rb:395:in `block in with_transaction_returning_status'
+activerecord (5.0.7.2) lib/active_record/connection_adapters/abstract/database_statements.rb:232:in `block in transaction'
+activerecord (5.0.7.2) lib/active_record/connection_adapters/abstract/transaction.rb:189:in `within_new_transaction'
+activerecord (5.0.7.2) lib/active_record/connection_adapters/abstract/database_statements.rb:232:in `transaction'
+activerecord (5.0.7.2) lib/active_record/transactions.rb:211:in `transaction'
+activerecord (5.0.7.2) lib/active_record/transactions.rb:392:in `with_transaction_returning_status'
+activerecord (5.0.7.2) lib/active_record/transactions.rb:319:in `block in save'
+activerecord (5.0.7.2) lib/active_record/transactions.rb:334:in `rollback_active_record_state!'
+activerecord (5.0.7.2) lib/active_record/transactions.rb:318:in `save'
+activerecord (5.0.7.2) lib/active_record/suppressor.rb:41:in `save'
+devise (4.8.1) app/controllers/devise/registrations_controller.rb:19:in `create'
+actionpack (5.0.7.2) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.0.7.2) lib/abstract_controller/base.rb:188:in `process_action'
+actionpack (5.0.7.2) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.0.7.2) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.0.7.2) lib/active_support/callbacks.rb:126:in `call'
+activesupport (5.0.7.2) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+activesupport (5.0.7.2) lib/active_support/callbacks.rb:455:in `call'
+activesupport (5.0.7.2) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+activesupport (5.0.7.2) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+activesupport (5.0.7.2) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.7.2) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.0.7.2) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.0.7.2) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.0.7.2) lib/active_support/notifications.rb:164:in `block in instrument'
+activesupport (5.0.7.2) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.0.7.2) lib/active_support/notifications.rb:164:in `instrument'
+actionpack (5.0.7.2) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.0.7.2) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+activerecord (5.0.7.2) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+actionpack (5.0.7.2) lib/abstract_controller/base.rb:126:in `process'
+actionview (5.0.7.2) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.0.7.2) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.7.2) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.7.2) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.7.2) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.7.2) lib/action_dispatch/routing/mapper.rb:16:in `block in <class:Constraints>'
+actionpack (5.0.7.2) lib/action_dispatch/routing/mapper.rb:46:in `serve'
+actionpack (5.0.7.2) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.7.2) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.7.2) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.7.2) lib/action_dispatch/routing/route_set.rb:727:in `call'
+ipinfo-rails (0.1.1) lib/ipinfo-rails.rb:30:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.7.2) lib/active_record/migration.rb:553:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.7.2) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.7.2) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.7.2) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+better_errors (2.9.1) lib/better_errors/middleware.rb:62:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.7.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.7.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.7.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.7.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.0.7.2) lib/rails/engine.rb:522:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.3ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (13.2ms)
+Started GET "/users/sign_in" for 67.162.39.150 at 2022-01-31 14:59:23 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (0.6ms)
+  Rendered users/sessions/new.html.erb within layouts/application (2.6ms)
+  Rendered dashboards/_navbar.html.haml (4.6ms)
+  Rendered dashboards/_footer.html.haml (0.9ms)
+Completed 200 OK in 28ms (Views: 21.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/sign_up" for 67.162.39.150 at 2022-01-31 14:59:26 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.4ms)
+  Rendered devise/shared/_links.html.erb (0.5ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (5.1ms)
+  Rendered dashboards/_navbar.html.haml (5.2ms)
+  Rendered dashboards/_footer.html.haml (1.0ms)
+Completed 200 OK in 23ms (Views: 22.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 67.162.39.150 at 2022-01-31 14:59:51 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dMPJwPsWdBSk6xbhNbOLJwXiUxX2vJlaadYGmH16ICqeeaiOljA/210O+I4G9vmvR9soAYw37r0MoAK8JsUdew==", "user"=>{"username"=>"FirstZion", "email"=>"demo@demo.demo", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "time_zone"=>"America/Chicago"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "demo@demo.demo"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "username", "time_zone", "confirmation_token", "confirmation_sent_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "demo@demo.demo"], ["encrypted_password", "$2a$12$8OariqRiFQuF.5CzroKpjeWcLFXOrpLWEP0S9g4LMMrfxV86IUKC2"], ["username", "FirstZion"], ["time_zone", "America/Chicago"], ["confirmation_token", "UgqdUzPAu928xmQJxqn5"], ["confirmation_sent_at", "2022-01-31 20:59:51.693340"], ["created_at", "2022-01-31 20:59:51.693171"], ["updated_at", "2022-01-31 20:59:51.693171"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.5ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 116.3ms
+Sent mail to demo@demo.demo (5.2ms)
+Date: Mon, 31 Jan 2022 14:59:51 -0600
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: demo@demo.demo
+Message-ID: <61f84dc7d4fc8_5fbd82b0a10c41720498ee@dustinadler-ThinkPad-X1-Carbon-Gen-9.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome demo@demo.demo!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=UgqdUzPAu928xmQJxqn5">Confirm my account</a></p>
+
+Redirected to https://bb2a-67-162-39-150.ngrok.io/
+Completed 302 Found in 371ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 67.162.39.150 at 2022-01-31 14:59:51 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardsController#dashboard as HTML
+Redirected to https://bb2a-67-162-39-150.ngrok.io/users/sign_in
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 67.162.39.150 at 2022-01-31 14:59:51 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (0.6ms)
+  Rendered users/sessions/new.html.erb within layouts/application (3.6ms)
+  Rendered dashboards/_navbar.html.haml (4.5ms)
+  Rendered dashboards/_footer.html.haml (0.9ms)
+Completed 200 OK in 24ms (Views: 22.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 67.162.39.150 at 2022-01-31 15:37:56 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (0.6ms)
+  Rendered users/sessions/new.html.erb within layouts/application (2.4ms)
+  Rendered dashboards/_navbar.html.haml (5.2ms)
+  Rendered dashboards/_footer.html.haml (1.0ms)
+Completed 200 OK in 27ms (Views: 21.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 67.162.39.150 at 2022-01-31 15:38:00 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardsController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 67.162.39.150 at 2022-01-31 15:38:01 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (0.6ms)
+  Rendered users/sessions/new.html.erb within layouts/application (3.4ms)
+  Rendered dashboards/_navbar.html.haml (5.9ms)
+  Rendered dashboards/_footer.html.haml (1.1ms)
+Completed 200 OK in 22ms (Views: 21.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 67.162.39.150 at 2022-01-31 15:38:11 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 67.162.39.150 at 2022-01-31 15:38:11 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (0.9ms)
+  Rendered users/sessions/new.html.erb within layouts/application (3.3ms)
+  Rendered dashboards/_navbar.html.haml (7.4ms)
+  Rendered dashboards/_footer.html.haml (1.7ms)
+Completed 200 OK in 29ms (Views: 28.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 67.162.39.150 at 2022-01-31 15:38:15 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.4ms)
+  Rendered devise/shared/_links.html.erb (0.5ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (5.3ms)
+  Rendered dashboards/_navbar.html.haml (14.0ms)
+  Rendered dashboards/_footer.html.haml (1.3ms)
+Completed 200 OK in 32ms (Views: 30.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 67.162.39.150 at 2022-01-31 16:55:38 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by DashboardsController#index as HTML
+Completed 401 Unauthorized in 6ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 67.162.39.150 at 2022-01-31 16:55:38 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (0.7ms)
+  Rendered users/sessions/new.html.erb within layouts/application (7.7ms)
+  Rendered dashboards/_navbar.html.haml (12.9ms)
+  Rendered dashboards/_footer.html.haml (2.5ms)
+Completed 200 OK in 189ms (Views: 181.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/sign_up" for 67.162.39.150 at 2022-01-31 16:56:02 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.7ms)
+  Rendered devise/shared/_links.html.erb (13.6ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (24.4ms)
+  Rendered dashboards/_navbar.html.haml (4.4ms)
+  Rendered dashboards/_footer.html.haml (1.0ms)
+Completed 200 OK in 46ms (Views: 44.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 67.162.39.150 at 2022-01-31 16:57:00 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2//krGFLUTW0XIgxbAipbCJmpzTKfZfSwkE4nMZy2mcxRYXiDG0a+k25Zl5fTdvkYF/cILD24DWnNzy4nc3nNg==", "user"=>{"username"=>"MidwestLuvAffair", "email"=>"midwest@demo.demo", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "time_zone"=>"America/Chicago"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "midwest@demo.demo"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "username", "time_zone", "confirmation_token", "confirmation_sent_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "midwest@demo.demo"], ["encrypted_password", "$2a$12$CkLJ.QV8UHi2Cp79S2m2yeDZGVzFNSTBQe88ukngWxwHPq0iV7q9i"], ["username", "MidwestLuvAffair"], ["time_zone", "America/Chicago"], ["confirmation_token", "_fdEsFC2pc_9p6eP87wH"], ["confirmation_sent_at", "2022-01-31 22:57:00.458225"], ["created_at", "2022-01-31 22:57:00.458093"], ["updated_at", "2022-01-31 22:57:00.458093"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.8ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 97.4ms
+Sent mail to midwest@demo.demo (108.8ms)
+Date: Mon, 31 Jan 2022 16:57:00 -0600
+From: game-night-dev@example.com
+Reply-To: game-night-dev@example.com
+To: midwest@demo.demo
+Message-ID: <61f8693c9744c_629712b03ab243e3c592a8@dustinadler-ThinkPad-X1-Carbon-Gen-9.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome midwest@demo.demo!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=_fdEsFC2pc_9p6eP87wH">Confirm my account</a></p>
+
+Redirected to https://bb2a-67-162-39-150.ngrok.io/
+Completed 302 Found in 470ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/" for 67.162.39.150 at 2022-01-31 16:57:00 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardsController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 67.162.39.150 at 2022-01-31 16:57:00 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (0.5ms)
+  Rendered users/sessions/new.html.erb within layouts/application (2.1ms)
+  Rendered dashboards/_navbar.html.haml (6.7ms)
+  Rendered dashboards/_footer.html.haml (1.2ms)
+Completed 200 OK in 23ms (Views: 22.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/confirmation?confirmation_token=_fdEsFC2pc_9p6eP87wH" for ::1 at 2022-01-31 16:57:33 -0600
+
+LoadError - Unable to autoload constant ConfirmationsController, expected /home/dustin-adler/Desktop/Work/game_night/app/controllers/confirmations_controller.rb to define it:
+
+Started POST "/__better_errors/7a863faba2286664/variables" for ::1 at 2022-01-31 16:57:33 -0600
+Started POST "/users/sign_in" for 67.162.39.150 at 2022-01-31 17:06:44 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"78uQV9JcDUrP0549vHSDn6nVcFYH6gVnhi5E3YhMnZDOlXiqHBNjlPshHFsS5EAnSBh4G5pfRBJfGo2x9TG1Ow==", "user"=>{"email"=>"midwest@demo.demo", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "midwest@demo.demo"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 401 Unauthorized in 194ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/users/sign_in" for 67.162.39.150 at 2022-01-31 17:06:44 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (0.9ms)
+  Rendered users/sessions/new.html.erb within layouts/application (3.7ms)
+  Rendered dashboards/_navbar.html.haml (4.7ms)
+  Rendered dashboards/_footer.html.haml (1.6ms)
+Completed 200 OK in 27ms (Views: 25.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/confirmation?confirmation_token=_fdEsFC2pc_9p6eP87wH" for ::1 at 2022-01-31 17:06:54 -0600
+
+LoadError - Unable to autoload constant ConfirmationsController, expected /home/dustin-adler/Desktop/Work/game_night/app/controllers/confirmations_controller.rb to define it:
+
+Started POST "/__better_errors/44830f78adb6c9f5/variables" for ::1 at 2022-01-31 17:06:54 -0600
+Started GET "/users/sign_up" for 67.162.39.150 at 2022-01-31 17:07:06 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.3ms)
+  Rendered devise/shared/_links.html.erb (0.5ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (5.9ms)
+  Rendered dashboards/_navbar.html.haml (4.3ms)
+  Rendered dashboards/_footer.html.haml (1.0ms)
+Completed 200 OK in 24ms (Views: 23.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 67.162.39.150 at 2022-01-31 17:07:27 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"g4RCMAstDNH0rQbgjPMbUC/svqMZWWnvVECnl0Rhy3xpPiN+ZgtHHg1I6I+/tmnYbdXFt2PSHggxNqOzH972LQ==", "user"=>{"username"=>"MidwestLuvAffair", "email"=>"midwest@demo.demo", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "time_zone"=>"America/Chicago"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "midwest@demo.demo"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.7ms)
+  Rendered devise/shared/_links.html.erb (0.7ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (6.4ms)
+  Rendered dashboards/_navbar.html.haml (5.0ms)
+  Rendered dashboards/_footer.html.haml (1.0ms)
+Completed 200 OK in 217ms (Views: 25.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/confirmation?confirmation_token=_fdEsFC2pc_9p6eP87wH" for ::1 at 2022-01-31 17:07:46 -0600
+
+LoadError - Unable to autoload constant ConfirmationsController, expected /home/dustin-adler/Desktop/Work/game_night/app/controllers/confirmations_controller.rb to define it:
+
+Started POST "/__better_errors/76ab5cfdd2400000/variables" for ::1 at 2022-01-31 17:07:46 -0600
+Started POST "/__better_errors/76ab5cfdd2400000/variables" for ::1 at 2022-01-31 17:08:03 -0600
+Started POST "/__better_errors/76ab5cfdd2400000/variables" for ::1 at 2022-01-31 17:08:06 -0600
+Started POST "/__better_errors/76ab5cfdd2400000/variables" for ::1 at 2022-01-31 17:08:07 -0600
+Started POST "/__better_errors/76ab5cfdd2400000/variables" for ::1 at 2022-01-31 17:08:09 -0600
+Started POST "/__better_errors/76ab5cfdd2400000/variables" for ::1 at 2022-01-31 17:08:16 -0600
+Started POST "/__better_errors/76ab5cfdd2400000/variables" for ::1 at 2022-01-31 17:08:18 -0600
+Started POST "/__better_errors/76ab5cfdd2400000/variables" for ::1 at 2022-01-31 17:08:19 -0600
+Started POST "/__better_errors/76ab5cfdd2400000/variables" for ::1 at 2022-01-31 17:08:19 -0600
+Started POST "/__better_errors/76ab5cfdd2400000/variables" for ::1 at 2022-01-31 17:08:22 -0600
+Started POST "/__better_errors/76ab5cfdd2400000/variables" for ::1 at 2022-01-31 17:08:25 -0600
+Started POST "/__better_errors/76ab5cfdd2400000/variables" for ::1 at 2022-01-31 17:08:31 -0600
+Started POST "/__better_errors/76ab5cfdd2400000/variables" for ::1 at 2022-01-31 17:08:33 -0600
+Started POST "/__better_errors/76ab5cfdd2400000/variables" for ::1 at 2022-01-31 17:08:35 -0600
+Started POST "/__better_errors/76ab5cfdd2400000/variables" for ::1 at 2022-01-31 17:08:37 -0600
+Started POST "/__better_errors/76ab5cfdd2400000/variables" for ::1 at 2022-01-31 17:08:41 -0600
+Started POST "/__better_errors/76ab5cfdd2400000/variables" for ::1 at 2022-01-31 17:08:42 -0600
+Started POST "/__better_errors/76ab5cfdd2400000/variables" for ::1 at 2022-01-31 17:08:44 -0600
+Started POST "/__better_errors/76ab5cfdd2400000/variables" for ::1 at 2022-01-31 17:08:50 -0600
+Started POST "/__better_errors/76ab5cfdd2400000/variables" for ::1 at 2022-01-31 17:08:52 -0600
+Started POST "/__better_errors/76ab5cfdd2400000/variables" for ::1 at 2022-01-31 17:08:54 -0600
+Started POST "/__better_errors/76ab5cfdd2400000/variables" for ::1 at 2022-01-31 17:08:56 -0600
+Started POST "/__better_errors/76ab5cfdd2400000/variables" for ::1 at 2022-01-31 17:08:57 -0600
+Started POST "/__better_errors/76ab5cfdd2400000/variables" for ::1 at 2022-01-31 17:08:57 -0600
+Started POST "/__better_errors/76ab5cfdd2400000/variables" for ::1 at 2022-01-31 17:09:01 -0600
+Started POST "/__better_errors/76ab5cfdd2400000/variables" for ::1 at 2022-01-31 17:09:03 -0600
+Started POST "/__better_errors/76ab5cfdd2400000/variables" for ::1 at 2022-01-31 17:09:05 -0600
+Started POST "/__better_errors/76ab5cfdd2400000/variables" for ::1 at 2022-01-31 17:09:07 -0600
+Started POST "/__better_errors/76ab5cfdd2400000/variables" for ::1 at 2022-01-31 17:09:10 -0600
+Started POST "/__better_errors/76ab5cfdd2400000/variables" for ::1 at 2022-01-31 17:09:21 -0600
+Started POST "/__better_errors/76ab5cfdd2400000/variables" for ::1 at 2022-01-31 17:09:27 -0600
+Started POST "/__better_errors/76ab5cfdd2400000/variables" for ::1 at 2022-01-31 17:09:31 -0600
+Started POST "/__better_errors/76ab5cfdd2400000/variables" for ::1 at 2022-01-31 17:09:34 -0600
+Started POST "/__better_errors/76ab5cfdd2400000/variables" for ::1 at 2022-01-31 17:09:37 -0600
+Started POST "/__better_errors/76ab5cfdd2400000/variables" for ::1 at 2022-01-31 17:09:42 -0600
+Started POST "/__better_errors/76ab5cfdd2400000/variables" for ::1 at 2022-01-31 17:09:47 -0600
+Started POST "/__better_errors/76ab5cfdd2400000/variables" for ::1 at 2022-01-31 17:09:51 -0600
+Started POST "/__better_errors/76ab5cfdd2400000/variables" for ::1 at 2022-01-31 17:09:56 -0600
