@@ -2,19 +2,21 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   protect_from_forgery with: :exception
 
-  # def landing_page
-  #   if current_user
-  #     redirect_to dashboard_path
-  #   else 
-  #     redirect_to new_user_session_path
-  #   end
-  # end
+  helper_method :signed_in?
 
+  def signed_in?
+    redirect_to dashboards_path if current_user
+  end
 
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
+    devise_parameter_sanitizer.permit(:sign_up, 
+      keys: [:username, :email, :password, :password_confirmation, :time_zone])
+    devise_parameter_sanitizer.permit(:sign_up, 
+      keys: [:login, :password, :password_confirmation, :time_zone])
+    devise_parameter_sanitizer.permit(:account_update, 
+      keys: [:username, :email, :current_password, :password_confirmation])
   end
 
 end

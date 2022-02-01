@@ -21,8 +21,7 @@ gem 'devise'
 gem "haml", ">=3.0.0"
 gem 'bootstrap-email'
 gem 'email_address'
-# gem 'bootstrap', '~> 5.0.2'
-# gem 'sprockets-rails', :require => 'sprockets/railtie'
+gem 'ipinfo-rails'
 
 # gem 'capistrano-rails', group: :development
 
