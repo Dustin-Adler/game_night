@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  group_id: 1
+  game_id: 1
+  required_players: 1
+  details: MyText
+  date: 2022-02-01 04:59:23
+
+two:
+  group_id: 1
+  game_id: 1
+  required_players: 1
+  details: MyText
+  date: 2022-02-01 04:59:23

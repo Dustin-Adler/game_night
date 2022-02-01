@@ -1,0 +1,19 @@
+%p#notice= notice
+%p
+  %strong Group:
+  = @event.group_id
+%p
+  %strong Game:
+  = @event.game_id
+%p
+  %strong Required players:
+  = @event.required_players
+%p
+  %strong Details:
+  = @event.details
+%p
+  %strong Date:
+  = @event.date
+= link_to 'Edit', edit_event_path(@event)
+|
+= link_to 'Back', events_path

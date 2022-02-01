@@ -1,0 +1,10 @@
+%p#notice= notice
+%p
+  %strong Event:
+  = @attendee.event_id
+%p
+  %strong User:
+  = @attendee.user_id
+= link_to 'Edit', edit_attendee_path(@attendee)
+|
+= link_to 'Back', attendees_path
