@@ -1,0 +1,11 @@
+%p#notice= notice
+%table
+  %thead
+    %tr
+      %th Friends
+      %th{:colspan => "1"}
+  %tbody
+    - @friends.each do |friend|
+      %tr
+        %td= friend
+        %td= link_to 'unfriend', friend, method: :delete, data: { confirm: 'Are you sure?' }

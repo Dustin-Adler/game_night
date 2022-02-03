@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20220201110003) do
+ActiveRecord::Schema.define(version: 20220202143921) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,11 +46,11 @@ ActiveRecord::Schema.define(version: 20220201110003) do
   end
 
   create_table "friends", force: :cascade do |t|
-    t.integer  "friend_1_id", null: false
-    t.integer  "friend_2_id", null: false
-    t.boolean  "pending",     null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "friend_1_id",                null: false
+    t.integer  "friend_2_id",                null: false
+    t.boolean  "pending",     default: true, null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.index ["friend_1_id"], name: "index_friends_on_friend_1_id", using: :btree
     t.index ["friend_2_id"], name: "index_friends_on_friend_2_id", using: :btree
   end
@@ -65,11 +65,11 @@ ActiveRecord::Schema.define(version: 20220201110003) do
   end
 
   create_table "group_members", force: :cascade do |t|
-    t.integer  "group_id",   null: false
-    t.integer  "user_id",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.boolean  "pending",    null: false
+    t.integer  "group_id",                  null: false
+    t.integer  "user_id",                   null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.boolean  "pending",    default: true, null: false
     t.index ["group_id"], name: "index_group_members_on_group_id", using: :btree
     t.index ["user_id"], name: "index_group_members_on_user_id", using: :btree
   end

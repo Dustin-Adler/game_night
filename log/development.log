@@ -6785,3 +6785,1311 @@ Migrating to CreateAttendees (20220201110003)
   [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(8350563894896004495)[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8350563894896004495);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddDefaultToFriends (20220202143921)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "friends" ALTER COLUMN "pending" SET DEFAULT 'true'[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "group_members" ALTER COLUMN "pending" SET DEFAULT 'true'[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220202143921"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(8350563894896004495)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mFriend Load (0.6ms)[0m  [1m[34mSELECT "friends".* FROM "friends"[0m
+  [1m[36mFriend Load (0.2ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE "friends"."friend_1_id" = $1[0m  [["friend_1_id", 1]]
+  [1m[36mFriend Load (0.2ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE ("friends"."friend_1_id" = $1 OR "friends"."friend_2_id" = $2)[0m  [["friend_1_id", 1], ["friend_2_id", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "friends"."friend_2_id" FROM "friends"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "friends"."friend_2_id" FROM "friends"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "friends"."friend_2_id" FROM "friends" WHERE "friends"."friend_1_id" = $1[0m  [["friend_1_id", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "friends"."friend_2_id" FROM "friends" WHERE "friends"."friend_1_id" = $1[0m  [["friend_1_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "friends"."friend_1_id" FROM "friends" WHERE "friends"."friend_2_id" = $1[0m  [["friend_2_id", 1]]
+  [1m[36mFriend Load (0.3ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE ("friends"."friend_1_id" = $1 OR "friends"."friend_2_id" = $2)[0m  [["friend_1_id", 1], ["friend_2_id", 1]]
+Started GET "/" for 67.162.39.150 at 2022-02-02 15:49:28 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.haml within layouts/application
+  Rendered home/index.html.haml within layouts/application (2.4ms)
+  Rendered dashboards/_navbar.html.haml (5.6ms)
+  Rendered dashboards/_footer.html.haml (2.3ms)
+Completed 200 OK in 156ms (Views: 150.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 67.162.39.150 at 2022-02-02 15:50:01 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered devise/shared/_links.html.haml (2.1ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (12.9ms)
+  Rendered dashboards/_navbar.html.haml (7.2ms)
+  Rendered dashboards/_footer.html.haml (2.9ms)
+Completed 200 OK in 51ms (Views: 42.5ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/users/sign_in" for 67.162.39.150 at 2022-02-02 15:50:15 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"klVRMHqVl4sRVO0C0fTvHvPwW3KimZ8pAlZP5dmdgr54E0B2dPYuTEVmF16J5d1gdUmOXzUIlURp8nCHkoXnPw==", "user"=>{"login"=>"Demo", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (lower(username) = 'demo' OR lower(email) = 'demo') ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to https://5b80-67-162-39-150.ngrok.io/
+Completed 302 Found in 201ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 67.162.39.150 at 2022-02-02 15:50:15 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to https://5b80-67-162-39-150.ngrok.io/dashboards
+Filter chain halted as :signed_in? rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/dashboards" for 67.162.39.150 at 2022-02-02 15:50:15 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFriend Load (0.3ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE ("friends"."friend_1_id" = $1 OR "friends"."friend_2_id" = $2)[0m  [["friend_1_id", 1], ["friend_2_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering dashboards/index.html.haml within layouts/application
+  Rendered friends/_form.html.haml (2.4ms)
+  Rendered friends/_new.html.haml (3.7ms)
+  Rendered dashboards/index.html.haml within layouts/application (6.6ms)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 1.8ms)
+
+
+  
+ActionView::Template::Error (Missing partial friends/_index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder, :haml]}. Searched in:
+  * "/home/dustin-adler/Desktop/Work/game_night/app/views"
+  * "/home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/devise-4.8.1/app/views"
+):
+    5:         .col-8
+    6:         .col-4
+    7:             = render "friends/new"
+    8:             = render "friends/index"
+  
+app/views/dashboards/index.html.haml:8:in `_app_views_dashboards_index_html_haml__3611141507016990126_70286605328840'
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.9ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (15.7ms)
+Started GET "/users/sign_in" for 216.21.170.8 at 2022-02-02 15:50:16 -0600
+Cannot render console from 216.21.170.8! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered devise/shared/_links.html.haml (1.9ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (6.0ms)
+  Rendered dashboards/_navbar.html.haml (8.3ms)
+  Rendered dashboards/_footer.html.haml (4.5ms)
+Completed 200 OK in 42ms (Views: 41.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/dashboards" for 67.162.39.150 at 2022-02-02 15:54:49 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFriend Load (0.2ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE ("friends"."friend_1_id" = $1 OR "friends"."friend_2_id" = $2)[0m  [["friend_1_id", 1], ["friend_2_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering dashboards/index.html.haml within layouts/application
+  Rendered friends/_form.html.haml (4.7ms)
+  Rendered friends/_new.html.haml (6.9ms)
+  Rendered dashboards/index.html.haml within layouts/application (12.7ms)
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 2.8ms)
+
+
+  
+ActionView::Template::Error (Missing partial friends/_index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder, :haml]}. Searched in:
+  * "/home/dustin-adler/Desktop/Work/game_night/app/views"
+  * "/home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/devise-4.8.1/app/views"
+):
+    5:         .col-8
+    6:         .col-4
+    7:             = render "friends/new"
+    8:             = render "friends/index"
+  
+app/views/dashboards/index.html.haml:8:in `_app_views_dashboards_index_html_haml__3611141507016990126_70286604905660'
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.4ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (15.7ms)
+Started GET "/dashboards" for 67.162.39.150 at 2022-02-02 15:55:09 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFriend Load (0.2ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE ("friends"."friend_1_id" = $1 OR "friends"."friend_2_id" = $2)[0m  [["friend_1_id", 1], ["friend_2_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering dashboards/index.html.haml within layouts/application
+  Rendered friends/_form.html.haml (4.2ms)
+  Rendered friends/_new.html.haml (7.0ms)
+  Rendered dashboards/index.html.haml within layouts/application (14.0ms)
+Completed 500 Internal Server Error in 20750ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (Missing partial friends/_index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder, :haml]}. Searched in:
+  * "/home/dustin-adler/Desktop/Work/game_night/app/views"
+  * "/home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/devise-4.8.1/app/views"
+):
+    5:         .col-8
+    6:         .col-4
+    7:             = render "friends/new"
+    8:             = render "friends/index"
+  
+app/views/dashboards/index.html.haml:8:in `_app_views_dashboards_index_html_haml__3611141507016990126_47449678725720'
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (1.9ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.5ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (11.7ms)
+Started GET "/dashboards" for 67.162.39.150 at 2022-02-02 15:57:12 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFriend Load (0.3ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE ("friends"."friend_1_id" = $1 OR "friends"."friend_2_id" = $2)[0m  [["friend_1_id", 1], ["friend_2_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering dashboards/index.html.haml within layouts/application
+  Rendered friends/_form.html.haml (2.9ms)
+  Rendered friends/_new.html.haml (4.6ms)
+  Rendered dashboards/index.html.haml within layouts/application (8.1ms)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (Missing partial friends/_index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder, :haml]}. Searched in:
+  * "/home/dustin-adler/Desktop/Work/game_night/app/views"
+  * "/home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/devise-4.8.1/app/views"
+):
+    5:         .col-8
+    6:         .col-4
+    7:             = render "friends/new"
+    8:             = render "friends/index"
+  
+app/views/dashboards/index.html.haml:8:in `_app_views_dashboards_index_html_haml__3611141507016990126_70286771057060'
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.1ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (15.1ms)
+Started GET "/dashboards" for 67.162.39.150 at 2022-02-02 15:57:59 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFriend Load (0.6ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE ("friends"."friend_1_id" = $1 OR "friends"."friend_2_id" = $2)[0m  [["friend_1_id", 1], ["friend_2_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering dashboards/index.html.haml within layouts/application
+  Rendered friends/_form.html.haml (3.1ms)
+  Rendered friends/_new.html.haml (5.0ms)
+  Rendered dashboards/index.html.haml within layouts/application (8.6ms)
+  Rendered dashboards/_navbar.html.haml (8.2ms)
+  Rendered dashboards/_footer.html.haml (3.6ms)
+Completed 200 OK in 52ms (Views: 42.4ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/dashboards" for 67.162.39.150 at 2022-02-02 16:00:49 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFriend Load (0.4ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE ("friends"."friend_1_id" = $1 OR "friends"."friend_2_id" = $2)[0m  [["friend_1_id", 1], ["friend_2_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering dashboards/index.html.haml within layouts/application
+  Rendered friends/_form.html.haml (2.2ms)
+  Rendered friends/_new.html.haml (3.7ms)
+  Rendered friends/_index.html.haml (21001.8ms)
+  Rendered dashboards/index.html.haml within layouts/application (21008.3ms)
+  Rendered dashboards/_navbar.html.haml (15.5ms)
+  Rendered dashboards/_footer.html.haml (4.3ms)
+Completed 200 OK in 21070ms (Views: 21059.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/dashboards" for 67.162.39.150 at 2022-02-02 16:01:53 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFriend Load (0.3ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE ("friends"."friend_1_id" = $1 OR "friends"."friend_2_id" = $2)[0m  [["friend_1_id", 1], ["friend_2_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering dashboards/index.html.haml within layouts/application
+  Rendered friends/_form.html.haml (4.3ms)
+  Rendered friends/_new.html.haml (7.1ms)
+  Rendered friends/_index.html.haml (2.1ms)
+  Rendered dashboards/index.html.haml within layouts/application (17.1ms)
+  Rendered dashboards/_navbar.html.haml (6.5ms)
+  Rendered dashboards/_footer.html.haml (4.2ms)
+Completed 200 OK in 44916ms (Views: 52.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/dashboards" for 67.162.39.150 at 2022-02-02 16:02:48 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFriend Load (0.3ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE ("friends"."friend_1_id" = $1 OR "friends"."friend_2_id" = $2)[0m  [["friend_1_id", 1], ["friend_2_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering dashboards/index.html.haml within layouts/application
+  Rendered friends/_form.html.haml (2.4ms)
+  Rendered friends/_new.html.haml (3.8ms)
+  Rendered friends/_index.html.haml (1.5ms)
+  Rendered dashboards/index.html.haml within layouts/application (7.8ms)
+  Rendered dashboards/_navbar.html.haml (8.6ms)
+  Rendered dashboards/_footer.html.haml (3.4ms)
+Completed 200 OK in 57ms (Views: 42.8ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/friends" for 67.162.39.150 at 2022-02-02 16:12:33 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by FriendsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bgVqRyhaIWrWHR1YmebDvW9Xq+DvKB/WNlMwOtjQ/Gnl+OdhOm0E5Shu1V1HCki6hgdQsLgbJ/uSbN5C1TvAaw==", "friend"=>{"friend_2_id"=>"CarCrashHeartLess"}, "commit"=>"Create Friend"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "CarCrashHeartLess"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.4ms)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/friends_controller.rb:32:in `create'
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (1.4ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (11.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started GET "/dashboards" for 67.162.39.150 at 2022-02-02 16:24:24 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFriend Load (0.3ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE ("friends"."friend_1_id" = $1 OR "friends"."friend_2_id" = $2)[0m  [["friend_1_id", 1], ["friend_2_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering dashboards/index.html.haml within layouts/application
+  Rendered friends/_form.html.haml (2.3ms)
+  Rendered friends/_new.html.haml (3.7ms)
+  Rendered friends/_index.html.haml (1.5ms)
+  Rendered dashboards/index.html.haml within layouts/application (7.5ms)
+  Rendered dashboards/_navbar.html.haml (5.5ms)
+  Rendered dashboards/_footer.html.haml (3.1ms)
+Completed 200 OK in 46ms (Views: 32.1ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/dashboards" for 67.162.39.150 at 2022-02-02 16:24:31 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFriend Load (0.4ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE ("friends"."friend_1_id" = $1 OR "friends"."friend_2_id" = $2)[0m  [["friend_1_id", 1], ["friend_2_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering dashboards/index.html.haml within layouts/application
+  Rendered friends/_form.html.haml (2.5ms)
+  Rendered friends/_new.html.haml (4.7ms)
+  Rendered friends/_index.html.haml (2.2ms)
+  Rendered dashboards/index.html.haml within layouts/application (10.6ms)
+  Rendered dashboards/_navbar.html.haml (6.7ms)
+  Rendered dashboards/_footer.html.haml (2.8ms)
+Completed 200 OK in 44ms (Views: 37.0ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/friends" for 67.162.39.150 at 2022-02-02 16:29:24 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by FriendsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5SA/yYTdNQPuXxLgAbLGwHo+2ZsBdw/vidfTYEYLaX9u3bLvluoQjBAs2uXfXk3Hk24iy1ZEN8It6D0YS+BVfQ==", "friend"=>{"friend_2_id"=>"aaa"}, "commit"=>"Create Friend"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "aaa"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.9ms)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/friends_controller.rb:32:in `create'
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (1.7ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (11.6ms)
+Started POST "/friends" for 67.162.39.150 at 2022-02-02 16:31:12 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by FriendsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5SA/yYTdNQPuXxLgAbLGwHo+2ZsBdw/vidfTYEYLaX9u3bLvluoQjBAs2uXfXk3Hk24iy1ZEN8It6D0YS+BVfQ==", "friend"=>{"friend_2_id"=>"aaa"}, "commit"=>"Create Friend"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "aaa"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.8ms)
+
+
+  
+NoMethodError (undefined method `save' for nil:NilClass):
+  
+app/controllers/friends_controller.rb:35:in `block in create'
+app/controllers/friends_controller.rb:34:in `create'
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (1.5ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (11.5ms)
+Started GET "/dashboards" for 67.162.39.150 at 2022-02-02 16:43:03 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFriend Load (0.2ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE ("friends"."friend_1_id" = $1 OR "friends"."friend_2_id" = $2)[0m  [["friend_1_id", 1], ["friend_2_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering dashboards/index.html.haml within layouts/application
+  Rendered friends/_form.html.haml (2.9ms)
+  Rendered friends/_new.html.haml (4.4ms)
+  Rendered friends/_index.html.haml (1.9ms)
+  Rendered dashboards/index.html.haml within layouts/application (8.8ms)
+  Rendered dashboards/_navbar.html.haml (6.0ms)
+  Rendered dashboards/_footer.html.haml (2.5ms)
+Completed 200 OK in 49ms (Views: 35.3ms | ActiveRecord: 2.3ms)
+
+
+Started POST "/friends" for 67.162.39.150 at 2022-02-02 16:43:08 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by FriendsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oCvLbQzqNAjLy9rqNDobljSD5RPnwwp+4jfWwvzSoigr1kZLHt0RhzW4Eu/q1pCR3dMeQ7DwMlNGCDi68TmeKg==", "friend"=>{"friend_2_id"=>"aaa"}, "commit"=>"Create Friend"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "aaa"], ["LIMIT", 1]]
+Redirected to https://5b80-67-162-39-150.ngrok.io/dashboards
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.3ms)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/friends_controller.rb:37:in `create'
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (1.5ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (11.2ms)
+Started GET "/dashboards" for 67.162.39.150 at 2022-02-02 17:01:10 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFriend Load (0.3ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE ("friends"."friend_1_id" = $1 OR "friends"."friend_2_id" = $2)[0m  [["friend_1_id", 1], ["friend_2_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering dashboards/index.html.haml within layouts/application
+  Rendered friends/_form.html.haml (3.7ms)
+  Rendered friends/_new.html.haml (5.4ms)
+  Rendered friends/_index.html.haml (1.8ms)
+  Rendered dashboards/index.html.haml within layouts/application (9.9ms)
+  Rendered dashboards/_navbar.html.haml (8.2ms)
+  Rendered dashboards/_footer.html.haml (3.3ms)
+Completed 200 OK in 54ms (Views: 40.0ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/friends" for 67.162.39.150 at 2022-02-02 17:01:15 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by FriendsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Ap7aYsXXC5lh1j4G0QTZvWRXcTnnGlFXogllm0STYVmJY1dE1+AuFp+l9gMP6FK6jQeKabApaXoGNovjSXhdWw==", "friend"=>{"friend_2_id"=>"aaa"}, "commit"=>"Create Friend"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "aaa"], ["LIMIT", 1]]
+Redirected to https://5b80-67-162-39-150.ngrok.io/dashboards
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 29857ms (ActiveRecord: 1.1ms)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/friends_controller.rb:37:in `create'
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.1ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (14.6ms)
+Started POST "/friends" for 67.162.39.150 at 2022-02-02 17:02:11 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by FriendsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Ap7aYsXXC5lh1j4G0QTZvWRXcTnnGlFXogllm0STYVmJY1dE1+AuFp+l9gMP6FK6jQeKabApaXoGNovjSXhdWw==", "friend"=>{"friend_2_id"=>"aaa"}, "commit"=>"Create Friend"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "aaa"], ["LIMIT", 1]]
+Redirected to https://5b80-67-162-39-150.ngrok.io/dashboards
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 4337ms (ActiveRecord: 0.7ms)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/friends_controller.rb:37:in `create'
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.0ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (14.1ms)
+Started POST "/friends" for 67.162.39.150 at 2022-02-02 17:03:42 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by FriendsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Ap7aYsXXC5lh1j4G0QTZvWRXcTnnGlFXogllm0STYVmJY1dE1+AuFp+l9gMP6FK6jQeKabApaXoGNovjSXhdWw==", "friend"=>{"friend_2_id"=>"aaa"}, "commit"=>"Create Friend"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "aaa"], ["LIMIT", 1]]
+Redirected to https://5b80-67-162-39-150.ngrok.io/dashboards
+Completed 422 Unprocessable Entity in 4ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/dashboards" for 67.162.39.150 at 2022-02-02 17:03:55 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFriend Load (0.2ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE ("friends"."friend_1_id" = $1 OR "friends"."friend_2_id" = $2)[0m  [["friend_1_id", 1], ["friend_2_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering dashboards/index.html.haml within layouts/application
+  Rendered friends/_form.html.haml (3.2ms)
+  Rendered friends/_new.html.haml (4.9ms)
+  Rendered friends/_index.html.haml (1.9ms)
+  Rendered dashboards/index.html.haml within layouts/application (9.5ms)
+  Rendered dashboards/_navbar.html.haml (8.4ms)
+  Rendered dashboards/_footer.html.haml (3.8ms)
+Completed 200 OK in 59ms (Views: 41.3ms | ActiveRecord: 3.4ms)
+
+
+Started POST "/friends" for 67.162.39.150 at 2022-02-02 17:04:31 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by FriendsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NlCm7jFIUUVRONpi4wcoxMGTtlVbBaU0utJF1tn0CPe9rSvII390yq9LEmc966PDKMNNBQw2nRke7auu1B809Q==", "friend"=>{"friend_2_id"=>"aaa"}, "commit"=>"Create Friend"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "aaa"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::MissingTemplate (Missing template /dashboards with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder, :haml]}. Searched in:
+  * "/home/dustin-adler/Desktop/Work/game_night/app/views"
+  * "/home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/devise-4.8.1/app/views"
+):
+  
+app/controllers/friends_controller.rb:34:in `create'
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.6ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (14.4ms)
+Started POST "/friends" for 67.162.39.150 at 2022-02-02 17:07:07 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by FriendsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NlCm7jFIUUVRONpi4wcoxMGTtlVbBaU0utJF1tn0CPe9rSvII390yq9LEmc966PDKMNNBQw2nRke7auu1B809Q==", "friend"=>{"friend_2_id"=>"aaa"}, "commit"=>"Create Friend"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "aaa"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::MissingTemplate (Missing template /dashboards with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder, :haml]}. Searched in:
+  * "/home/dustin-adler/Desktop/Work/game_night/app/views"
+  * "/home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/devise-4.8.1/app/views"
+):
+  
+app/controllers/friends_controller.rb:35:in `block (2 levels) in create'
+app/controllers/friends_controller.rb:34:in `create'
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.8ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (14.7ms)
+Started POST "/friends" for 67.162.39.150 at 2022-02-02 17:07:50 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by FriendsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NlCm7jFIUUVRONpi4wcoxMGTtlVbBaU0utJF1tn0CPe9rSvII390yq9LEmc966PDKMNNBQw2nRke7auu1B809Q==", "friend"=>{"friend_2_id"=>"aaa"}, "commit"=>"Create Friend"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "aaa"], ["LIMIT", 1]]
+  Rendering dashboards/index.html.haml within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered friends/_form.html.haml (3.3ms)
+  Rendered friends/_new.html.haml (5.5ms)
+  Rendered dashboards/index.html.haml within layouts/application (14.8ms)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: = form_for(friend) do |f|
+    2:   - if friend.errors.any?
+    3:     #error_explanation
+    4:       %h2
+  
+app/views/friends/_form.html.haml:1:in `_app_views_friends__form_html_haml___4592881939286367527_70286681990840'
+app/views/friends/_new.html.haml:2:in `_app_views_friends__new_html_haml__3664153845594492602_70286682719540'
+app/views/dashboards/index.html.haml:7:in `_app_views_dashboards_index_html_haml__3611141507016990126_70286686050260'
+app/controllers/friends_controller.rb:35:in `block (2 levels) in create'
+app/controllers/friends_controller.rb:34:in `create'
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.3ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (12.7ms)
+Started GET "/dashboards" for 67.162.39.150 at 2022-02-02 17:09:39 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFriend Load (0.1ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE ("friends"."friend_1_id" = $1 OR "friends"."friend_2_id" = $2)[0m  [["friend_1_id", 1], ["friend_2_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering dashboards/index.html.haml within layouts/application
+  Rendered friends/_form.html.haml (3.1ms)
+  Rendered friends/_new.html.haml (5.1ms)
+  Rendered friends/_index.html.haml (2.0ms)
+  Rendered dashboards/index.html.haml within layouts/application (9.6ms)
+  Rendered dashboards/_navbar.html.haml (6.1ms)
+  Rendered dashboards/_footer.html.haml (2.7ms)
+Completed 200 OK in 49ms (Views: 39.3ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/friends" for 67.162.39.150 at 2022-02-02 17:10:02 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by FriendsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gf7SqGVkOCV/6XO+lZQkkMdRTSui/cKHJXRCa6D2jloKA1+Od1MdqoGau7tLeK+XLgG2e/XO+qqBS6wTrR2yWA==", "friend"=>{"friend_2_id"=>"aaa"}, "commit"=>"Create Friend"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "aaa"], ["LIMIT", 1]]
+  Rendering dashboards/index.html.haml within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered friends/_form.html.haml (2.5ms)
+  Rendered friends/_new.html.haml (4.5ms)
+  Rendered dashboards/index.html.haml within layouts/application (17.6ms)
+Completed 500 Internal Server Error in 54289ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: = form_for(friend) do |f|
+    2:   - if friend.errors.any?
+    3:     #error_explanation
+    4:       %h2
+  
+app/views/friends/_form.html.haml:1:in `_app_views_friends__form_html_haml___4592881939286367527_47449680607060'
+app/views/friends/_new.html.haml:2:in `_app_views_friends__new_html_haml__3664153845594492602_47449680907780'
+app/views/dashboards/index.html.haml:7:in `_app_views_dashboards_index_html_haml__3611141507016990126_47449673130900'
+app/controllers/friends_controller.rb:36:in `block (2 levels) in create'
+app/controllers/friends_controller.rb:34:in `create'
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.1ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (16.3ms)
+Started POST "/friends" for 67.162.39.150 at 2022-02-02 17:13:38 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by FriendsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gf7SqGVkOCV/6XO+lZQkkMdRTSui/cKHJXRCa6D2jloKA1+Od1MdqoGau7tLeK+XLgG2e/XO+qqBS6wTrR2yWA==", "friend"=>{"friend_2_id"=>"aaa"}, "commit"=>"Create Friend"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "aaa"], ["LIMIT", 1]]
+Redirected to https://5b80-67-162-39-150.ngrok.io/dashboards
+Completed 422 Unprocessable Entity in 17962ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/dashboards" for 67.162.39.150 at 2022-02-02 17:14:02 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFriend Load (0.2ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE ("friends"."friend_1_id" = $1 OR "friends"."friend_2_id" = $2)[0m  [["friend_1_id", 1], ["friend_2_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering dashboards/index.html.haml within layouts/application
+  Rendered friends/_form.html.haml (3.4ms)
+  Rendered friends/_new.html.haml (5.4ms)
+  Rendered friends/_index.html.haml (2.1ms)
+  Rendered dashboards/index.html.haml within layouts/application (12.1ms)
+  Rendered dashboards/_navbar.html.haml (7.3ms)
+  Rendered dashboards/_footer.html.haml (3.6ms)
+Completed 200 OK in 54ms (Views: 41.8ms | ActiveRecord: 2.3ms)
+
+
+Started POST "/friends" for 67.162.39.150 at 2022-02-02 17:19:52 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by FriendsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CE0kRZptOIm4wU82wSH5IFLxEvc5dzJEtzxDwrNrDVqDsKljiFodBkayhzMfzXInu6Hpp25ECmkTA626voAxWA==", "friend"=>{"friend_2_id"=>"aaa"}, "commit"=>"Create Friend"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "aaa"], ["LIMIT", 1]]
+Redirected to https://5b80-67-162-39-150.ngrok.io/dashboards
+Completed 422 Unprocessable Entity in 5286ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/dashboards" for 67.162.39.150 at 2022-02-02 17:20:01 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFriend Load (0.3ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE ("friends"."friend_1_id" = $1 OR "friends"."friend_2_id" = $2)[0m  [["friend_1_id", 1], ["friend_2_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering dashboards/index.html.haml within layouts/application
+  Rendered friends/_form.html.haml (3.2ms)
+  Rendered friends/_new.html.haml (4.9ms)
+  Rendered friends/_index.html.haml (2.0ms)
+  Rendered dashboards/index.html.haml within layouts/application (9.7ms)
+  Rendered dashboards/_navbar.html.haml (8.1ms)
+  Rendered dashboards/_footer.html.haml (3.2ms)
+Completed 200 OK in 53ms (Views: 40.2ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/friends" for 67.162.39.150 at 2022-02-02 17:22:45 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by FriendsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CZs5ehxI1VcKHQw9/7hSTSOWPyEAJ6C/iSsUxvyyhUOCZrRcDn/w2PRuxDghVNlKysbEcVcUmJItFPq+8Vm5QQ==", "friend"=>{"friend_2_id"=>"aaa"}, "commit"=>"Create Friend"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "aaa"], ["LIMIT", 1]]
+Redirected to https://5b80-67-162-39-150.ngrok.io/dashboards
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.1ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/friends_controller.rb:35:in `create'
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (1.7ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (12.2ms)
+Started POST "/friends" for 67.162.39.150 at 2022-02-02 17:23:12 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by FriendsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CZs5ehxI1VcKHQw9/7hSTSOWPyEAJ6C/iSsUxvyyhUOCZrRcDn/w2PRuxDghVNlKysbEcVcUmJItFPq+8Vm5QQ==", "friend"=>{"friend_2_id"=>"aaa"}, "commit"=>"Create Friend"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "aaa"], ["LIMIT", 1]]
+Redirected to https://5b80-67-162-39-150.ngrok.io/dashboards
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/dashboards" for 67.162.39.150 at 2022-02-02 17:23:12 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFriend Load (0.3ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE ("friends"."friend_1_id" = $1 OR "friends"."friend_2_id" = $2)[0m  [["friend_1_id", 1], ["friend_2_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering dashboards/index.html.haml within layouts/application
+  Rendered friends/_form.html.haml (3.5ms)
+  Rendered friends/_new.html.haml (5.9ms)
+  Rendered friends/_index.html.haml (2.3ms)
+  Rendered dashboards/index.html.haml within layouts/application (11.6ms)
+  Rendered dashboards/_navbar.html.haml (8.0ms)
+  Rendered dashboards/_footer.html.haml (3.2ms)
+Completed 200 OK in 70ms (Views: 46.8ms | ActiveRecord: 2.7ms)
+
+
+Started POST "/friends" for 67.162.39.150 at 2022-02-02 17:23:17 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by FriendsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4EPLikPAkisPp9XGTzf3d4VolTsW7ghTEpYrjkGOpmJrvkasUfe3pPHUHcOR23xwbDhua0HdMH62qcX2TGWaYA==", "friend"=>{"friend_2_id"=>"aaa"}, "commit"=>"Create Friend"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "aaa"], ["LIMIT", 1]]
+Redirected to https://5b80-67-162-39-150.ngrok.io/dashboards
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/dashboards" for 67.162.39.150 at 2022-02-02 17:23:17 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFriend Load (0.3ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE ("friends"."friend_1_id" = $1 OR "friends"."friend_2_id" = $2)[0m  [["friend_1_id", 1], ["friend_2_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering dashboards/index.html.haml within layouts/application
+  Rendered friends/_form.html.haml (2.9ms)
+  Rendered friends/_new.html.haml (4.7ms)
+  Rendered friends/_index.html.haml (1.9ms)
+  Rendered dashboards/index.html.haml within layouts/application (9.2ms)
+  Rendered dashboards/_navbar.html.haml (8.7ms)
+  Rendered dashboards/_footer.html.haml (3.5ms)
+Completed 200 OK in 45ms (Views: 40.9ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/friends" for 67.162.39.150 at 2022-02-02 17:23:33 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by FriendsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6sxIKQgcdU+IrUSugUf8NlWxjJD+arZCQ29zqkXUHEhhMcUPGitQwHbejKtfq3cxvOF3wKlZjm/nUJ3SSD8gSg==", "friend"=>{"friend_2_id"=>"aaa"}, "commit"=>"Create Friend"}
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "aaa"], ["LIMIT", 1]]
+Redirected to https://5b80-67-162-39-150.ngrok.io/dashboards
+Completed 302 Found in 5ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/dashboards" for 67.162.39.150 at 2022-02-02 17:23:33 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFriend Load (0.2ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE ("friends"."friend_1_id" = $1 OR "friends"."friend_2_id" = $2)[0m  [["friend_1_id", 1], ["friend_2_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering dashboards/index.html.haml within layouts/application
+  Rendered friends/_form.html.haml (3.3ms)
+  Rendered friends/_new.html.haml (5.6ms)
+  Rendered friends/_index.html.haml (2.2ms)
+  Rendered dashboards/index.html.haml within layouts/application (11.3ms)
+  Rendered dashboards/_navbar.html.haml (7.2ms)
+  Rendered dashboards/_footer.html.haml (4.5ms)
+Completed 200 OK in 45ms (Views: 41.7ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/friends" for 67.162.39.150 at 2022-02-02 17:25:17 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by FriendsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5AZzMa+CTqkDuaTBJNzApiRQzV2QCYNSw+N3Nn87h7xv+/4XvbVrJv3KbMT6MEuhzQA2Dcc6u39n3JlOctC7vg==", "friend"=>{"friend_2_id"=>"aaa"}, "commit"=>"Create Friend"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "aaa"], ["LIMIT", 1]]
+Redirected to https://5b80-67-162-39-150.ngrok.io/dashboards
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.1ms)
+
+
+  
+NoMethodError (undefined method `errors' for nil:NilClass):
+  
+app/controllers/friends_controller.rb:35:in `create'
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.0ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (13.3ms)
+Started POST "/friends" for 67.162.39.150 at 2022-02-02 17:25:48 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by FriendsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5AZzMa+CTqkDuaTBJNzApiRQzV2QCYNSw+N3Nn87h7xv+/4XvbVrJv3KbMT6MEuhzQA2Dcc6u39n3JlOctC7vg==", "friend"=>{"friend_2_id"=>"aaa"}, "commit"=>"Create Friend"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "aaa"], ["LIMIT", 1]]
+Redirected to https://5b80-67-162-39-150.ngrok.io/dashboards
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.1ms)
+
+
+  
+NoMethodError (undefined method `errors' for nil:NilClass):
+  
+app/controllers/friends_controller.rb:35:in `create'
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.0ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (13.7ms)
+Started POST "/friends" for 67.162.39.150 at 2022-02-02 17:26:59 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by FriendsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5AZzMa+CTqkDuaTBJNzApiRQzV2QCYNSw+N3Nn87h7xv+/4XvbVrJv3KbMT6MEuhzQA2Dcc6u39n3JlOctC7vg==", "friend"=>{"friend_2_id"=>"aaa"}, "commit"=>"Create Friend"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "aaa"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.2ms)
+
+
+  
+ArgumentError (too few arguments):
+  
+app/controllers/friends_controller.rb:34:in `format'
+app/controllers/friends_controller.rb:34:in `create'
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.3ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (13.3ms)
+Started POST "/friends" for 67.162.39.150 at 2022-02-02 17:28:32 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by FriendsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5AZzMa+CTqkDuaTBJNzApiRQzV2QCYNSw+N3Nn87h7xv+/4XvbVrJv3KbMT6MEuhzQA2Dcc6u39n3JlOctC7vg==", "friend"=>{"friend_2_id"=>"aaa"}, "commit"=>"Create Friend"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "aaa"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.2ms)
+
+
+  
+ArgumentError (too few arguments):
+  
+app/controllers/friends_controller.rb:34:in `format'
+app/controllers/friends_controller.rb:34:in `create'
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.2ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (13.5ms)
+Started POST "/friends" for 67.162.39.150 at 2022-02-02 17:29:32 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by FriendsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5AZzMa+CTqkDuaTBJNzApiRQzV2QCYNSw+N3Nn87h7xv+/4XvbVrJv3KbMT6MEuhzQA2Dcc6u39n3JlOctC7vg==", "friend"=>{"friend_2_id"=>"aaa"}, "commit"=>"Create Friend"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "aaa"], ["LIMIT", 1]]
+Redirected to https://5b80-67-162-39-150.ngrok.io/dashboards
+Completed 422 Unprocessable Entity in 4ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/dashboards" for 67.162.39.150 at 2022-02-02 17:29:35 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFriend Load (0.3ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE ("friends"."friend_1_id" = $1 OR "friends"."friend_2_id" = $2)[0m  [["friend_1_id", 1], ["friend_2_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering dashboards/index.html.haml within layouts/application
+  Rendered friends/_form.html.haml (3.9ms)
+  Rendered friends/_new.html.haml (6.0ms)
+  Rendered friends/_index.html.haml (2.3ms)
+  Rendered dashboards/index.html.haml within layouts/application (11.8ms)
+  Rendered dashboards/_navbar.html.haml (7.7ms)
+  Rendered dashboards/_footer.html.haml (4.0ms)
+Completed 200 OK in 68ms (Views: 54.7ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/friends" for 67.162.39.150 at 2022-02-02 17:30:38 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+SyntaxError (/home/dustin-adler/Desktop/Work/game_night/app/controllers/friends_controller.rb:36: syntax error, unexpected '}', expecting =>
+/home/dustin-adler/Desktop/Work/game_night/app/controllers/friends_controller.rb:49: syntax error, unexpected keyword_end, expecting '}'
+/home/dustin-adler/Desktop/Work/game_night/app/controllers/friends_controller.rb:85: syntax error, unexpected keyword_end, expecting '}'):
+  
+app/controllers/friends_controller.rb:36: syntax error, unexpected '}', expecting =>
+app/controllers/friends_controller.rb:49: syntax error, unexpected keyword_end, expecting '}'
+app/controllers/friends_controller.rb:85: syntax error, unexpected keyword_end, expecting '}'
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (1.8ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (14.5ms)
+Started POST "/friends" for 67.162.39.150 at 2022-02-02 17:31:09 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+SyntaxError (/home/dustin-adler/Desktop/Work/game_night/app/controllers/friends_controller.rb:36: syntax error, unexpected '\n', expecting =>
+/home/dustin-adler/Desktop/Work/game_night/app/controllers/friends_controller.rb:85: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/friends_controller.rb:36: syntax error, unexpected '\n', expecting =>
+app/controllers/friends_controller.rb:85: syntax error, unexpected end-of-input, expecting keyword_end
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (1.8ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (14.4ms)
+Started POST "/friends" for 67.162.39.150 at 2022-02-02 17:31:33 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+SyntaxError (/home/dustin-adler/Desktop/Work/game_night/app/controllers/friends_controller.rb:36: syntax error, unexpected '\n', expecting =>
+/home/dustin-adler/Desktop/Work/game_night/app/controllers/friends_controller.rb:85: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/friends_controller.rb:36: syntax error, unexpected '\n', expecting =>
+app/controllers/friends_controller.rb:85: syntax error, unexpected end-of-input, expecting keyword_end
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (1.7ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (13.3ms)
+Started POST "/friends" for 67.162.39.150 at 2022-02-02 17:32:55 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+SyntaxError (/home/dustin-adler/Desktop/Work/game_night/app/controllers/friends_controller.rb:36: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+        format.json render json: @friend, flash[:errors]
+                          ^
+/home/dustin-adler/Desktop/Work/game_night/app/controllers/friends_controller.rb:36: syntax error, unexpected '\n', expecting =>
+/home/dustin-adler/Desktop/Work/game_night/app/controllers/friends_controller.rb:85: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/friends_controller.rb:36: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+app/controllers/friends_controller.rb:36: syntax error, unexpected '\n', expecting =>
+app/controllers/friends_controller.rb:85: syntax error, unexpected end-of-input, expecting keyword_end
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.1ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (15.1ms)
+Started POST "/friends" for 67.162.39.150 at 2022-02-02 17:33:04 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+SyntaxError (/home/dustin-adler/Desktop/Work/game_night/app/controllers/friends_controller.rb:36: syntax error, unexpected '\n', expecting =>
+/home/dustin-adler/Desktop/Work/game_night/app/controllers/friends_controller.rb:85: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/friends_controller.rb:36: syntax error, unexpected '\n', expecting =>
+app/controllers/friends_controller.rb:85: syntax error, unexpected end-of-input, expecting keyword_end
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (1.5ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (12.4ms)
+Started POST "/friends" for 67.162.39.150 at 2022-02-02 17:34:28 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+SyntaxError (/home/dustin-adler/Desktop/Work/game_night/app/controllers/friends_controller.rb:35: syntax error, unexpected '\n', expecting =>):
+  
+app/controllers/friends_controller.rb:35: syntax error, unexpected '\n', expecting =>
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (1.7ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (13.7ms)
+Started POST "/friends" for 67.162.39.150 at 2022-02-02 17:34:55 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by FriendsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bVopEXTIMr7dWdrZcWfpX6StjjxnYJgDANHD9r28B0/mp6Q3Zv8XMSMqEtyvi2JYTf11bDBToC6k7i2OsFc7TQ==", "friend"=>{"friend_2_id"=>"aaa"}, "commit"=>"Create Friend"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "aaa"], ["LIMIT", 1]]
+Redirected to https://5b80-67-162-39-150.ngrok.io/dashboards
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.1ms)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/friends_controller.rb:35:in `create'
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (1.8ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (14.1ms)
+Started POST "/friends" for 67.162.39.150 at 2022-02-02 17:35:18 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by FriendsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bVopEXTIMr7dWdrZcWfpX6StjjxnYJgDANHD9r28B0/mp6Q3Zv8XMSMqEtyvi2JYTf11bDBToC6k7i2OsFc7TQ==", "friend"=>{"friend_2_id"=>"aaa"}, "commit"=>"Create Friend"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "aaa"], ["LIMIT", 1]]
+Redirected to https://5b80-67-162-39-150.ngrok.io/dashboards
+Completed 302 Found in 5ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/dashboards" for 67.162.39.150 at 2022-02-02 17:35:18 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFriend Load (0.2ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE ("friends"."friend_1_id" = $1 OR "friends"."friend_2_id" = $2)[0m  [["friend_1_id", 1], ["friend_2_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering dashboards/index.html.haml within layouts/application
+  Rendered friends/_form.html.haml (4.6ms)
+  Rendered friends/_new.html.haml (7.2ms)
+  Rendered friends/_index.html.haml (3.1ms)
+  Rendered dashboards/index.html.haml within layouts/application (14.8ms)
+  Rendered dashboards/_navbar.html.haml (15.4ms)
+  Rendered dashboards/_footer.html.haml (6.6ms)
+Completed 200 OK in 97ms (Views: 71.9ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/friends" for 67.162.39.150 at 2022-02-02 17:35:30 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by FriendsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OiDOJWi/pNGPZ46ReQQmDFQ5U5w8QqmkMsd1ZXR2Fwux3UMDeoiBXnEURpSn6K0LvWmozGtxkYmW+JsdeZ0rCQ==", "friend"=>{"friend_2_id"=>"aaa"}, "commit"=>"Create Friend"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "aaa"], ["LIMIT", 1]]
+Redirected to https://5b80-67-162-39-150.ngrok.io/dashboards
+Completed 302 Found in 1ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/dashboards" for 67.162.39.150 at 2022-02-02 17:35:30 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFriend Load (0.1ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE ("friends"."friend_1_id" = $1 OR "friends"."friend_2_id" = $2)[0m  [["friend_1_id", 1], ["friend_2_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering dashboards/index.html.haml within layouts/application
+  Rendered friends/_form.html.haml (3.2ms)
+  Rendered friends/_new.html.haml (6.0ms)
+  Rendered friends/_index.html.haml (7.7ms)
+  Rendered dashboards/index.html.haml within layouts/application (17.4ms)
+  Rendered dashboards/_navbar.html.haml (8.1ms)
+  Rendered dashboards/_footer.html.haml (3.2ms)
+Completed 200 OK in 55ms (Views: 51.1ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/friends" for 67.162.39.150 at 2022-02-02 17:35:34 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by FriendsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sgFPOGWskc9xHWZrgwKn37JX9tbNIe+Bvc+Mf2iZm9s5/MIed5u0QI9urm5d7izYWwcNhpoS16wZ8GIHZXKn2Q==", "friend"=>{"friend_2_id"=>"aaa"}, "commit"=>"Create Friend"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "aaa"], ["LIMIT", 1]]
+Redirected to https://5b80-67-162-39-150.ngrok.io/dashboards
+Completed 302 Found in 2ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/dashboards" for 67.162.39.150 at 2022-02-02 17:35:34 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFriend Load (0.2ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE ("friends"."friend_1_id" = $1 OR "friends"."friend_2_id" = $2)[0m  [["friend_1_id", 1], ["friend_2_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering dashboards/index.html.haml within layouts/application
+  Rendered friends/_form.html.haml (3.6ms)
+  Rendered friends/_new.html.haml (5.7ms)
+  Rendered friends/_index.html.haml (2.4ms)
+  Rendered dashboards/index.html.haml within layouts/application (11.4ms)
+  Rendered dashboards/_navbar.html.haml (8.8ms)
+  Rendered dashboards/_footer.html.haml (3.1ms)
+Completed 200 OK in 45ms (Views: 41.7ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/friends" for 67.162.39.150 at 2022-02-02 17:36:20 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by FriendsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"H37459v9TvmEQT0gh1sYc4C/292iQ4/Xa+rrUAU+qliUg3XBycprdnoy9SVZt5N0ae8gjfVwt/rP1QUoCNWWWg==", "friend"=>{"friend_2_id"=>"aaa"}, "commit"=>"Create Friend"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "aaa"], ["LIMIT", 1]]
+Redirected to https://5b80-67-162-39-150.ngrok.io/dashboards
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/dashboards" for 67.162.39.150 at 2022-02-02 17:36:20 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFriend Load (0.3ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE ("friends"."friend_1_id" = $1 OR "friends"."friend_2_id" = $2)[0m  [["friend_1_id", 1], ["friend_2_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering dashboards/index.html.haml within layouts/application
+  Rendered friends/_form.html.haml (3.6ms)
+  Rendered friends/_new.html.haml (5.8ms)
+  Rendered friends/_index.html.haml (2.6ms)
+  Rendered dashboards/index.html.haml within layouts/application (12.2ms)
+  Rendered dashboards/_navbar.html.haml (11.7ms)
+  Rendered dashboards/_footer.html.haml (3.3ms)
+Completed 200 OK in 66ms (Views: 52.2ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/friends" for 67.162.39.150 at 2022-02-02 17:42:00 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by FriendsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AaUD1mTTPI6J35ocE02Vcq/cRNy8MQa3uxRjmr4c51eKWI7wduQZAXesUhnNoR51Roy/jOsCPpofK43is/fbVQ==", "friend"=>{"friend_2_id"=>"aaa"}, "commit"=>"Create Friend"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "aaa"], ["LIMIT", 1]]
+Redirected to https://5b80-67-162-39-150.ngrok.io/dashboards
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/dashboards" for 67.162.39.150 at 2022-02-02 17:42:00 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFriend Load (0.2ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE ("friends"."friend_1_id" = $1 OR "friends"."friend_2_id" = $2)[0m  [["friend_1_id", 1], ["friend_2_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering dashboards/index.html.haml within layouts/application
+  Rendered friends/_form.html.haml (3.7ms)
+  Rendered friends/_new.html.haml (6.2ms)
+  Rendered friends/_index.html.haml (2.7ms)
+  Rendered dashboards/index.html.haml within layouts/application (12.8ms)
+  Rendered dashboards/_navbar.html.haml (6.1ms)
+  Rendered dashboards/_footer.html.haml (4.2ms)
+Completed 200 OK in 54ms (Views: 50.2ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/friends" for 67.162.39.150 at 2022-02-02 17:43:05 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by FriendsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cgvCwtj26tMVewShqHSCSug6gPbJ2vNw24Obv4qPVeX59k/kysHPXOsIzKR2mAlNAWp7pp7py11/vHXHh2Rp5w==", "friend"=>{"friend_2_id"=>"aaa"}, "commit"=>"Create Friend"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "aaa"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.7ms)
+
+
+  
+TypeError (no implicit conversion of Symbol into String):
+  
+app/controllers/friends_controller.rb:34:in `create'
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.0ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (14.0ms)
+Started POST "/friends" for 67.162.39.150 at 2022-02-02 17:44:38 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by FriendsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cgvCwtj26tMVewShqHSCSug6gPbJ2vNw24Obv4qPVeX59k/kysHPXOsIzKR2mAlNAWp7pp7py11/vHXHh2Rp5w==", "friend"=>{"friend_2_id"=>"aaa"}, "commit"=>"Create Friend"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "aaa"], ["LIMIT", 1]]
+Redirected to https://5b80-67-162-39-150.ngrok.io/dashboards
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/dashboards" for 67.162.39.150 at 2022-02-02 17:44:38 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFriend Load (0.1ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE ("friends"."friend_1_id" = $1 OR "friends"."friend_2_id" = $2)[0m  [["friend_1_id", 1], ["friend_2_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering dashboards/index.html.haml within layouts/application
+  Rendered friends/_form.html.haml (3.8ms)
+  Rendered friends/_new.html.haml (5.9ms)
+  Rendered friends/_index.html.haml (2.0ms)
+  Rendered dashboards/index.html.haml within layouts/application (11.0ms)
+  Rendered dashboards/_navbar.html.haml (7.6ms)
+  Rendered dashboards/_footer.html.haml (4.1ms)
+Completed 200 OK in 57ms (Views: 42.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/dashboards" for 67.162.39.150 at 2022-02-02 17:44:55 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFriend Load (0.1ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE ("friends"."friend_1_id" = $1 OR "friends"."friend_2_id" = $2)[0m  [["friend_1_id", 1], ["friend_2_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering dashboards/index.html.haml within layouts/application
+  Rendered friends/_form.html.haml (2.5ms)
+  Rendered friends/_new.html.haml (4.2ms)
+  Rendered friends/_index.html.haml (1.5ms)
+  Rendered dashboards/index.html.haml within layouts/application (9.0ms)
+  Rendered dashboards/_navbar.html.haml (5.8ms)
+  Rendered dashboards/_footer.html.haml (2.8ms)
+Completed 200 OK in 51ms (Views: 35.4ms | ActiveRecord: 2.3ms)
+
+
+Started POST "/friends" for 67.162.39.150 at 2022-02-02 17:44:58 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by FriendsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4K3BtEByzjS4iW5NkXBmzMBiOQiXM91OY0YHQds3c0trUEySUkXru0b6pkhPnO3LKTLCWMAA5WPHeek51txPSQ==", "friend"=>{"friend_2_id"=>"aaa"}, "commit"=>"Create Friend"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "aaa"], ["LIMIT", 1]]
+Redirected to https://5b80-67-162-39-150.ngrok.io/dashboards
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/dashboards" for 67.162.39.150 at 2022-02-02 17:44:58 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFriend Load (0.1ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE ("friends"."friend_1_id" = $1 OR "friends"."friend_2_id" = $2)[0m  [["friend_1_id", 1], ["friend_2_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering dashboards/index.html.haml within layouts/application
+  Rendered friends/_form.html.haml (3.0ms)
+  Rendered friends/_new.html.haml (5.1ms)
+  Rendered friends/_index.html.haml (2.1ms)
+  Rendered dashboards/index.html.haml within layouts/application (10.0ms)
+  Rendered dashboards/_navbar.html.haml (6.7ms)
+  Rendered dashboards/_footer.html.haml (3.0ms)
+Completed 200 OK in 42ms (Views: 38.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/dashboards" for 67.162.39.150 at 2022-02-03 12:14:26 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFriend Load (0.3ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE ("friends"."friend_1_id" = $1 OR "friends"."friend_2_id" = $2)[0m  [["friend_1_id", 1], ["friend_2_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering dashboards/index.html.haml within layouts/application
+  Rendered friends/_form.html.haml (2.4ms)
+  Rendered friends/_new.html.haml (3.9ms)
+  Rendered friends/_index.html.haml (2.6ms)
+  Rendered dashboards/index.html.haml within layouts/application (9.9ms)
+  Rendered dashboards/_navbar.html.haml (7.4ms)
+  Rendered dashboards/_footer.html.haml (3.2ms)
+Completed 200 OK in 52ms (Views: 44.9ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/friends" for 67.162.39.150 at 2022-02-03 12:36:39 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by FriendsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"g78UGDiGzslQjOHXFOpfZJyG/SKFdKx9SGRZbySsn8UIQpk+KrHrRq7/KdLKBtRjddYGctJHlFDsW7cXKUejxw==", "friend"=>{"friend_2_id"=>"CarCrashHeartLess"}, "commit"=>"Create Friend"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "CarCrashHeartLess"], ["LIMIT", 1]]
+Redirected to https://5b80-67-162-39-150.ngrok.io/dashboards
+Completed 302 Found in 4ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/dashboards" for 67.162.39.150 at 2022-02-03 12:36:39 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFriend Load (0.2ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE ("friends"."friend_1_id" = $1 OR "friends"."friend_2_id" = $2)[0m  [["friend_1_id", 1], ["friend_2_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering dashboards/index.html.haml within layouts/application
+  Rendered friends/_form.html.haml (3.1ms)
+  Rendered friends/_new.html.haml (5.0ms)
+  Rendered friends/_index.html.haml (2.0ms)
+  Rendered dashboards/index.html.haml within layouts/application (10.3ms)
+  Rendered dashboards/_navbar.html.haml (7.4ms)
+  Rendered dashboards/_footer.html.haml (3.1ms)
+Completed 200 OK in 50ms (Views: 37.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/dashboards" for 67.162.39.150 at 2022-02-03 12:38:28 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFriend Load (0.2ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE ("friends"."friend_1_id" = $1 OR "friends"."friend_2_id" = $2)[0m  [["friend_1_id", 1], ["friend_2_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering dashboards/index.html.haml within layouts/application
+  Rendered friends/_form.html.haml (2.8ms)
+  Rendered friends/_new.html.haml (13.8ms)
+  Rendered friends/_index.html.haml (1.5ms)
+  Rendered dashboards/index.html.haml within layouts/application (18.6ms)
+  Rendered dashboards/_navbar.html.haml (6.2ms)
+  Rendered dashboards/_footer.html.haml (3.7ms)
+Completed 200 OK in 65ms (Views: 47.2ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/friends" for 67.162.39.150 at 2022-02-03 12:38:32 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by FriendsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uug77EPqFzcEjNUhzYEjEj8TWgHsGCCw5Uqn+RWxL+AxFbbKUd0yuPr/HSQTbagV1kOhUbsrGJ1BdUmBGFoT4g==", "friend"=>{"friend_2_id"=>"CarCrashHeartLess"}, "commit"=>"Create Friend"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "CarCrashHeartLess"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.4ms)
+
+
+  
+NoMethodError (undefined method `errors' for nil:NilClass):
+  
+app/controllers/friends_controller.rb:34:in `create'
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (1.6ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (11.8ms)

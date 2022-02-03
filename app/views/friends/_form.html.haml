@@ -8,13 +8,7 @@
         - friend.errors.full_messages.each do |message|
           %li= message
   .field
-    = f.label :friend_1_id
-    = f.number_field :friend_1_id
-  .field
-    = f.label :friend_2_id
-    = f.number_field :friend_2_id
-  .field
-    = f.label :pending
-    = f.check_box :pending
+    = f.label :username
+    = f.text_field :friend_2_id
   .actions
     = f.submit

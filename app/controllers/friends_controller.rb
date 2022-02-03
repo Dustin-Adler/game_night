@@ -3,7 +3,12 @@ class FriendsController < ApplicationController
 
   # GET /friends or /friends.json
   def index
-    @friends = Friend.all
+    # friends_table_rows = Friend.where(friend_1_id: current_user.id).or(Friend.where(friend_2_id: current_user.id))
+    # @friends = []
+    # friends_table_rows.each do |row|
+    #   @friends.push(User.find_by(id: row.friend_1_id).username) if row.friend_2_id == current_user.id
+    #   @friends.push(User.find_by(id: row.friend_2_id).username) if row.friend_1_id == current_user.id
+    # end
   end
 
   # GET /friends/1 or /friends/1.json
@@ -12,7 +17,8 @@ class FriendsController < ApplicationController
 
   # GET /friends/new
   def new
-    @friend = Friend.new
+    # debugger
+    # @friend = Friend.new
   end
 
   # GET /friends/1/edit
@@ -21,31 +27,38 @@ class FriendsController < ApplicationController
 
   # POST /friends or /friends.json
   def create
-    @friend = Friend.new(friend_params)
 
-    respond_to do |format|
-      if @friend.save
-        format.html { redirect_to friend_url(@friend), notice: "Friend was successfully created." }
-        format.json { render :show, status: :created, location: @friend }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @friend.errors, status: :unprocessable_entity }
+    new_friend = User.find_by(username: friend_params[:friend_2_id])
+
+    if new_friend.nil?
+      flash[:errors] = new_friend.errors.full_messages
+      redirect_to dashboards_url
+    else
+      @friend = Friend.new({ friend_1_id: current_user.id, friend_2_id: new_friend.id }) 
+      respond_to do |format|
+        if @friend.save
+          format.html { redirect_to dashboards_path, notice: "Friend was successfully created." }
+          format.json { render :show, status: :created, location: @friend }
+        else
+          format.html { redirect_to dashboards_path, status: :unprocessable_entity }
+          format.json { render json: @friend.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
 
-  # PATCH/PUT /friends/1 or /friends/1.json
-  def update
-    respond_to do |format|
-      if @friend.update(friend_params)
-        format.html { redirect_to friend_url(@friend), notice: "Friend was successfully updated." }
-        format.json { render :show, status: :ok, location: @friend }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @friend.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  # # PATCH/PUT /friends/1 or /friends/1.json
+  # def update
+  #   respond_to do |format|
+  #     if @friend.update(friend_params)
+  #       format.html { redirect_to dashboards_path, notice: "Friend was successfully updated." }
+  #       format.json { render :show, status: :ok, location: @friend }
+  #     else
+  #       format.html { render :edit, status: :unprocessable_entity }
+  #       format.json { render json: @friend.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # DELETE /friends/1 or /friends/1.json
   def destroy
@@ -65,6 +78,6 @@ class FriendsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def friend_params
-      params.require(:friend).permit(:friend_1_id, :friend_2_id, :pending)
+      params.require(:friend).permit(:friend_2_id)
     end
 end

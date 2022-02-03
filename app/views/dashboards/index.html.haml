@@ -1,3 +1,8 @@
-%h1 Dashboard 
-%p 
-    Welcome to Game Night #{current_user.username}! 
+.container.text-center 
+    %h1 
+        Welcome to Game Night #{current_user.username}!
+    .row
+        .col-8
+        .col-4
+            = render "friends/new"
+            = render "friends/index"
