@@ -1,82 +1,40 @@
 class FriendsController < ApplicationController
   before_action :set_friend, only: %i[ show edit update destroy ]
 
-  # GET /friends or /friends.json
-  def index
-    # friends_table_rows = Friend.where(friend_1_id: current_user.id).or(Friend.where(friend_2_id: current_user.id))
-    # @friends = []
-    # friends_table_rows.each do |row|
-    #   @friends.push(User.find_by(id: row.friend_1_id).username) if row.friend_2_id == current_user.id
-    #   @friends.push(User.find_by(id: row.friend_2_id).username) if row.friend_1_id == current_user.id
-    # end
-  end
-
-  # GET /friends/1 or /friends/1.json
   def show
   end
 
-  # GET /friends/new
-  def new
-    # debugger
-    # @friend = Friend.new
-  end
-
-  # GET /friends/1/edit
-  def edit
-  end
-
-  # POST /friends or /friends.json
   def create
 
-    new_friend = User.find_by(username: friend_params[:friend_2_id])
+    new_friend = User.find_by(username: friend_params[:friend_2_id]) #verifies that the username entered belongs to another user in the system before creating new friend row.
 
-    if new_friend.nil?
-      flash[:errors] = new_friend.errors.full_messages
-      redirect_to dashboards_url
+    if new_friend && (new_friend != current_user) #makes sure that the user isn't trying to friend themselves, and formats data for creating new friend row.
+      @friend = Friend.new({ friend_1_id: current_user.id, friend_2_id: new_friend.id })
     else
-      @friend = Friend.new({ friend_1_id: current_user.id, friend_2_id: new_friend.id }) 
-      respond_to do |format|
-        if @friend.save
-          format.html { redirect_to dashboards_path, notice: "Friend was successfully created." }
-          format.json { render :show, status: :created, location: @friend }
-        else
-          format.html { redirect_to dashboards_path, status: :unprocessable_entity }
-          format.json { render json: @friend.errors, status: :unprocessable_entity }
-        end
-      end
+      @friend = Friend.new({ friend_1_id: current_user.id})
+    end
+
+    if @friend.save
+      redirect_to dashboards_path, notice: "Friend was successfully created."
+    else
+      redirect_to dashboards_path, alert: @friend.errors.full_messages.first
     end
   end
 
-  # # PATCH/PUT /friends/1 or /friends/1.json
-  # def update
-  #   respond_to do |format|
-  #     if @friend.update(friend_params)
-  #       format.html { redirect_to dashboards_path, notice: "Friend was successfully updated." }
-  #       format.json { render :show, status: :ok, location: @friend }
-  #     else
-  #       format.html { render :edit, status: :unprocessable_entity }
-  #       format.json { render json: @friend.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
-
-  # DELETE /friends/1 or /friends/1.json
   def destroy
-    @friend.destroy
 
-    respond_to do |format|
-      format.html { redirect_to friends_url, notice: "Friend was successfully destroyed." }
-      format.json { head :no_content }
+    if @friend.destroy
+      redirect_to dashboards_path, notice: "Friend was successfully deleted."
+    else
+      redirect_to dashboards_path, alert: @friend.errors.full_messages
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_friend
       @friend = Friend.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def friend_params
       params.require(:friend).permit(:friend_2_id)
     end
