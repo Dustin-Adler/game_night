@@ -24,3 +24,6 @@ en:
     attributes:
       user:
         login: "Username or email"
+      friend:
+        friend_1_id: "Username: "
+        friend_2_id: "Username: "

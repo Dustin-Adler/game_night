@@ -1,0 +1,10 @@
+%table
+  %thead
+    %tr
+      %th Friends
+      %th{:colspan => "1"}
+  %tbody
+    - @friends.each do |friend|
+      %tr
+        %td= friend[:username]
+        %td= button_to 'unfriend', {action: 'destroy', controller: 'friends', id: friend[:id]}, method: :delete, data: {confirm: "Are you sure you want to remove this friend?"}

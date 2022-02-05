@@ -1,0 +1,17 @@
+= form_for(favorite_game) do |f|
+  - if favorite_game.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(favorite_game.errors.count, "error")
+        prohibited this favorite_game from being saved:
+      %ul
+        - favorite_game.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = f.label :game_id
+    = f.number_field :game_id
+  .field
+    = f.label :user_id
+    = f.number_field :user_id
+  .actions
+    = f.submit

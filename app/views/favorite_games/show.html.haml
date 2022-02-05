@@ -1,0 +1,10 @@
+%p#notice= notice
+%p
+  %strong Game:
+  = @favorite_game.game_id
+%p
+  %strong User:
+  = @favorite_game.user_id
+= link_to 'Edit', edit_favorite_game_path(@favorite_game)
+|
+= link_to 'Back', favorite_games_path

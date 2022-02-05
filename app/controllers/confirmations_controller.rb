@@ -7,4 +7,5 @@ class ConfirmationsController < Devise::ConfirmationsController
         sign_in(resource)
         dashboards_path
     end
+    
 end
