@@ -1,13 +1,21 @@
-%p#notice= notice
-%p
-  %strong Admin:
-  = @group.admin_id
-%p
-  %strong Group name:
-  = @group.group_name
-%p
-  %strong Description:
-  = @group.description
-= link_to 'Edit', edit_group_path(@group)
-|
-= link_to 'Back', groups_path
+
+.container
+  .row
+    .col-8 
+      %p
+        %strong Admin:
+        = @group.admin.username
+      %p
+        %strong Group name:
+        = @group.group_name
+      %p
+        %strong Description:
+        = @group.description
+    .col-4
+      %p
+        admin
+        members-list
+  .row
+    .col-12
+      = render 'groups/edit', group: @group
+= link_to 'Back to Dashboard', dashboards_path
