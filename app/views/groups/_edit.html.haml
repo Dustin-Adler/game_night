@@ -7,6 +7,12 @@
       %ul
         - group.errors.full_messages.each do |message|
           %li= message
+  - member_options = []
+  - @group.members.each do |member|
+    - member_options.push([member.username, member.id])
+  .field
+    = f.label :admin
+    = f.select(:admin_id, member_options )
   .field
     = f.label :group_name
     = f.text_field :group_name
