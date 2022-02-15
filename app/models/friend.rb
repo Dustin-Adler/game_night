@@ -18,8 +18,8 @@ class Friend < ApplicationRecord
         all_friends = user_is_friend_1 += user_is_friend_2
         friends = []
         all_friends.each do |row|
-          friends.push({id: row.id, username: row.friend_1.username}) if row.friend_2_id == current_user.id
-          friends.push({id: row.id, username: row.friend_2.username}) if row.friend_1_id == current_user.id
+          friends.push({id: row.id, username: row.friend_1.username, user_id: row.friend_1.id}) if row.friend_2_id == current_user.id
+          friends.push({id: row.id, username: row.friend_2.username, user_id: row.friend_2.id}) if row.friend_1_id == current_user.id
         end 
         friends.sort do |a, b| a[:username].first <=> b[:username].first end #arranges friends list alphabetically
     end

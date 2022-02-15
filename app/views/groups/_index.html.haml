@@ -12,8 +12,4 @@
         %td= group.admin.username
         %td= group.group_name
         %td= group.description
-        %td= link_to 'Show', group
-        -if group.admin_id == @current_user.id
-          = render 'groups/edit', group: group
-          -# %td= button_to 'Edit', { action: 'edit', controller: 'groups' , id: group[:id]}, method: :get
-          %td= button_to 'Delete Group', {action: 'destroy', controller: 'groups', id: group[:id]}, method: :delete, data: { confirm: 'Are you sure you want to delete this group? It will erase this group for all group members as well.' }
+        %td= link_to 'Details', group

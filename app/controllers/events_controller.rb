@@ -21,14 +21,21 @@ class EventsController < ApplicationController
 
   # POST /events or /events.json
   def create
+    game_id = params[:event][:game_id]
     @event = Event.new(event_params)
+    @event.game_id = Game.find_by(game_name: game_id).id
+    @event.group_id = params[:group_id]
+    @event.author_id = current_user.id
+    @event.admin_id = params[:admin_id].to_i
+
+    debugger
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to event_url(@event), notice: "Event was successfully created." }
+        format.html { redirect_to "/groups/#{params[:group_id]}", notice: "Event was successfully created." }
         format.json { render :show, status: :created, location: @event }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { redirect_to "/groups/#{params[:group_id]}", alert: @event.errors.full_messages }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
@@ -65,6 +72,6 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:group_id, :game_id, :required_players, :details, :date)
+      params.require(:event).permit( :game_id, :required_players, :details, :date, :admin_id )
     end
 end

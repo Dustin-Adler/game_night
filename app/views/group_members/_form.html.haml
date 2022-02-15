@@ -7,14 +7,13 @@
       %ul
         - group_member.errors.full_messages.each do |message|
           %li= message
+  - friends_list = []
+  - @friends.each do |friend|
+    - friends_list.push([friend[:username], friend[:user_id]])
   .field
-    = f.label :group_id
+    = f.label :username
+    = f.select(:user_id , friends_list )
+  .field#hidden_field
     = f.number_field :group_id
-  .field
-    = f.label :user_id
-    = f.number_field :user_id
-  .field
-    = f.label :pending
-    = f.check_box :pending
   .actions
     = f.submit

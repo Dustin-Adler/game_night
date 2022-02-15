@@ -1,7 +1,14 @@
 class GroupsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_group, only: %i[ show edit update destroy ]
 
   def show
+    @group_member = GroupMember.new
+    @group_member.group_id = params[:id]
+    @friends = Friend.get_friends(current_user)
+    @current_user = current_user
+    @event = Event.new
+    @events = Group.find_by(id: params[:id]).events
   end
 
   def edit
