@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20220202143921) do
+ActiveRecord::Schema.define(version: 20220215161139) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,13 +25,18 @@ ActiveRecord::Schema.define(version: 20220202143921) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.integer  "group_id",         null: false
-    t.integer  "game_id",          null: false
-    t.integer  "required_players", null: false
-    t.text     "details",          null: false
-    t.datetime "date",             null: false
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.integer  "group_id",                                 null: false
+    t.integer  "game_id",                                  null: false
+    t.integer  "required_players",                         null: false
+    t.text     "details",                                  null: false
+    t.datetime "date",                                     null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.integer  "author_id",                                null: false
+    t.integer  "admin_id",                                 null: false
+    t.string   "title",            default: "Game Night!", null: false
+    t.index ["admin_id"], name: "index_events_on_admin_id", using: :btree
+    t.index ["author_id"], name: "index_events_on_author_id", using: :btree
     t.index ["game_id"], name: "index_events_on_game_id", using: :btree
     t.index ["group_id"], name: "index_events_on_group_id", using: :btree
   end

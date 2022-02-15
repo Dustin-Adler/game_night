@@ -7,4 +7,5 @@
     - @friends.each do |friend|
       %tr
         %td= friend[:username]
-        %td= button_to 'unfriend', {action: 'destroy', controller: 'friends', id: friend[:id]}, method: :delete, data: {confirm: "Are you sure you want to remove this friend?"}
+        - if current_page?(dashboards_path)
+          %td= button_to 'unfriend', {action: 'destroy', controller: 'friends', id: friend[:id]}, method: :delete, data: {confirm: "Are you sure you want to remove this friend?"}

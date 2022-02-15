@@ -16,12 +16,12 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
-# gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 gem "haml", ">=3.0.0"
 gem 'bootstrap-email'
 gem 'email_address'
 gem 'ipinfo-rails'
+gem 'simple_calendar', '~> 2.4'
 
 # gem 'capistrano-rails', group: :development
 

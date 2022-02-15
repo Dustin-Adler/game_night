@@ -11,11 +11,16 @@
       %p
         %strong Description:
         = @group.description
+      - if @current_user.id == @group.admin_id
+        = render 'groups/edit', group: @group
     .col-4
-      %p
-        admin
-        members-list
+      = render 'group_members/new', group_member: @group_member
+      = render 'group_members/index'
+
   .row
     .col-12
-      = render 'groups/edit', group: @group
+      = render 'events/new', event: @event, group: @group
+      = render 'simple_calendar/month_calendar', events: @events
+
+
 = link_to 'Back to Dashboard', dashboards_path
