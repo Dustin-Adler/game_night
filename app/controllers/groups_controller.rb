@@ -9,6 +9,7 @@ class GroupsController < ApplicationController
     @current_user = current_user
     @event = Event.new
     @events = Group.find_by(id: params[:id]).events
+    @games = Game.all.pluck(:game_name, :id)
   end
 
   def edit

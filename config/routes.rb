@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
-  resources :attendees
-  resources :events, only: [:destroy, :index, :show, :update]
+  resources :chats
+  resources :attendees, only: [:destroy]
+  resources :events, only: [:destroy, :index, :show, :update] do
+    resources :attendees, only: [:create]
+    resources :chats, only: [:create]
+  end
   resources :favorite_games
   resources :groups do 
     resources :events, only: [:create]

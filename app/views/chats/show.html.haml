@@ -1,0 +1,13 @@
+%p#notice= notice
+%p
+  %strong Event:
+  = @chat.event_id
+%p
+  %strong Author:
+  = @chat.author_id
+%p
+  %strong Comment:
+  = @chat.comment
+= link_to 'Edit', edit_chat_path(@chat)
+|
+= link_to 'Back', chats_path

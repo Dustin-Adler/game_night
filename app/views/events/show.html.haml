@@ -1,19 +1,40 @@
-%p#notice= notice
-%p
-  %strong Group:
-  = @event.group_id
-%p
-  %strong Game:
-  = @event.game_id
-%p
-  %strong Required players:
-  = @event.required_players
-%p
-  %strong Details:
-  = @event.details
-%p
-  %strong Date:
-  = @event.date
-= link_to 'Edit', edit_event_path(@event)
-|
-= link_to 'Back', events_path
+.container
+  .row
+    .col-8
+      %p
+        %strong Title:
+        = @event.title
+      %p
+        %strong Group:
+        = @group.group_name
+      %p
+        %strong Game:
+        = @game.game_name
+      %p
+        %strong Required players:
+        = @event.required_players
+      %p
+        %strong Details:
+        = @event.details
+      %p
+        %strong Date:
+        = readable_time(@event.date)
+      = link_to "Back to group", group_path(@group)
+    .col-4 
+      RSVP list
+      = render 'attendees/form', attendee: @attendee, event: @event
+      - @attendees.each do |attender|
+        = attender
+      - unless @attending.empty?
+        = button_to 'Cancel plans', {action: 'destroy', controller: 'attendees', id: @attending.ids[0] }, method: :delete, data: { confirm: "Are you sure you don't want to attend?"}
+  .row
+    .col-12
+      = render "chats/form", chat: @chat, event: @event 
+      - @chats.each do |chat|
+        = chat.author.username + ":" 
+        %br 
+        = chat.comment
+        %br
+        - if @current_user.id == chat.author_id || @current_user.id == @group.admin_id
+          = button_to "Delete comment", {action: 'destroy', controller: 'chats', id: chat.id}, method: :delete, data: {confirm: "Are you sure you want to delete this comment permanently?"}
+

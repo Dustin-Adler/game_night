@@ -54,6 +54,11 @@ class User < ApplicationRecord
     through: :event_listings, 
     source: :Event
 
+  has_many :chats, 
+    foreign_key: :author_id, 
+    class_name: :Chat, 
+    dependent: :destroy 
+
 
   def self.find_for_database_authentication warden_condition
     conditions = warden_condition.dup 

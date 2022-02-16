@@ -9,8 +9,11 @@
           %li= message
   - required_players = Array.new(12).map.with_index {|n, i| n = [i+1, i+1]}
   .field
+    = f.label :title 
+    = f.text_field :title
+  .field
     = f.label :game_id
-    = f.text_field :game_id
+    = f.select( :game_id, games)
   .field
     = f.label :required_players
     = f.select( :required_players, required_players )
