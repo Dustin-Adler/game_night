@@ -26,8 +26,9 @@ class EventsController < ApplicationController
 
   def create
     game_id = params[:event][:game_id]
+    game = Game.find_by(game_name: game_id)
+    @event.game_id = game.id if game
     @event = Event.new(event_params)
-    @event.game_id = Game.find_by(game_name: game_id).id
     @event.group_id = params[:group_id]
     @event.author_id = current_user.id
     @event.admin_id = params[:admin_id].to_i

@@ -19,7 +19,7 @@
 
   .row
     .col-12
-      = render 'events/new', event: @event, group: @group
+      = render 'events/new', event: @event, group: @group, games: @games 
       = render 'simple_calendar/my_calendar', events: @events
 
-  = button_to 'Back to Dashboard', dashboards_path
+  = button_to 'Back to Dashboard', {action: 'index', controller: 'dashboards'}, method: :get
