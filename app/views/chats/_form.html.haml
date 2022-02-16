@@ -1,0 +1,14 @@
+= form_for [event, chat] do |f|
+  - if chat.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(chat.errors.count, "error")
+        prohibited this chat from being saved:
+      %ul
+        - chat.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = f.label :comment
+    = f.text_area :comment
+  .actions
+    = f.submit "Post to this event's board."

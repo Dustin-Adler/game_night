@@ -31057,3 +31057,1257 @@ Migrating to AddTitleToEvents (20220215161139)
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(8350563894896004495)[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/events/3" for 67.162.39.150 at 2022-02-15 13:28:10 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "users"."username" FROM "users" INNER JOIN "attendees" ON "users"."id" = "attendees"."user_id" WHERE "attendees"."user_id" = $1[0m  [["user_id", 3]]
+  Rendering events/show.html.haml within layouts/application
+  Rendered attendees/_form.html.haml (43816.0ms)
+  Rendered events/show.html.haml within layouts/application (43821.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered dashboards/_navbar.html.haml (10.0ms)
+  Rendered dashboards/_footer.html.haml (3.0ms)
+Completed 200 OK in 44072ms (Views: 44029.0ms | ActiveRecord: 5.8ms)
+
+
+Started POST "/events/3/attendees" for 67.162.39.150 at 2022-02-15 13:30:44 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AttendeesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Ms5LaM0TAfe2zOhhJDGxNTuSz2O8gK53Q0sOx0BYmq/XDP278LYw1B/VkH5Y7XVlaTyf3BmVnW/EuGdziMfGrA==", "commit"=>"RSVP to this event!", "event_id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Redirected to https://c3cd-67-162-39-150.ngrok.io/events/3
+Completed 302 Found in 42601ms (ActiveRecord: 3.9ms)
+
+
+Started GET "/events/3" for 67.162.39.150 at 2022-02-15 13:31:26 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "users"."username" FROM "users" INNER JOIN "attendees" ON "users"."id" = "attendees"."user_id" WHERE "attendees"."user_id" = $1[0m  [["user_id", 3]]
+  Rendering events/show.html.haml within layouts/application
+  Rendered attendees/_form.html.haml (2.2ms)
+  Rendered events/show.html.haml within layouts/application (4.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered dashboards/_navbar.html.haml (11.0ms)
+  Rendered dashboards/_footer.html.haml (4.0ms)
+Completed 200 OK in 58ms (Views: 38.6ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/events/3/attendees" for 67.162.39.150 at 2022-02-15 13:33:06 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AttendeesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SWPDWAo73yuKUmRuoLgRsJzsb8tGM9+yTfScL6/1XDOsoXWLN57uCCNLHHHcZNXgzkI/dOMm7KrKB/WbZ2oAMA==", "commit"=>"RSVP to this event!", "event_id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "attendees" ("event_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["event_id", 3], ["user_id", 1], ["created_at", "2022-02-15 19:33:18.213107"], ["updated_at", "2022-02-15 19:33:18.213107"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to https://c3cd-67-162-39-150.ngrok.io/events/3
+Completed 302 Found in 11701ms (ActiveRecord: 5.6ms)
+
+
+Started GET "/events/3" for 67.162.39.150 at 2022-02-15 13:33:18 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "users"."username" FROM "users" INNER JOIN "attendees" ON "users"."id" = "attendees"."user_id" WHERE "attendees"."user_id" = $1[0m  [["user_id", 3]]
+  Rendering events/show.html.haml within layouts/application
+  Rendered attendees/_form.html.haml (3.4ms)
+  Rendered events/show.html.haml within layouts/application (7.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered dashboards/_navbar.html.haml (14.3ms)
+  Rendered dashboards/_footer.html.haml (6.2ms)
+Completed 200 OK in 63ms (Views: 49.5ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/events/3" for 67.162.39.150 at 2022-02-15 13:34:59 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "users"."username" FROM "users" INNER JOIN "attendees" ON "users"."id" = "attendees"."user_id" WHERE "attendees"."user_id" = $1[0m  [["user_id", 3]]
+  Rendering events/show.html.haml within layouts/application
+  Rendered attendees/_form.html.haml (3.7ms)
+  Rendered events/show.html.haml within layouts/application (9.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered dashboards/_navbar.html.haml (19.2ms)
+  Rendered dashboards/_footer.html.haml (4.4ms)
+Completed 200 OK in 104ms (Views: 66.0ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/events/3" for 67.162.39.150 at 2022-02-15 13:38:00 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "users"."username" FROM "users" INNER JOIN "attendees" ON "users"."id" = "attendees"."user_id" WHERE "attendees"."user_id" = $1[0m  [["user_id", 3]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "attendees" ON "users"."id" = "attendees"."user_id" WHERE "attendees"."user_id" = $1[0m  [["user_id", 3]]
+  [1m[36mAttendee Load (0.3ms)[0m  [1m[34mSELECT "attendees".* FROM "attendees"[0m
+  Rendering events/show.html.haml within layouts/application
+  Rendered attendees/_form.html.haml (5.0ms)
+  Rendered events/show.html.haml within layouts/application (13.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered dashboards/_navbar.html.haml (11.3ms)
+  Rendered dashboards/_footer.html.haml (2.5ms)
+Completed 200 OK in 248555ms (Views: 50.2ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/events/3" for 67.162.39.150 at 2022-02-15 13:44:28 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "users"."username" FROM "users" INNER JOIN "attendees" ON "users"."id" = "attendees"."user_id" WHERE "attendees"."event_id" = $1[0m  [["event_id", 3]]
+  Rendering events/show.html.haml within layouts/application
+  Rendered attendees/_form.html.haml (4.9ms)
+  Rendered events/show.html.haml within layouts/application (11.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered dashboards/_navbar.html.haml (12.6ms)
+  Rendered dashboards/_footer.html.haml (2.7ms)
+Completed 200 OK in 14344ms (Views: 52.0ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/events/3" for 67.162.39.150 at 2022-02-15 13:58:02 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "users"."id", "users"."username" FROM "users" INNER JOIN "attendees" ON "users"."id" = "attendees"."user_id" WHERE "attendees"."event_id" = $1[0m  [["event_id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mAttendee Load (0.3ms)[0m  [1m[34mSELECT  "attendees".* FROM "attendees" WHERE "attendees"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mAttendee Load (0.2ms)[0m  [1m[34mSELECT  "attendees".* FROM "attendees" WHERE "attendees"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mAttendee Load (0.3ms)[0m  [1m[34mSELECT "attendees".* FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2[0m  [["user_id", 1], ["event_id", 3]]
+  Rendering events/show.html.haml within layouts/application
+  Rendered events/show.html.haml within layouts/application (6.8ms)
+Completed 500 Internal Server Error in 881796ms (ActiveRecord: 4.1ms)
+
+
+  
+SyntaxError (/home/dustin-adler/Desktop/Work/game_night/app/views/events/show.html.haml:28: syntax error, unexpected '}'
+/home/dustin-adler/Desktop/Work/game_night/app/views/events/show.html.haml:30: syntax error, unexpected keyword_end, expecting ')'
+...fer << ("</td>\n".freeze);; end;; _hamlout.buffer << ("</div...
+...                               ^
+/home/dustin-adler/Desktop/Work/game_night/app/views/events/show.html.haml:30: syntax error, unexpected keyword_ensure, expecting ')'
+...:Util.html_safe(_erbout);ensure;@haml_buffer = @haml_buffer....
+...                               ^
+/home/dustin-adler/Desktop/Work/game_night/app/views/events/show.html.haml:30: syntax error, unexpected keyword_end, expecting ')'
+...uffer.upper if @haml_buffer;end;
+...                               ^
+/home/dustin-adler/Desktop/Work/game_night/app/views/events/show.html.haml:33: syntax error, unexpected keyword_end, expecting ')'):
+  
+app/views/events/show.html.haml:28: syntax error, unexpected '}'
+app/views/events/show.html.haml:30: syntax error, unexpected keyword_end, expecting ')'
+app/views/events/show.html.haml:30: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/events/show.html.haml:30: syntax error, unexpected keyword_end, expecting ')'
+app/views/events/show.html.haml:33: syntax error, unexpected keyword_end, expecting ')'
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.6ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (13.9ms)
+Started GET "/events/3" for 67.162.39.150 at 2022-02-15 14:12:47 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "users"."username" FROM "users" INNER JOIN "attendees" ON "users"."id" = "attendees"."user_id" WHERE "attendees"."event_id" = $1[0m  [["event_id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAttendee Load (0.7ms)[0m  [1m[34mSELECT "attendees".* FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2[0m  [["user_id", 1], ["event_id", 3]]
+  Rendering events/show.html.haml within layouts/application
+  Rendered events/show.html.haml within layouts/application (7.5ms)
+Completed 500 Internal Server Error in 18249ms (ActiveRecord: 5.8ms)
+
+
+  
+SyntaxError (/home/dustin-adler/Desktop/Work/game_night/app/views/events/show.html.haml:28: syntax error, unexpected '}'
+/home/dustin-adler/Desktop/Work/game_night/app/views/events/show.html.haml:30: syntax error, unexpected keyword_end, expecting ')'
+...fer << ("</td>\n".freeze);; end;; _hamlout.buffer << ("</div...
+...                               ^
+/home/dustin-adler/Desktop/Work/game_night/app/views/events/show.html.haml:30: syntax error, unexpected keyword_ensure, expecting ')'
+...:Util.html_safe(_erbout);ensure;@haml_buffer = @haml_buffer....
+...                               ^
+/home/dustin-adler/Desktop/Work/game_night/app/views/events/show.html.haml:30: syntax error, unexpected keyword_end, expecting ')'
+...uffer.upper if @haml_buffer;end;
+...                               ^
+/home/dustin-adler/Desktop/Work/game_night/app/views/events/show.html.haml:33: syntax error, unexpected keyword_end, expecting ')'):
+  
+app/views/events/show.html.haml:28: syntax error, unexpected '}'
+app/views/events/show.html.haml:30: syntax error, unexpected keyword_end, expecting ')'
+app/views/events/show.html.haml:30: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/events/show.html.haml:30: syntax error, unexpected keyword_end, expecting ')'
+app/views/events/show.html.haml:33: syntax error, unexpected keyword_end, expecting ')'
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.1ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (13.9ms)
+Started GET "/events/3" for 67.162.39.150 at 2022-02-15 14:15:38 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "users"."username" FROM "users" INNER JOIN "attendees" ON "users"."id" = "attendees"."user_id" WHERE "attendees"."event_id" = $1[0m  [["event_id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.haml within layouts/application
+  Rendered attendees/_form.html.haml (5.3ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2[0m  [["user_id", 1], ["event_id", 3]]
+  [1m[36mAttendee Load (0.2ms)[0m  [1m[34mSELECT "attendees".* FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2[0m  [["user_id", 1], ["event_id", 3]]
+  Rendered events/show.html.haml within layouts/application (19.1ms)
+Completed 500 Internal Server Error in 4224ms (ActiveRecord: 1.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for #<Attendee::ActiveRecord_Relation:0x00007fbc10c82840>
+Did you mean?  ids):
+    25:       - @attendees.each do |attender|
+    26:         = attender
+    27:       - unless @attending.empty?
+    28:         = button_to 'Cancel plans', {action: 'destroy', controller: 'attendees', id: @attending.id }, method: :delete, data: { confirm: "Are you sure you don't want to attend?"}
+    29:         -# %td= button_to 'Delete Group', {action: 'destroy', controller: 'groups', id: group[:id]}, method: :delete, data: { confirm: 'Are you sure you want to delete this group? It will erase this group for all group members as well.' }
+  
+app/views/events/show.html.haml:28:in `_app_views_events_show_html_haml__2385395659394765648_70222885124280'
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.1ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (15.1ms)
+Started GET "/events/3" for 67.162.39.150 at 2022-02-15 14:16:26 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "users"."username" FROM "users" INNER JOIN "attendees" ON "users"."id" = "attendees"."user_id" WHERE "attendees"."event_id" = $1[0m  [["event_id", 3]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.haml within layouts/application
+  [1m[36mAttendee Load (0.7ms)[0m  [1m[34mSELECT "attendees".* FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2[0m  [["user_id", 1], ["event_id", 3]]
+  Rendered attendees/_form.html.haml (9.7ms)
+  Rendered events/show.html.haml within layouts/application (118397.5ms)
+Completed 500 Internal Server Error in 123756ms (ActiveRecord: 1.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for #<Attendee::ActiveRecord_Relation:0x00007fbc100f9c80>
+Did you mean?  ids):
+    26:       - @attendees.each do |attender|
+    27:         = attender
+    28:       - unless @attending.empty?
+    29:         = button_to 'Cancel plans', {action: 'destroy', controller: 'attendees', id: @attending.ids[0] }, method: :delete, data: { confirm: "Are you sure you don't want to attend?"}
+    30:         -# %td= button_to 'Delete Group', {action: 'destroy', controller: 'groups', id: group[:id]}, method: :delete, data: { confirm: 'Are you sure you want to delete this group? It will erase this group for all group members as well.' }
+  
+app/views/events/show.html.haml:29:in `_app_views_events_show_html_haml__2385395659394765648_70222933538200'
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.2ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (15.1ms)
+Started GET "/events/3" for 67.162.39.150 at 2022-02-15 14:18:36 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "users"."username" FROM "users" INNER JOIN "attendees" ON "users"."id" = "attendees"."user_id" WHERE "attendees"."event_id" = $1[0m  [["event_id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.haml within layouts/application
+  Rendered attendees/_form.html.haml (6.4ms)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2[0m  [["user_id", 1], ["event_id", 3]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "attendees"."id" FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2[0m  [["user_id", 1], ["event_id", 3]]
+  Rendered events/show.html.haml within layouts/application (1198.9ms)
+  Rendered dashboards/_navbar.html.haml (7.3ms)
+  Rendered dashboards/_footer.html.haml (3.3ms)
+Completed 200 OK in 4299ms (Views: 1236.2ms | ActiveRecord: 1.5ms)
+
+
+Started DELETE "/attendees/1" for 67.162.39.150 at 2022-02-15 14:18:55 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AttendeesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"VgKIhi0EQC1FWL/9HclVwVEwDtz9S7I61XcUAdWO6lCzwD5VEKFxDuxBx+JhFZGRA55eY1hegSJShH21HRG2Uw==", "id"=>"1"}
+  [1m[36mAttendee Load (0.2ms)[0m  [1m[34mSELECT  "attendees".* FROM "attendees" WHERE "attendees"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[31mDELETE FROM "attendees" WHERE "attendees"."id" = $1[0m  [["id", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 142ms (ActiveRecord: 0.9ms)
+
+
+  
+NameError (undefined local variable or method `attendees_url' for #<AttendeesController:0x00007fbc080e17a0>
+Did you mean?  attendee_url):
+  
+app/controllers/attendees_controller.rb:25:in `block (2 levels) in destroy'
+app/controllers/attendees_controller.rb:24:in `destroy'
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.4ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (70.4ms)
+Started DELETE "/attendees/1" for 67.162.39.150 at 2022-02-15 14:21:05 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AttendeesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"VgKIhi0EQC1FWL/9HclVwVEwDtz9S7I61XcUAdWO6lCzwD5VEKFxDuxBx+JhFZGRA55eY1hegSJShH21HRG2Uw==", "id"=>"1"}
+  [1m[36mAttendee Load (0.1ms)[0m  [1m[34mSELECT  "attendees".* FROM "attendees" WHERE "attendees"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 404 Not Found in 5ms (ActiveRecord: 1.5ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Attendee with 'id'=1):
+  
+app/controllers/attendees_controller.rb:33:in `set_attendee'
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (1.9ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (13.0ms)
+Started GET "/events/3" for 67.162.39.150 at 2022-02-15 14:21:36 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "users"."username" FROM "users" INNER JOIN "attendees" ON "users"."id" = "attendees"."user_id" WHERE "attendees"."event_id" = $1[0m  [["event_id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.haml within layouts/application
+  Rendered attendees/_form.html.haml (20.4ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2[0m  [["user_id", 1], ["event_id", 3]]
+  Rendered events/show.html.haml within layouts/application (1155.9ms)
+  Rendered dashboards/_navbar.html.haml (8.5ms)
+  Rendered dashboards/_footer.html.haml (3.5ms)
+Completed 200 OK in 8287ms (Views: 1194.2ms | ActiveRecord: 4.0ms)
+
+
+Started POST "/events/3/attendees" for 67.162.39.150 at 2022-02-15 14:21:48 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AttendeesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZfvFle2Ue6FEjcrXKTV1xlqigj1r7TbjkUBpvjKeW06AOXNG0DFKgu2UsshV6bGWCAzSgs74BfsWswAK+gEHTQ==", "commit"=>"RSVP to this event!", "event_id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAttendee Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2 LIMIT $3[0m  [["user_id", 1], ["event_id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "attendees" ("event_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["event_id", 3], ["user_id", 1], ["created_at", "2022-02-15 20:21:48.412687"], ["updated_at", "2022-02-15 20:21:48.412687"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to https://c3cd-67-162-39-150.ngrok.io/events/3
+Completed 302 Found in 15ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/events/3" for 67.162.39.150 at 2022-02-15 14:21:48 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "users"."username" FROM "users" INNER JOIN "attendees" ON "users"."id" = "attendees"."user_id" WHERE "attendees"."event_id" = $1[0m  [["event_id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.haml within layouts/application
+  Rendered attendees/_form.html.haml (6.3ms)
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2[0m  [["user_id", 1], ["event_id", 3]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "attendees"."id" FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2[0m  [["user_id", 1], ["event_id", 3]]
+  Rendered events/show.html.haml within layouts/application (1461.5ms)
+  Rendered dashboards/_navbar.html.haml (7.5ms)
+  Rendered dashboards/_footer.html.haml (5.0ms)
+Completed 200 OK in 5155ms (Views: 1512.3ms | ActiveRecord: 1.8ms)
+
+
+Started DELETE "/attendees/2" for 67.162.39.150 at 2022-02-15 14:21:58 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AttendeesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"qZjMggA7fI7aKpAZf/XdTDug/xcT9+Yml2i/h7a6qUtMWnpRPZ5NrXMz6AYDKRkcaQ6vqLbi1T4Qm9YzfiX1SA==", "id"=>"2"}
+  [1m[36mAttendee Load (0.3ms)[0m  [1m[34mSELECT  "attendees".* FROM "attendees" WHERE "attendees"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "attendees" WHERE "attendees"."id" = $1[0m  [["id", 2]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to https://c3cd-67-162-39-150.ngrok.io/events/3}
+Completed 302 Found in 5ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/events/3%7D" for 67.162.39.150 at 2022-02-15 14:21:58 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3}"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "users"."username" FROM "users" INNER JOIN "attendees" ON "users"."id" = "attendees"."user_id" WHERE "attendees"."event_id" = $1[0m  [["event_id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.haml within layouts/application
+  Rendered attendees/_form.html.haml (8.0ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2[0m  [["user_id", 1], ["event_id", 3]]
+  Rendered events/show.html.haml within layouts/application (1879.7ms)
+  Rendered dashboards/_navbar.html.haml (14.9ms)
+  Rendered dashboards/_footer.html.haml (5.2ms)
+Completed 200 OK in 6175ms (Views: 1934.6ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/events/3/attendees" for 67.162.39.150 at 2022-02-15 14:22:35 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AttendeesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kGkV06mMMNNqxcZCWB3QFTvcZIcBhXTH5Pdr7rIhZhV1q6MAlCkB8MPcvl0kwRRFaXI0OKSQR99jBAJaer46Fg==", "commit"=>"RSVP to this event!", "event_id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAttendee Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2 LIMIT $3[0m  [["user_id", 1], ["event_id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "attendees" ("event_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["event_id", 3], ["user_id", 1], ["created_at", "2022-02-15 20:22:35.486300"], ["updated_at", "2022-02-15 20:22:35.486300"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to https://c3cd-67-162-39-150.ngrok.io/events/3
+Completed 302 Found in 34ms (ActiveRecord: 6.2ms)
+
+
+Started GET "/events/3" for 67.162.39.150 at 2022-02-15 14:22:35 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "users"."username" FROM "users" INNER JOIN "attendees" ON "users"."id" = "attendees"."user_id" WHERE "attendees"."event_id" = $1[0m  [["event_id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.haml within layouts/application
+  Rendered attendees/_form.html.haml (4.0ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2[0m  [["user_id", 1], ["event_id", 3]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "attendees"."id" FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2[0m  [["user_id", 1], ["event_id", 3]]
+  Rendered events/show.html.haml within layouts/application (15.5ms)
+  Rendered dashboards/_navbar.html.haml (8.0ms)
+  Rendered dashboards/_footer.html.haml (2.5ms)
+Completed 200 OK in 53744ms (Views: 50.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/events/3" for 67.162.39.150 at 2022-02-15 20:39:27 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "users"."username" FROM "users" INNER JOIN "attendees" ON "users"."id" = "attendees"."user_id" WHERE "attendees"."event_id" = $1[0m  [["event_id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.haml within layouts/application
+  Rendered attendees/_form.html.haml (3.2ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2[0m  [["user_id", 1], ["event_id", 3]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "attendees"."id" FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2[0m  [["user_id", 1], ["event_id", 3]]
+  Rendered events/show.html.haml within layouts/application (9.4ms)
+  Rendered dashboards/_navbar.html.haml (6.3ms)
+  Rendered dashboards/_footer.html.haml (2.6ms)
+Completed 200 OK in 82ms (Views: 39.8ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/events/3" for 67.162.39.150 at 2022-02-15 20:40:18 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "users"."username" FROM "users" INNER JOIN "attendees" ON "users"."id" = "attendees"."user_id" WHERE "attendees"."event_id" = $1[0m  [["event_id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.haml within layouts/application
+  Rendered attendees/_form.html.haml (2.4ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2[0m  [["user_id", 1], ["event_id", 3]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "attendees"."id" FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2[0m  [["user_id", 1], ["event_id", 3]]
+  Rendered events/show.html.haml within layouts/application (17.8ms)
+  Rendered dashboards/_navbar.html.haml (7.8ms)
+  Rendered dashboards/_footer.html.haml (3.2ms)
+Completed 200 OK in 55ms (Views: 50.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/events/3" for 67.162.39.150 at 2022-02-15 20:41:45 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "users"."username" FROM "users" INNER JOIN "attendees" ON "users"."id" = "attendees"."user_id" WHERE "attendees"."event_id" = $1[0m  [["event_id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.haml within layouts/application
+  Rendered attendees/_form.html.haml (2.6ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2[0m  [["user_id", 1], ["event_id", 3]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "attendees"."id" FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2[0m  [["user_id", 1], ["event_id", 3]]
+  Rendered events/show.html.haml within layouts/application (7.6ms)
+  Rendered dashboards/_navbar.html.haml (7.4ms)
+  Rendered dashboards/_footer.html.haml (3.4ms)
+Completed 200 OK in 45ms (Views: 39.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/events/3" for 67.162.39.150 at 2022-02-15 20:49:48 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "users"."username" FROM "users" INNER JOIN "attendees" ON "users"."id" = "attendees"."user_id" WHERE "attendees"."event_id" = $1[0m  [["event_id", 3]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.haml within layouts/application
+  Rendered events/show.html.haml within layouts/application (3.5ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 1.9ms)
+
+
+  
+SyntaxError (/home/dustin-adler/Desktop/Work/game_night/app/views/events/show.html.haml:22: syntax error, unexpected ',', expecting &. or :: or '[' or '.'
+...pe((( link_to, "Back to group", group_path(@group)
+...                               ^):
+  
+app/views/events/show.html.haml:22: syntax error, unexpected ',', expecting &. or :: or '[' or '.'
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.3ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (12.2ms)
+Started GET "/events/3" for 67.162.39.150 at 2022-02-15 20:50:10 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "users"."username" FROM "users" INNER JOIN "attendees" ON "users"."id" = "attendees"."user_id" WHERE "attendees"."event_id" = $1[0m  [["event_id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.haml within layouts/application
+  Rendered events/show.html.haml within layouts/application (2.7ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.7ms)
+
+
+  
+SyntaxError (/home/dustin-adler/Desktop/Work/game_night/app/views/events/show.html.haml:22: syntax error, unexpected tIDENTIFIER, expecting ')'
+...k_to "Back to group" group_path(@group)
+...                               ^):
+  
+app/views/events/show.html.haml:22: syntax error, unexpected tIDENTIFIER, expecting ')'
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.0ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.5ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (12.3ms)
+Started GET "/events/3" for 67.162.39.150 at 2022-02-15 20:50:36 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "users"."username" FROM "users" INNER JOIN "attendees" ON "users"."id" = "attendees"."user_id" WHERE "attendees"."event_id" = $1[0m  [["event_id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.haml within layouts/application
+  Rendered events/show.html.haml within layouts/application (3.1ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.7ms)
+
+
+  
+SyntaxError (/home/dustin-adler/Desktop/Work/game_night/app/views/events/show.html.haml:22: syntax error, unexpected tIDENTIFIER, expecting ')'
+..._to("Back to group") group_path(@group)
+...                               ^):
+  
+app/views/events/show.html.haml:22: syntax error, unexpected tIDENTIFIER, expecting ')'
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.0ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.5ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (12.2ms)
+Started GET "/events/3" for 67.162.39.150 at 2022-02-15 20:51:04 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "users"."username" FROM "users" INNER JOIN "attendees" ON "users"."id" = "attendees"."user_id" WHERE "attendees"."event_id" = $1[0m  [["event_id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.haml within layouts/application
+  Rendered attendees/_form.html.haml (2.1ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2[0m  [["user_id", 1], ["event_id", 3]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "attendees"."id" FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2[0m  [["user_id", 1], ["event_id", 3]]
+  Rendered events/show.html.haml within layouts/application (6.3ms)
+  Rendered dashboards/_navbar.html.haml (5.7ms)
+  Rendered dashboards/_footer.html.haml (2.5ms)
+Completed 200 OK in 38ms (Views: 33.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/groups/4" for 67.162.39.150 at 2022-02-15 20:51:07 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mFriend Load (0.3ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE "friends"."friend_1_id" = $1[0m  [["friend_1_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (3, 4, 10, 2, 5, 12)[0m
+  [1m[36mFriend Load (0.1ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE "friends"."friend_2_id" = $1[0m  [["friend_2_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (6, 7, 13)[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering groups/show.html.haml within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "group_members" ON "users"."id" = "group_members"."user_id" WHERE "group_members"."group_id" = $1[0m  [["group_id", 4]]
+  Rendered groups/_edit.html.haml (8.9ms)
+  Rendered group_members/_form.html.haml (3.2ms)
+  Rendered group_members/_new.html.haml (4.7ms)
+  [1m[36mGroupMember Load (0.3ms)[0m  [1m[34mSELECT "group_members".* FROM "group_members" WHERE "group_members"."group_id" = $1[0m  [["group_id", 4]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (2, 9, 6, 5, 12)[0m
+  Rendered group_members/_index.html.haml (4.7ms)
+  Rendered events/_form.html.haml (6.0ms)
+  Rendered events/_new.html.haml (7.4ms)
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."group_id" = $1[0m  [["group_id", 4]]
+  Rendered simple_calendar/_month_calendar.html.erb (4.3ms)
+  Rendered simple_calendar/_my_calendar.html.haml (7.6ms)
+  Rendered groups/show.html.haml within layouts/application (38.8ms)
+  Rendered dashboards/_navbar.html.haml (6.2ms)
+  Rendered dashboards/_footer.html.haml (2.1ms)
+Completed 200 OK in 81ms (Views: 63.3ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/groups/4" for 67.162.39.150 at 2022-02-15 20:52:22 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mFriend Load (0.1ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE "friends"."friend_1_id" = $1[0m  [["friend_1_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (3, 4, 10, 2, 5, 12)[0m
+  [1m[36mFriend Load (0.1ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE "friends"."friend_2_id" = $1[0m  [["friend_2_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (6, 7, 13)[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering groups/show.html.haml within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "group_members" ON "users"."id" = "group_members"."user_id" WHERE "group_members"."group_id" = $1[0m  [["group_id", 4]]
+  Rendered groups/_edit.html.haml (7.4ms)
+  Rendered group_members/_form.html.haml (3.2ms)
+  Rendered group_members/_new.html.haml (4.9ms)
+  [1m[36mGroupMember Load (0.3ms)[0m  [1m[34mSELECT "group_members".* FROM "group_members" WHERE "group_members"."group_id" = $1[0m  [["group_id", 4]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (2, 9, 6, 5, 12)[0m
+  Rendered group_members/_index.html.haml (5.7ms)
+  Rendered events/_form.html.haml (5.9ms)
+  Rendered events/_new.html.haml (7.7ms)
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."group_id" = $1[0m  [["group_id", 4]]
+  Rendered simple_calendar/_month_calendar.html.erb (5.0ms)
+  Rendered simple_calendar/_my_calendar.html.haml (8.4ms)
+  Rendered groups/show.html.haml within layouts/application (40.6ms)
+  Rendered dashboards/_navbar.html.haml (6.5ms)
+  Rendered dashboards/_footer.html.haml (2.9ms)
+Completed 200 OK in 88ms (Views: 69.7ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/groups/4" for 67.162.39.150 at 2022-02-15 20:52:37 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mFriend Load (0.2ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE "friends"."friend_1_id" = $1[0m  [["friend_1_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (3, 4, 10, 2, 5, 12)[0m
+  [1m[36mFriend Load (0.1ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE "friends"."friend_2_id" = $1[0m  [["friend_2_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (6, 7, 13)[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering groups/show.html.haml within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "group_members" ON "users"."id" = "group_members"."user_id" WHERE "group_members"."group_id" = $1[0m  [["group_id", 4]]
+  Rendered groups/_edit.html.haml (4.9ms)
+  Rendered group_members/_form.html.haml (3.2ms)
+  Rendered group_members/_new.html.haml (4.8ms)
+  [1m[36mGroupMember Load (0.3ms)[0m  [1m[34mSELECT "group_members".* FROM "group_members" WHERE "group_members"."group_id" = $1[0m  [["group_id", 4]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (2, 9, 6, 5, 12)[0m
+  Rendered group_members/_index.html.haml (5.2ms)
+  Rendered events/_form.html.haml (5.2ms)
+  Rendered events/_new.html.haml (6.9ms)
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."group_id" = $1[0m  [["group_id", 4]]
+  Rendered simple_calendar/_month_calendar.html.erb (4.7ms)
+  Rendered simple_calendar/_my_calendar.html.haml (7.7ms)
+  Rendered groups/show.html.haml within layouts/application (34.9ms)
+  Rendered dashboards/_navbar.html.haml (5.8ms)
+  Rendered dashboards/_footer.html.haml (2.7ms)
+Completed 200 OK in 70ms (Views: 61.6ms | ActiveRecord: 2.6ms)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8350563894896004495);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateChats (20220216025633)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (17.0ms)[0m  [1m[35mCREATE TABLE "chats" ("id" serial primary key, "event_id" integer NOT NULL, "author_id" integer NOT NULL, "comment" text NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_chats_on_event_id" ON "chats"  ("event_id")[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_chats_on_author_id" ON "chats"  ("author_id")[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220216025633"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(8350563894896004495)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/groups/4" for 67.162.39.150 at 2022-02-15 21:03:37 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mFriend Load (0.1ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE "friends"."friend_1_id" = $1[0m  [["friend_1_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (3, 4, 10, 2, 5, 12)[0m
+  [1m[36mFriend Load (0.1ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE "friends"."friend_2_id" = $1[0m  [["friend_2_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (6, 7, 13)[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering groups/show.html.haml within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "group_members" ON "users"."id" = "group_members"."user_id" WHERE "group_members"."group_id" = $1[0m  [["group_id", 4]]
+  Rendered groups/_edit.html.haml (16.9ms)
+  Rendered group_members/_form.html.haml (3.2ms)
+  Rendered group_members/_new.html.haml (4.8ms)
+  [1m[36mGroupMember Load (0.3ms)[0m  [1m[34mSELECT "group_members".* FROM "group_members" WHERE "group_members"."group_id" = $1[0m  [["group_id", 4]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (2, 9, 6, 5, 12)[0m
+  Rendered group_members/_index.html.haml (5.8ms)
+  Rendered events/_form.html.haml (5.2ms)
+  Rendered events/_new.html.haml (7.0ms)
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."group_id" = $1[0m  [["group_id", 4]]
+  Rendered simple_calendar/_month_calendar.html.haml (5.5ms)
+  Rendered simple_calendar/_my_calendar.html.haml (8.7ms)
+  Rendered groups/show.html.haml within layouts/application (48.9ms)
+  Rendered dashboards/_navbar.html.haml (7.4ms)
+  Rendered dashboards/_footer.html.haml (3.3ms)
+Completed 200 OK in 174ms (Views: 138.9ms | ActiveRecord: 6.7ms)
+
+
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/events/4" for 67.162.39.150 at 2022-02-15 21:30:11 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Completed 404 Not Found in 6ms (ActiveRecord: 1.5ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Event with 'id'=4):
+  
+app/controllers/events_controller.rb:67:in `set_event'
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.1ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (14.4ms)
+Started GET "/groups/4" for 67.162.39.150 at 2022-02-15 21:30:38 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mFriend Load (0.2ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE "friends"."friend_1_id" = $1[0m  [["friend_1_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (3, 4, 10, 2, 5, 12)[0m
+  [1m[36mFriend Load (0.1ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE "friends"."friend_2_id" = $1[0m  [["friend_2_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (6, 7, 13)[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering groups/show.html.haml within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "group_members" ON "users"."id" = "group_members"."user_id" WHERE "group_members"."group_id" = $1[0m  [["group_id", 4]]
+  Rendered groups/_edit.html.haml (7.3ms)
+  Rendered group_members/_form.html.haml (4.8ms)
+  Rendered group_members/_new.html.haml (18.7ms)
+  [1m[36mGroupMember Load (0.2ms)[0m  [1m[34mSELECT "group_members".* FROM "group_members" WHERE "group_members"."group_id" = $1[0m  [["group_id", 4]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (2, 9, 6, 5, 12)[0m
+  Rendered group_members/_index.html.haml (5.6ms)
+  Rendered events/_form.html.haml (6.8ms)
+  Rendered events/_new.html.haml (8.6ms)
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."group_id" = $1[0m  [["group_id", 4]]
+  Rendered simple_calendar/_month_calendar.html.haml (7.1ms)
+  Rendered simple_calendar/_my_calendar.html.haml (11.5ms)
+  Rendered groups/show.html.haml within layouts/application (58.2ms)
+  Rendered dashboards/_navbar.html.haml (6.5ms)
+  Rendered dashboards/_footer.html.haml (3.3ms)
+Completed 200 OK in 128ms (Views: 86.8ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/events/4" for 67.162.39.150 at 2022-02-15 21:30:55 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Completed 404 Not Found in 1ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Event with 'id'=4):
+  
+app/controllers/events_controller.rb:67:in `set_event'
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (1.4ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.4ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (11.0ms)
+Started GET "/groups/4" for 67.162.39.150 at 2022-02-15 21:30:57 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mFriend Load (0.1ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE "friends"."friend_1_id" = $1[0m  [["friend_1_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (3, 4, 10, 2, 5, 12)[0m
+  [1m[36mFriend Load (0.1ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE "friends"."friend_2_id" = $1[0m  [["friend_2_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (6, 7, 13)[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering groups/show.html.haml within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "group_members" ON "users"."id" = "group_members"."user_id" WHERE "group_members"."group_id" = $1[0m  [["group_id", 4]]
+  Rendered groups/_edit.html.haml (6.6ms)
+  Rendered group_members/_form.html.haml (3.6ms)
+  Rendered group_members/_new.html.haml (5.5ms)
+  [1m[36mGroupMember Load (0.3ms)[0m  [1m[34mSELECT "group_members".* FROM "group_members" WHERE "group_members"."group_id" = $1[0m  [["group_id", 4]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (2, 9, 6, 5, 12)[0m
+  Rendered group_members/_index.html.haml (5.4ms)
+  Rendered events/_form.html.haml (6.5ms)
+  Rendered events/_new.html.haml (8.7ms)
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."group_id" = $1[0m  [["group_id", 4]]
+  Rendered simple_calendar/_month_calendar.html.haml (5.5ms)
+  Rendered simple_calendar/_my_calendar.html.haml (8.7ms)
+  Rendered groups/show.html.haml within layouts/application (41.3ms)
+  Rendered dashboards/_navbar.html.haml (8.7ms)
+  Rendered dashboards/_footer.html.haml (3.6ms)
+Completed 200 OK in 84ms (Views: 76.5ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/groups/4" for 67.162.39.150 at 2022-02-15 21:31:30 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mFriend Load (0.1ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE "friends"."friend_1_id" = $1[0m  [["friend_1_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (3, 4, 10, 2, 5, 12)[0m
+  [1m[36mFriend Load (0.1ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE "friends"."friend_2_id" = $1[0m  [["friend_2_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (6, 7, 13)[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering groups/show.html.haml within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "group_members" ON "users"."id" = "group_members"."user_id" WHERE "group_members"."group_id" = $1[0m  [["group_id", 4]]
+  Rendered groups/_edit.html.haml (6.7ms)
+  Rendered group_members/_form.html.haml (4.2ms)
+  Rendered group_members/_new.html.haml (6.6ms)
+  [1m[36mGroupMember Load (0.2ms)[0m  [1m[34mSELECT "group_members".* FROM "group_members" WHERE "group_members"."group_id" = $1[0m  [["group_id", 4]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (2, 9, 6, 5, 12)[0m
+  Rendered group_members/_index.html.haml (6.2ms)
+  Rendered events/_form.html.haml (15.2ms)
+  Rendered events/_new.html.haml (17.5ms)
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."group_id" = $1[0m  [["group_id", 4]]
+  Rendered simple_calendar/_month_calendar.html.haml (8.3ms)
+  Rendered simple_calendar/_my_calendar.html.haml (12.1ms)
+  Rendered groups/show.html.haml within layouts/application (56.7ms)
+  Rendered dashboards/_navbar.html.haml (8.0ms)
+  Rendered dashboards/_footer.html.haml (3.4ms)
+Completed 200 OK in 99ms (Views: 91.5ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/events/3" for 67.162.39.150 at 2022-02-15 21:31:33 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "users"."username" FROM "users" INNER JOIN "attendees" ON "users"."id" = "attendees"."user_id" WHERE "attendees"."event_id" = $1[0m  [["event_id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.haml within layouts/application
+  Rendered attendees/_form.html.haml (2.9ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2[0m  [["user_id", 1], ["event_id", 3]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "attendees"."id" FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2[0m  [["user_id", 1], ["event_id", 3]]
+  Rendered events/show.html.haml within layouts/application (8.3ms)
+  Rendered dashboards/_navbar.html.haml (6.1ms)
+  Rendered dashboards/_footer.html.haml (2.7ms)
+Completed 200 OK in 58ms (Views: 37.9ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/events/3" for 67.162.39.150 at 2022-02-15 21:32:24 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "users"."username" FROM "users" INNER JOIN "attendees" ON "users"."id" = "attendees"."user_id" WHERE "attendees"."event_id" = $1[0m  [["event_id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.haml within layouts/application
+  Rendered attendees/_form.html.haml (2.5ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2[0m  [["user_id", 1], ["event_id", 3]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "attendees"."id" FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2[0m  [["user_id", 1], ["event_id", 3]]
+  [1m[36mAttendee Load (0.2ms)[0m  [1m[34mSELECT "attendees".* FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2[0m  [["user_id", 1], ["event_id", 3]]
+  Rendered chats/_form.html.haml (235.1ms)
+  Rendered events/show.html.haml within layouts/application (244.8ms)
+Completed 500 Internal Server Error in 253ms (ActiveRecord: 1.6ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `chat' for #<#<Class:0x00007fbc1085ca18>:0x00007fbc10c788e0>):
+    1: = form_for(chat) do |f|
+    2:   - if chat.errors.any?
+    3:     #error_explanation
+    4:       %h2
+  
+app/views/chats/_form.html.haml:1:in `_app_views_chats__form_html_haml__2382329114937128979_70222783827940'
+app/views/events/show.html.haml:32:in `_app_views_events_show_html_haml__2385395659394765648_70222856047540'
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.7ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.5ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (14.4ms)
+Started GET "/events/3" for 67.162.39.150 at 2022-02-15 21:34:31 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "users"."username" FROM "users" INNER JOIN "attendees" ON "users"."id" = "attendees"."user_id" WHERE "attendees"."event_id" = $1[0m  [["event_id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.haml within layouts/application
+  Rendered attendees/_form.html.haml (2.7ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2[0m  [["user_id", 1], ["event_id", 3]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "attendees"."id" FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2[0m  [["user_id", 1], ["event_id", 3]]
+  Rendered chats/_form.html.haml (2.4ms)
+  Rendered events/show.html.haml within layouts/application (11.3ms)
+  Rendered dashboards/_navbar.html.haml (7.8ms)
+  Rendered dashboards/_footer.html.haml (3.8ms)
+Completed 200 OK in 94ms (Views: 56.5ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/events/3" for 67.162.39.150 at 2022-02-15 21:39:01 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "users"."username" FROM "users" INNER JOIN "attendees" ON "users"."id" = "attendees"."user_id" WHERE "attendees"."event_id" = $1[0m  [["event_id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.haml within layouts/application
+  Rendered attendees/_form.html.haml (5.2ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2[0m  [["user_id", 1], ["event_id", 3]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "attendees"."id" FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2[0m  [["user_id", 1], ["event_id", 3]]
+  [1m[36mAttendee Load (0.3ms)[0m  [1m[34mSELECT "attendees".* FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2[0m  [["user_id", 1], ["event_id", 3]]
+  Rendered chats/_form.html.haml (312.7ms)
+  Rendered events/show.html.haml within layouts/application (328.2ms)
+Completed 500 Internal Server Error in 371ms (ActiveRecord: 1.7ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `event' for #<#<Class:0x0000558a95c7b260>:0x0000558a95c58418>
+Did you mean?  @event):
+    1: = form_for [event, chat] do |f|
+    2:   - if chat.errors.any?
+    3:     #error_explanation
+    4:       %h2
+  
+app/views/chats/_form.html.haml:1:in `_app_views_chats__form_html_haml__2382329114937128979_47026862149680'
+app/views/events/show.html.haml:32:in `_app_views_events_show_html_haml__2385395659394765648_47026853507180'
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.8ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (14.7ms)
+Started GET "/events/3" for 67.162.39.150 at 2022-02-15 21:39:48 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "users"."username" FROM "users" INNER JOIN "attendees" ON "users"."id" = "attendees"."user_id" WHERE "attendees"."event_id" = $1[0m  [["event_id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.haml within layouts/application
+  Rendered attendees/_form.html.haml (2.1ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2[0m  [["user_id", 1], ["event_id", 3]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "attendees"."id" FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2[0m  [["user_id", 1], ["event_id", 3]]
+  Rendered chats/_form.html.haml (2.7ms)
+  Rendered events/show.html.haml within layouts/application (10.0ms)
+  Rendered dashboards/_navbar.html.haml (6.5ms)
+  Rendered dashboards/_footer.html.haml (2.8ms)
+Completed 200 OK in 50ms (Views: 39.2ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/events/3/chats" for 67.162.39.150 at 2022-02-15 21:43:01 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ChatsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oRQ7bd4diZww6HAQOwIYs/VySVoVbbIaiYf0v92SvKFE1o2+47i4v5nxCA9H3tzjp9wZ5bB4gQIOdJ0LFQ3gog==", "chat"=>{"comment"=>"Hey I was thinking that if we have more than 4 players we could do customs. :)"}, "commit"=>"Post to this event's board.", "event_id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "chats" ("event_id", "author_id", "comment", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["event_id", 3], ["author_id", 1], ["comment", "Hey I was thinking that if we have more than 4 players we could do customs. :)"], ["created_at", "2022-02-16 03:43:01.619698"], ["updated_at", "2022-02-16 03:43:01.619698"]]
+  [1m[35m (6.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to https://c3cd-67-162-39-150.ngrok.ioevents/3
+Completed 302 Found in 20ms (ActiveRecord: 8.9ms)
+
+
+Started GET "/events/3" for 67.162.39.150 at 2022-02-15 21:43:31 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "users"."username" FROM "users" INNER JOIN "attendees" ON "users"."id" = "attendees"."user_id" WHERE "attendees"."event_id" = $1[0m  [["event_id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.haml within layouts/application
+  Rendered attendees/_form.html.haml (3.2ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2[0m  [["user_id", 1], ["event_id", 3]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "attendees"."id" FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2[0m  [["user_id", 1], ["event_id", 3]]
+  Rendered chats/_form.html.haml (2.4ms)
+  Rendered events/show.html.haml within layouts/application (11.9ms)
+  Rendered dashboards/_navbar.html.haml (8.8ms)
+  Rendered dashboards/_footer.html.haml (3.5ms)
+Completed 200 OK in 98ms (Views: 46.3ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/events/3" for 67.162.39.150 at 2022-02-15 21:53:33 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "users"."username" FROM "users" INNER JOIN "attendees" ON "users"."id" = "attendees"."user_id" WHERE "attendees"."event_id" = $1[0m  [["event_id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.haml within layouts/application
+  Rendered attendees/_form.html.haml (2.7ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2[0m  [["user_id", 1], ["event_id", 3]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "attendees"."id" FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2[0m  [["user_id", 1], ["event_id", 3]]
+  Rendered chats/_form.html.haml (2.9ms)
+  [1m[36mChat Load (0.1ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE "chats"."event_id" = $1[0m  [["event_id", 3]]
+  Rendered events/show.html.haml within layouts/application (13.6ms)
+  Rendered dashboards/_navbar.html.haml (6.9ms)
+  Rendered dashboards/_footer.html.haml (4.0ms)
+Completed 200 OK in 81ms (Views: 45.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/events/3" for 67.162.39.150 at 2022-02-15 21:59:50 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ArgumentError (The :dependent option must be one of [:destroy, :delete_all, :nullify, :restrict_with_error, :restrict_with_exception], but is :destory):
+  
+app/models/user.rb:57:in `<class:User>'
+app/models/user.rb:1:in `<top (required)>'
+config/routes.rb:22:in `block in <top (required)>'
+config/routes.rb:1:in `<top (required)>'
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (1.9ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (13.0ms)
+Started GET "/events/3" for 67.162.39.150 at 2022-02-15 22:00:25 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "users"."username" FROM "users" INNER JOIN "attendees" ON "users"."id" = "attendees"."user_id" WHERE "attendees"."event_id" = $1[0m  [["event_id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.haml within layouts/application
+  Rendered attendees/_form.html.haml (3.0ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2[0m  [["user_id", 1], ["event_id", 3]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "attendees"."id" FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2[0m  [["user_id", 1], ["event_id", 3]]
+  Rendered chats/_form.html.haml (3.1ms)
+  [1m[36mChat Load (0.1ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE "chats"."event_id" = $1[0m  [["event_id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1[0m
+  Rendered events/show.html.haml within layouts/application (15.3ms)
+  Rendered dashboards/_navbar.html.haml (7.9ms)
+  Rendered dashboards/_footer.html.haml (3.4ms)
+Completed 200 OK in 95ms (Views: 47.8ms | ActiveRecord: 7.1ms)
+
+
+Started GET "/events/3" for 67.162.39.150 at 2022-02-15 22:01:32 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "users"."username" FROM "users" INNER JOIN "attendees" ON "users"."id" = "attendees"."user_id" WHERE "attendees"."event_id" = $1[0m  [["event_id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.haml within layouts/application
+  Rendered attendees/_form.html.haml (2.5ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2[0m  [["user_id", 1], ["event_id", 3]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "attendees"."id" FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2[0m  [["user_id", 1], ["event_id", 3]]
+  Rendered chats/_form.html.haml (3.3ms)
+  [1m[36mChat Load (0.3ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE "chats"."event_id" = $1[0m  [["event_id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1[0m
+  [1m[36mAttendee Load (0.1ms)[0m  [1m[34mSELECT "attendees".* FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2[0m  [["user_id", 1], ["event_id", 3]]
+  Rendered events/show.html.haml within layouts/application (247.3ms)
+Completed 500 Internal Server Error in 254ms (ActiveRecord: 1.7ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `br' for #<#<Class:0x00007fbc10d82588>:0x0000558a9875fc38>):
+    31:     .col-12
+    32:       = render "chats/form", chat: @chat, event: @event 
+    33:       - @chats.each do |chat|
+    34:         = chat.author.username + ":" %br 
+    35:         = chat.comment
+  
+app/views/events/show.html.haml:34:in `block in _app_views_events_show_html_haml__2385395659394765648_47026875865960'
+app/views/events/show.html.haml:33:in `_app_views_events_show_html_haml__2385395659394765648_47026875865960'
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.0ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.8ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (22.7ms)
+Started GET "/events/3" for 67.162.39.150 at 2022-02-15 22:01:45 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "users"."username" FROM "users" INNER JOIN "attendees" ON "users"."id" = "attendees"."user_id" WHERE "attendees"."event_id" = $1[0m  [["event_id", 3]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.haml within layouts/application
+  Rendered attendees/_form.html.haml (3.2ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2[0m  [["user_id", 1], ["event_id", 3]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "attendees"."id" FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2[0m  [["user_id", 1], ["event_id", 3]]
+  Rendered chats/_form.html.haml (4.0ms)
+  [1m[36mChat Load (0.2ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE "chats"."event_id" = $1[0m  [["event_id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1[0m
+  Rendered events/show.html.haml within layouts/application (17.2ms)
+  Rendered dashboards/_navbar.html.haml (10.5ms)
+  Rendered dashboards/_footer.html.haml (4.7ms)
+Completed 200 OK in 74ms (Views: 62.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/events/3" for 67.162.39.150 at 2022-02-15 22:06:36 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "users"."username" FROM "users" INNER JOIN "attendees" ON "users"."id" = "attendees"."user_id" WHERE "attendees"."event_id" = $1[0m  [["event_id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.haml within layouts/application
+  Rendered attendees/_form.html.haml (2.7ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2[0m  [["user_id", 1], ["event_id", 3]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "attendees"."id" FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2[0m  [["user_id", 1], ["event_id", 3]]
+  Rendered chats/_form.html.haml (3.1ms)
+  [1m[36mChat Load (0.2ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE "chats"."event_id" = $1[0m  [["event_id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1[0m
+  Rendered events/show.html.haml within layouts/application (15.3ms)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 1.4ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"destroy", :controller=>"chat", :id=>1}):
+    36:         = chat.comment
+    37:         %br
+    38:         - if @current_user.id == chat.author_id || @current_user.id == @group.admin_id
+    39:           = button_to "Delete comment", {action: 'destroy', controller: 'chat', id: chat.id}, method: :delete, data: {confirm: "Are you sure you want to delete this comment permanently?"}
+  
+app/views/events/show.html.haml:39:in `block in _app_views_events_show_html_haml__2385395659394765648_70222854412800'
+app/views/events/show.html.haml:33:in `_app_views_events_show_html_haml__2385395659394765648_70222854412800'
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.4ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendering /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/dustin-adler/.rvm/gems/ruby-2.3.8/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (17.6ms)
+Started GET "/events/3" for 67.162.39.150 at 2022-02-15 22:09:10 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "users"."username" FROM "users" INNER JOIN "attendees" ON "users"."id" = "attendees"."user_id" WHERE "attendees"."event_id" = $1[0m  [["event_id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.haml within layouts/application
+  Rendered attendees/_form.html.haml (3.5ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2[0m  [["user_id", 1], ["event_id", 3]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "attendees"."id" FROM "attendees" WHERE "attendees"."user_id" = $1 AND "attendees"."event_id" = $2[0m  [["user_id", 1], ["event_id", 3]]
+  Rendered chats/_form.html.haml (3.7ms)
+  [1m[36mChat Load (0.2ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE "chats"."event_id" = $1[0m  [["event_id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1[0m
+  Rendered events/show.html.haml within layouts/application (23.4ms)
+  Rendered dashboards/_navbar.html.haml (9.7ms)
+  Rendered dashboards/_footer.html.haml (5.1ms)
+Completed 200 OK in 131ms (Views: 65.8ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/dashboards" for 67.162.39.150 at 2022-02-15 22:14:20 -0600
+Cannot render console from 67.162.39.150! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFriend Load (0.2ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE "friends"."friend_1_id" = $1[0m  [["friend_1_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (3, 4, 10, 2, 5, 12)[0m
+  [1m[36mFriend Load (0.2ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE "friends"."friend_2_id" = $1[0m  [["friend_2_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (6, 7, 13)[0m
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."admin_id" = $1[0m  [["admin_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1[0m
+  [1m[36mGroupMember Load (0.1ms)[0m  [1m[34mSELECT "group_members".* FROM "group_members" WHERE "group_members"."group_id" IN (4, 5)[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (2, 9, 6, 5, 12)[0m
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups" INNER JOIN "group_members" ON "groups"."id" = "group_members"."group_id" WHERE "group_members"."user_id" = $1[0m  [["user_id", 1]]
+  Rendering dashboards/index.html.haml within layouts/application
+  Rendered groups/_form.html.haml (4.4ms)
+  Rendered groups/_new.html.haml (6.3ms)
+  Rendered groups/_index.html.haml (2.7ms)
+  Rendered friends/_form.html.haml (3.8ms)
+  Rendered friends/_new.html.haml (5.8ms)
+  Rendered friends/_index.html.haml (5.0ms)
+  Rendered dashboards/index.html.haml within layouts/application (23.8ms)
+  Rendered dashboards/_navbar.html.haml (10.0ms)
+  Rendered dashboards/_footer.html.haml (3.5ms)
+Completed 200 OK in 116ms (Views: 79.2ms | ActiveRecord: 5.2ms)
+
+

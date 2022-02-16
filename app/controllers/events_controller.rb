@@ -1,25 +1,29 @@
 class EventsController < ApplicationController
   before_action :set_event, only: %i[ show edit update destroy ]
 
-  # GET /events or /events.json
   def index
     @events = Event.all
   end
 
-  # GET /events/1 or /events/1.json
   def show
+    @chat = Chat.new
+    @chats = @event.chats.includes(:author)
+    @group = @event.group
+    @game = @event.game
+    @attendee = Attendee.new
+    @attendees = @event.attendees.pluck(:username)
+    @current_user = current_user 
+    @attending = Attendee.where(user_id: current_user.id).where(event_id: @event.id)
+
   end
 
-  # GET /events/new
   def new
     @event = Event.new
   end
 
-  # GET /events/1/edit
   def edit
   end
 
-  # POST /events or /events.json
   def create
     game_id = params[:event][:game_id]
     @event = Event.new(event_params)
@@ -27,8 +31,6 @@ class EventsController < ApplicationController
     @event.group_id = params[:group_id]
     @event.author_id = current_user.id
     @event.admin_id = params[:admin_id].to_i
-
-    debugger
 
     respond_to do |format|
       if @event.save
@@ -41,7 +43,6 @@ class EventsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /events/1 or /events/1.json
   def update
     respond_to do |format|
       if @event.update(event_params)
@@ -54,7 +55,6 @@ class EventsController < ApplicationController
     end
   end
 
-  # DELETE /events/1 or /events/1.json
   def destroy
     @event.destroy
 
@@ -64,14 +64,13 @@ class EventsController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
+  private 
+
     def set_event
       @event = Event.find(params[:id])
-    end
+    end 
 
-    # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit( :game_id, :required_players, :details, :date, :admin_id )
+      params.require(:event).permit( :game_id, :required_players, :details, :date, :admin_id, :title )
     end
 end

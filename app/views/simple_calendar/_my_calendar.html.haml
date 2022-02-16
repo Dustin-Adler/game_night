@@ -1,4 +1,5 @@
 = month_calendar events: events do |date, events|
     = date 
     - events.each do |event|
-        = link_to event.title, event
+        %div
+            = link_to event.title, event_path(event)

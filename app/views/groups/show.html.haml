@@ -20,7 +20,6 @@
   .row
     .col-12
       = render 'events/new', event: @event, group: @group
-      = render 'simple_calendar/month_calendar', events: @events
+      = render 'simple_calendar/my_calendar', events: @events
 
-
-= link_to 'Back to Dashboard', dashboards_path
+  = button_to 'Back to Dashboard', dashboards_path

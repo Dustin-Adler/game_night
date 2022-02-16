@@ -1,4 +1,4 @@
-= form_for(attendee) do |f|
+= form_for [event, attendee] do |f|
   - if attendee.errors.any?
     #error_explanation
       %h2
@@ -7,11 +7,5 @@
       %ul
         - attendee.errors.full_messages.each do |message|
           %li= message
-  .field
-    = f.label :event_id
-    = f.number_field :event_id
-  .field
-    = f.label :user_id
-    = f.number_field :user_id
   .actions
-    = f.submit
+    = f.submit "RSVP to this event!"
