@@ -1,31 +1,19 @@
 %nav.navbar.navbar-expand-lg.navbar-light.bg-light
   .container
-    %a.navbar-brand{:href => "#"} Game Night
+    %a.navbar-brand{:href => dashboards_path } Game Night
     %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#navbarSupportedContent", "data-bs-toggle" => "collapse", :type => "button"}
       %span.navbar-toggler-icon
     #navbarSupportedContent.collapse.navbar-collapse
       %ul.navbar-nav.me-auto.mb-2.mb-lg-0
         %li.nav-item
-          %a.nav-link.active{"aria-current" => "page", :href => home_index_path} Home
+          %a.nav-link.active.h6.align-middle{"aria-current" => "page", :href => home_index_path} Home
         %li.nav-item
-          %a.nav-link.active{"aria-current" => "page", :href => dashboards_path} Dashboard
-        %li.nav-item.dropdown
-          %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", :href => "#", :role => "button"}
-            Dropdown
-          %ul.dropdown-menu{"aria-labelledby" => "navbarDropdown"}
-            %li
-              %a.dropdown-item{:href => "#"} Action
-            %li
-              %a.dropdown-item{:href => "#"} Another action
-            %li
-              %hr.dropdown-divider/
-            %li
-              %a.dropdown-item{:href => "#"} Something else here
+          %a.nav-link.active.h6.align-middle{"aria-current" => "page", :href => dashboards_path} Dashboard
         - if current_user
           %li.nav-item
-            %a.nav-link.active{"aria-current" => "page", :href => destroy_user_session_path, "data-method" => "delete"} Log Out
+            %a.nav-link.active.h6.align-middle{"aria-current" => "page", :href => destroy_user_session_path, "data-method" => "delete"} Log Out
         - else
           %li.nav-item
-            %a.nav-link.active{"aria-current" => "page", :href => new_user_registration_path } Sign Up
+            %a.nav-link.active.h6.align-middle{"aria-current" => "page", :href => new_user_registration_path } Sign Up
           %li.nav-item
-            %a.nav-link.active{"aria-current" => "page", :href => new_user_session_path } Sign In
+            %a.nav-link.active.h6.align-middle{"aria-current" => "page", :href => new_user_session_path } Sign In

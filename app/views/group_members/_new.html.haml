@@ -1,2 +1,12 @@
-%h5 Add a member to this group
-= render 'group_members/form', group_member: group_member
+%button.btn.btn-primary.btn-lg.my-4{"data-bs-target" => "#new-group-member", "data-bs-toggle" => "modal", :type => "button"} Add a member to this group!
+
+#new-group-member.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "new-group-member-modal", :tabindex => "-1"}
+    .modal-dialog 
+        .modal-content
+            .modal-header
+                %h5#new-group-member-modal.modal-title Add friend to this group!
+                %button.btn-close{"aria-label" => "close", "data-bs-dismiss" => "modal", :type => "button"}
+            .modal-body
+                = render 'group_members/form', group_member: group_member
+            .modal-footer
+                %button.btn.btn-secondary{"data-bs-dismiss" => "modal", :type => "button"} Cancel

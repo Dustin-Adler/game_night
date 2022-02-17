@@ -7,8 +7,12 @@
       %ul
         - chat.errors.full_messages.each do |message|
           %li= message
-  .field
-    = f.label :comment
-    = f.text_area :comment
+  .row.d-flex.justify-content-center.text-center
+    .col-lg-6
+      .field.mt-4
+        = f.label :comment, class: "h4"
+        = f.text_area :comment, {placeholder: "Say something to your buddies...", class: "form-control"}
   .actions
-    = f.submit "Post to this event's board."
+    .row
+      .col.text-center
+        = f.submit "Post to this event's board.", class: "btn btn-outline-primary w-50 mt-4"

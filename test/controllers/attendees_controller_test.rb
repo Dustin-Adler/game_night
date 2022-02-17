@@ -5,17 +5,17 @@ class AttendeesControllerTest < ActionDispatch::IntegrationTest
     @attendee = attendees(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get attendees_url
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get new_attendee_url
     assert_response :success
   end
 
-  test "should create attendee" do
+  test 'should create attendee' do
     assert_difference('Attendee.count') do
       post attendees_url, params: { attendee: { event_id: @attendee.event_id, user_id: @attendee.user_id } }
     end
@@ -23,22 +23,22 @@ class AttendeesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to attendee_url(Attendee.last)
   end
 
-  test "should show attendee" do
+  test 'should show attendee' do
     get attendee_url(@attendee)
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get edit_attendee_url(@attendee)
     assert_response :success
   end
 
-  test "should update attendee" do
+  test 'should update attendee' do
     patch attendee_url(@attendee), params: { attendee: { event_id: @attendee.event_id, user_id: @attendee.user_id } }
     assert_redirected_to attendee_url(@attendee)
   end
 
-  test "should destroy attendee" do
+  test 'should destroy attendee' do
     assert_difference('Attendee.count', -1) do
       delete attendee_url(@attendee)
     end

@@ -1,25 +1,56 @@
 
 .container
   .row
-    .col-8 
-      %p
-        %strong Admin:
-        = @group.admin.username
-      %p
-        %strong Group name:
-        = @group.group_name
-      %p
-        %strong Description:
-        = @group.description
+    .col-lg-8 
+      .card.m-4.border-primary
+        .card-header
+          %p.h4.p-4.align-middle
+            %strong Group name:
+            = @group.group_name
+        .card-body.text-primary
+          %p.h4.p-4.align-middle
+            %strong Description:
+            = @group.description
+        .card-footer
+          %p.h6.p-3.align-middle
+            %strong Admin:
+            = @group.admin.username
+
       - if @current_user.id == @group.admin_id
-        = render 'groups/edit', group: @group
-    .col-4
+        .row
+          .col.text-center
+            %button.btn.btn-primary.btn-lg.w-50.mt-3.mb-4{"data-bs-target" => "#edit-group", "data-bs-toggle" => "modal", :type => "button"} Edit this Group
+
+        #edit-group.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "edit-group-modal", :tabindex => "-1"}
+          .modal-dialog 
+            .modal-content
+              .modal-header
+                %h5#edit-group-modal.modal-title.text-center Edit Group
+                %button.btn-close{"aria-label" => "close", "data-bs-dismiss" => "modal", :type => "button"}
+              .modal-body
+                = render 'groups/edit', group: @group
+              .modal-footer
+                %button.btn.btn-secondary{"data-bs-dismiss" => "modal", :type => "button"} Cancel
+    .col-lg-4
       = render 'group_members/new', group_member: @group_member
       = render 'group_members/index'
 
   .row
-    .col-12
-      = render 'events/new', event: @event, group: @group, games: @games 
-      = render 'simple_calendar/my_calendar', events: @events
+    .col-12.text-center
+      %button.btn.btn-outline-info.btn-lg.w-50.p-4.mt-5.mb-4{"data-bs-target" => "#new-event", "data-bs-toggle" => "modal", :type => "button"} ~ Suggest a new Event ~
 
-  = button_to 'Back to Dashboard', {action: 'index', controller: 'dashboards'}, method: :get
+      #new-event.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "new-event-modal", :tabindex => "-1"}
+        .modal-dialog 
+          .modal-content
+            .modal-header.bg-info
+              %h5#new-event-modal.modal-title Schedule a new event!
+              %button.btn-close{"aria-label" => "close", "data-bs-dismiss" => "modal", :type => "button"}
+            .modal-body
+              = render 'events/new', event: @event, group: @group, games: @games
+            .modal-footer
+              %button.btn.btn-secondary{"data-bs-dismiss" => "modal", :type => "button"} Cancel
+      .my-4
+        = render 'simple_calendar/my_calendar', events: @events
+  .row
+    .col-12
+      = button_to 'Back to Dashboard', {action: 'index', controller: 'dashboards'}, method: :get, class: "btn btn-primary"

@@ -42,8 +42,6 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
-  config.middleware.use(IPinfoMiddleware, {
-    token: Rails.application.secrets.dig(:ipinfo_token)
-  })
-  
+  config.middleware.use(IPinfoMiddleware,
+                        token: Rails.application.secrets.dig(:ipinfo_token))
 end

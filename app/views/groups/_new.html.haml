@@ -1,2 +1,12 @@
-%h5 Create a new group 
-= render 'groups/form', group: @group
+%button.btn.btn-primary.btn-lg{"data-bs-target" => "#new-group", "data-bs-toggle" => "modal", :type => "button"} Create a new Group
+
+#new-group.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "new-group-modal", :tabindex => "-1"}
+    .modal-dialog 
+        .modal-content
+            .modal-header
+                %h5#new-group-modal.modal-title Create a new group
+                %button.btn-close{"aria-label" => "close", "data-bs-dismiss" => "modal", :type => "button"}
+            .modal-body
+                =render "groups/form", group: @group
+            .modal-footer
+                %button.btn.btn-secondary{"data-bs-dismiss" => "modal", :type => "button"} Cancel

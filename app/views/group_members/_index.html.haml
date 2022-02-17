@@ -1,13 +1,12 @@
-%h5 Group Members
-%table
+%table.table
   %thead
     %tr
-      %th Members
+      %th.h4.strong Group Members
       %th{:colspan => "1"}
   %tbody
     - @group.group_member_listings.includes(:member_of_group).each do |group_member|
       %tr
-        %td= group_member.member_of_group.username
+        %td.h6.strong= group_member.member_of_group.username
         -# -debugger
         - if @current_user.id == @group.admin_id
-          %td= button_to 'remove member', {action: 'destroy', controller: 'group_members', id: group_member[:id]}, method: :delete, data: {confirm: "Are you sure you want to remove member?"}
+          %td= button_to 'remove member', {action: 'destroy', controller: 'group_members', id: group_member[:id]}, method: :delete, data: {confirm: "Are you sure you want to remove member?"}, class: "btn btn-sm btn-outline-danger"

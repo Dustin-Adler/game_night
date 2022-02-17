@@ -11,12 +11,12 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, 
-      keys: [:username, :email, :password, :password_confirmation, :time_zone])
-    devise_parameter_sanitizer.permit(:sign_up, 
-      keys: [:login, :password, :password_confirmation, :time_zone])
-    devise_parameter_sanitizer.permit(:account_update, 
-      keys: [:username, :email, :current_password, :password_confirmation])
+    devise_parameter_sanitizer.permit(:sign_up,
+                                      keys: %i[username email password password_confirmation time_zone])
+    devise_parameter_sanitizer.permit(:sign_up,
+                                      keys: %i[login password password_confirmation time_zone])
+    devise_parameter_sanitizer.permit(:account_update,
+                                      keys: %i[username email current_password password_confirmation])
   end
 
   private
@@ -24,5 +24,4 @@ class ApplicationController < ActionController::Base
   def set_time_zone
     Time.zone = current_user.time_zone
   end
-
 end

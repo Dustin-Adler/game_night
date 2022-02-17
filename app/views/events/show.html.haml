@@ -1,40 +1,53 @@
 .container
   .row
-    .col-8
-      %p
-        %strong Title:
-        = @event.title
-      %p
-        %strong Group:
-        = @group.group_name
-      %p
-        %strong Game:
-        = @game.game_name
-      %p
+    .col-12
+      %h1.h1.text-success.text-center.my-4
+        %strong
+          =@group.group_name
+  .row
+    .col-lg-8
+      .card.border-success
+        .card-header
+          .row
+            .col-6
+              %p.h5.m-4
+                %strong Event Name:
+                = @event.title
+            .col-6
+              %p.h5.m-4
+                %strong When:
+                = readable_time(@event.date)
+        .card-body
+          %p.h5.m-4.text-success
+            %strong Game:
+            = @game.game_name
+          %p.h5.m-4.text-success
+            %strong Details:
+            = @event.details
+      .row
+        .col-12.text-center
+          = link_to "Back to group", group_path(@group), class: "btn btn-primary w-50 my-3 text-light"
+    .col-lg-4
+      %p.h5.text-center.mb-4
         %strong Required players:
         = @event.required_players
-      %p
-        %strong Details:
-        = @event.details
-      %p
-        %strong Date:
-        = readable_time(@event.date)
-      = link_to "Back to group", group_path(@group)
-    .col-4 
-      RSVP list
       = render 'attendees/form', attendee: @attendee, event: @event
-      - @attendees.each do |attender|
-        = attender
+      = render "attendees/index", attendees: @attendees, members: @members
       - unless @attending.empty?
-        = button_to 'Cancel plans', {action: 'destroy', controller: 'attendees', id: @attending.ids[0] }, method: :delete, data: { confirm: "Are you sure you don't want to attend?"}
+        .row
+          .col-12.text-center
+            = button_to 'Cancel plans', {action: 'destroy', controller: 'attendees', id: @attending.ids[0] }, method: :delete, data: { confirm: "Are you sure you don't want to attend?"}, class: "btn btn-outline-danger"
   .row
     .col-12
       = render "chats/form", chat: @chat, event: @event 
       - @chats.each do |chat|
-        = chat.author.username + ":" 
-        %br 
-        = chat.comment
-        %br
-        - if @current_user.id == chat.author_id || @current_user.id == @group.admin_id
-          = button_to "Delete comment", {action: 'destroy', controller: 'chats', id: chat.id}, method: :delete, data: {confirm: "Are you sure you want to delete this comment permanently?"}
+        .card.m-4
+          .card-header.h4.d-flex.justify-content-between
+            %strong
+              = chat.author.username + ":"
+            - if @current_user.id == chat.author_id || @current_user.id == @group.admin_id
+              = button_to "Delete", {action: 'destroy', controller: 'chats', id: chat.id}, method: :delete, data: {confirm: "Are you sure you want to delete this comment permanently?"}, class: "btn btn-outline-danger btn-sm"
+          .card-body.h6.ps-5
+            = chat.comment
+        
 

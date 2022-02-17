@@ -9,21 +9,21 @@
           %li= message
   - required_players = Array.new(12).map.with_index {|n, i| n = [i+1, i+1]}
   .field
-    = f.label :title 
-    = f.text_field :title
+    = f.label :title, class: "h5 strong"
+    = f.text_field :title, class: "form-control"
   .field
-    = f.label :game_id
-    = f.select( :game_id, games)
+    = f.label :game_id, class: "h5 strong"
+    = f.select( :game_id, games, {}, { class: "form-control"})
   .field
-    = f.label :required_players
-    = f.select( :required_players, required_players )
+    = f.label :required_players, class: "h5 strong"
+    = f.select( :required_players, required_players, {}, { class: "form-control"} )
   .field
-    = f.label :details
-    = f.text_area :details
+    = f.label :details, class: "h5 strong"
+    = f.text_area :details, class: "form-control"
   .field
-    = f.label :date
-    = f.datetime_select :date
+    = f.label :date, class: "h5 strong"
+    = f.datetime_local_field :date, class: "form-control"
   .field
     = hidden_field_tag :admin_id, group.admin_id
   .actions
-    = f.submit
+    = f.submit class: "btn btn-primary mt-4 w-50"

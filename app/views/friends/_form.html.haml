@@ -1,6 +1,6 @@
 = form_for(friend) do |f|
   .field
-    = f.label :username
-    = f.text_field :friend_2_id
+    = f.label :username, class: "h5 strong"
+    = f.text_field :friend_2_id, class: "form-control"
   .actions
-    = f.submit
+    = f.submit class: "btn btn-primary mt-4"

@@ -11,9 +11,9 @@
   - @friends.each do |friend|
     - friends_list.push([friend[:username], friend[:user_id]])
   .field
-    = f.label :username
-    = f.select(:user_id , friends_list )
+    = f.label :username, class: "h5 strong"
+    = f.select(:user_id , friends_list, {}, {class: "form-control mt-4"} )
   .field#hidden_field
     = f.number_field :group_id
   .actions
-    = f.submit
+    = f.submit class: "btn btn-primary"
