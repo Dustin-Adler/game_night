@@ -9,7 +9,7 @@ class CreateEvents < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
-    add_index :events, :group_id 
+    add_index :events, :group_id
     add_index :events, :game_id
   end
 end

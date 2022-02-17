@@ -1,2 +1,12 @@
-%h4 Add Friend
-= render 'friends/form', friend: @friend
+%button.btn.btn-primary.btn-lg{"data-bs-target" => "#add-friend", "data-bs-toggle" => "modal", :type => "button"} Add a new Friend!
+
+#add-friend.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "add-friend-modal", :tabindex => "-1"}
+    .modal-dialog 
+        .modal-content
+            .modal-header
+                %h5#add-friend-modal.modal-title Add a Friend!
+                %button.btn-close{"aria-label" => "close", "data-bs-dismiss" => "modal", :type => "button"}
+            .modal-body
+                = render 'friends/form', friend: @friend
+            .modal-footer
+                %button.btn.btn-secondary{"data-bs-dismiss" => "modal", :type => "button"} Cancel

@@ -1,11 +1,11 @@
 .container.text-center 
-    %h1 
+    %h1.h1.my-5
         Welcome to Game Night #{current_user.username}!
     .row
-        .col-8
+        .col-lg-8
             = render "groups/new"
             = render "groups/index"
-        .col-4
+        .col-lg-4
             = render "friends/new"
             = render "friends/index"
     .row

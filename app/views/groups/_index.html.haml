@@ -1,15 +1,14 @@
-%h5 Groups
-%table
-  %thead
+%table.table.my-5.table-striped
+  %thead.table-success
     %tr
       %th Admin
       %th Group name
       %th Description
       %th{:colspan => "3"}
-  %tbody
+  %tbody.table-highlight
     - @groups.each do |group|
       %tr
-        %td= group.admin.username
-        %td= group.group_name
-        %td= group.description
-        %td= link_to 'Details', group
+        %td.h5.align-middle= group.admin.username
+        %td.h5.align-middle= group.group_name
+        %td.h5.align-middle.py-4= group.description
+        %td.align-middle= button_to 'Details', { action: 'show', controller: 'groups', id: group.id }, method: :get, class: "btn btn-outline-info"

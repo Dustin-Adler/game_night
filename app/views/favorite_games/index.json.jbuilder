@@ -1,1 +1,1 @@
-json.array! @favorite_games, partial: "favorite_games/favorite_game", as: :favorite_game
+json.array! @favorite_games, partial: 'favorite_games/favorite_game', as: :favorite_game

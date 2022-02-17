@@ -8,4 +8,6 @@
         - attendee.errors.full_messages.each do |message|
           %li= message
   .actions
-    = f.submit "RSVP to this event!"
+    .row
+      .col-12.text-center
+        = f.submit "RSVP to this event!", class: "btn btn-primary"

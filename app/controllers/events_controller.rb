@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: %i[ show edit update destroy ]
+  before_action :set_event, only: %i[show edit update destroy]
 
   def index
     @events = Event.all
@@ -9,20 +9,20 @@ class EventsController < ApplicationController
     @chat = Chat.new
     @chats = @event.chats.includes(:author)
     @group = @event.group
+    @members = @group.members.pluck(:username)
+    @members += [@group.admin.username]
     @game = @event.game
     @attendee = Attendee.new
     @attendees = @event.attendees.pluck(:username)
-    @current_user = current_user 
+    @current_user = current_user
     @attending = Attendee.where(user_id: current_user.id).where(event_id: @event.id)
-
   end
 
   def new
     @event = Event.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     game_id = params[:event][:game_id]
@@ -35,7 +35,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to "/groups/#{params[:group_id]}", notice: "Event was successfully created." }
+        format.html { redirect_to "/groups/#{params[:group_id]}", notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { redirect_to "/groups/#{params[:group_id]}", alert: @event.errors.full_messages }
@@ -47,7 +47,7 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to event_url(@event), notice: "Event was successfully updated." }
+        format.html { redirect_to event_url(@event), notice: 'Event was successfully updated.' }
         format.json { render :show, status: :ok, location: @event }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -60,18 +60,18 @@ class EventsController < ApplicationController
     @event.destroy
 
     respond_to do |format|
-      format.html { redirect_to events_url, notice: "Event was successfully destroyed." }
+      format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
-  private 
+  private
 
-    def set_event
-      @event = Event.find(params[:id])
-    end 
+  def set_event
+    @event = Event.find(params[:id])
+  end
 
-    def event_params
-      params.require(:event).permit( :game_id, :required_players, :details, :date, :admin_id, :title )
-    end
+  def event_params
+    params.require(:event).permit(:game_id, :required_players, :details, :date, :admin_id, :title)
+  end
 end

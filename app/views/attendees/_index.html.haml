@@ -1,0 +1,16 @@
+%table.table.mt-3
+  %thead.table-success
+    %tr
+      %th Friends
+      %th Attending
+      %th{:colspan => "2"}
+  %tbody
+    - members.each do |member|
+      %tr
+        %td.h6.align-middle= member
+        %td
+          - if attendees.include?(member)
+            %i.bi.bi-check-square.text-success
+          - else 
+            %i.bi.bi-square
+        

@@ -1,11 +1,11 @@
-%table
-  %thead
+%table.table.my-5
+  %thead.table-success
     %tr
       %th Friends
-      %th{:colspan => "1"}
+      %th{:colspan => "2"}
   %tbody
     - @friends.each do |friend|
       %tr
-        %td= friend[:username]
+        %td.h6.align-middle= friend[:username]
         - if current_page?(dashboards_path)
-          %td= button_to 'unfriend', {action: 'destroy', controller: 'friends', id: friend[:id]}, method: :delete, data: {confirm: "Are you sure you want to remove this friend?"}
+          %td= button_to 'unfriend', {action: 'destroy', controller: 'friends', id: friend[:id]}, method: :delete, data: {confirm: "Are you sure you want to remove this friend?"}, class: "btn btn-outline-danger btn-sm"

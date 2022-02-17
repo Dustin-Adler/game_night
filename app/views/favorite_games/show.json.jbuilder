@@ -1,1 +1,1 @@
-json.partial! "favorite_games/favorite_game", favorite_game: @favorite_game
+json.partial! 'favorite_games/favorite_game', favorite_game: @favorite_game
