@@ -6,11 +6,10 @@ class EventsController < ApplicationController
   end
 
   def show
-
     @chat = Chat.new
     @chats = @event.chats.includes(:author)
     @group = @event.group
-    @members = @group.members.pluck(:username) 
+    @members = @group.members.pluck(:username)
     @members += [@group.admin.username]
     @game = @event.game
     @attendee = Attendee.new
