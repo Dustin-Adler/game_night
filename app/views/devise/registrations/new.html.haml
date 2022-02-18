@@ -1,32 +1,33 @@
-%h2 Sign up
-- time_zones = ActiveSupport::TimeZone::MAPPING
-- readable_time_zones = []
-- time_zones.each { |time_zone| readable_time_zones.push([time_zone[0], time_zone[1]]) } 
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :username
-    %br/
-    = f.text_field :username, autofocus: true, class: "input"
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .field
-    = f.label :time_zone
-    %br/
-    = f.select :time_zone, readable_time_zones, :selected => time_zone
-  .actions
-    = f.submit "Sign up"
+.row.m-5
+  .col.d-flex.justify-content-center
+    .card
+      %h2.card-header Sign up
+      - time_zones = ActiveSupport::TimeZone::MAPPING
+      - readable_time_zones = []
+      - time_zones.each { |time_zone| readable_time_zones.push([time_zone[0], time_zone[1]]) } 
+      .card-body.p-4
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = render "devise/shared/error_messages", resource: resource
+          .field.mx-4
+            = f.label :username, class: "h5"
+            = f.text_field :username, autofocus: true, class: "form-control"
+          .field.mx-4
+            = f.label :email, class: "h5"
+            = f.email_field :email, autocomplete: "email", class: "form-control"
+          .field.mx-4
+            = f.label :password, class: "h5"
+            - if @minimum_password_length
+              %em
+                (#{@minimum_password_length} characters minimum)
+            = f.password_field :password, autocomplete: "new-password", class: "form-control"
+          .field.mx-4
+            = f.label :password_confirmation, class: "h5"
+            = f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control"
+          .field.mx-4
+            = f.label :time_zone, class: "h5"
+            = f.select :time_zone, readable_time_zones,{ :selected => time_zone},{ class: "form-control"}
+          .actions.mx-4
+            .row.d-flex.justify-content-center
+              = f.submit "Sign up", class: "btn btn-primary w-75 mt-4"
+
 = render "devise/shared/links"

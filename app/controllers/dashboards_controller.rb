@@ -9,4 +9,5 @@ class DashboardsController < ApplicationController
     @groups = Group.users_groups(current_user)
     @events = current_user.events
   end
+  
 end

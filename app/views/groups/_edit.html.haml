@@ -12,19 +12,14 @@
     - admin_options = []
     - @group.members.each do |member|
       - admin_options.push([member.username, member.id])
-    .field.my-2.h5.strong
+    .field.my-2.h5
       = f.label :admin
       = f.select(:admin_id, admin_options, {}, {class: "form-control mb-4"})
-    .field.my-2.h5.strong
+    .field.my-2.h5
       = f.label :group_name
       = f.text_field :group_name, class: "form-control mb-4"
-    .field.my-2.h5.strong
+    .field.my-2.h5
       = f.label :description
       = f.text_area :description, class: "form-control mb-4"
-    .d-flex.justify-content-around
-      .col-6.align-middle
-        .actions.my-3
-          = f.submit class: "btn btn-primary"
-      .col-6.align-middle
-        %td= button_to 'Delete Group', {action: 'destroy', controller: 'groups', id: group[:id]}, method: :delete, data: { confirm: 'Are you sure you want to delete this group? It will erase this group for all group members as well.' }, class: "btn btn-danger my-3"
-    
+    .actions
+      = f.submit class: "btn btn-primary my-3"  
