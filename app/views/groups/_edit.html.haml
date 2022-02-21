@@ -9,7 +9,7 @@
         %ul
           - group.errors.full_messages.each do |message|
             %li= message
-    - admin_options = []
+    - admin_options = [[current_user.username, current_user.id]]
     - @group.members.each do |member|
       - admin_options.push([member.username, member.id])
     .field.my-2.h5

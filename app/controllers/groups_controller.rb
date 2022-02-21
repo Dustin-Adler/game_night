@@ -26,12 +26,36 @@ class GroupsController < ApplicationController
   end
 
   def update
+
+    new_admin_id = params[:group][:admin_id].to_i
+
     respond_to do |format|
       if @group.update(group_params)
-        format.html { redirect_to dashboards_url, notice: 'Group was successfully updated.' }
+        if new_admin_id != current_user.id
+          demoted_admin = GroupMember.new({
+              user_id: current_user.id, 
+              group_id: @group.id
+            })
+          if demoted_admin.save
+            flash[:demote_admin] = "You made a successful transition into a member of this group."
+          else
+            debugger
+            flash[:admin_change_error] = "Sorry we weren't able change you into a member of this group due to an internal error."
+          end
+
+          new_admins_old_member_listing = GroupMember.where(user_id: new_admin_id).where(group_id: @group.id).first
+          new_admin = User.find_by(id: new_admin_id)
+          
+          if new_admins_old_member_listing
+            new_admins_old_member_listing.destroy
+            debugger
+            flash[:new_admin] = "#{new_admin.username} was promoted to admin of this group."
+          end
+        end
+        format.html { redirect_to "/groups/#{@group.id}", notice: 'Group was successfully updated.' }
         format.json { render :show, status: :ok, location: @group }
       else
-        format.html { redirect_to dashboards_url, alert: @group.errors.full_messages.first }
+        format.html { redirect_to "/groups/#{@group.id}", alert: @group.errors.full_messages.first }
         format.json { render json: @group.errors }
       end
     end
@@ -55,6 +79,6 @@ class GroupsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def group_params
-    params.require(:group).permit(:group_name, :description)
+    params.require(:group).permit(:group_name, :description, :admin_id )
   end
 end
