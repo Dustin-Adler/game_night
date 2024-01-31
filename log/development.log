@@ -43781,3 +43781,519 @@ Processing by GroupsController#show as HTML
 Completed 200 OK in 82ms (Views: 76.0ms | ActiveRecord: 1.7ms)
 
 
+DEPRECATION WARNING: The `cache_control` argument is deprecated,replaced by `headers: { 'Cache-Control' => {:index=>"index", :headers=>{}} }`,  and will be removed in Rails 5.1. (called from <top (required)> at /home/dustin/Projects/game_night/config/environment.rb:5)
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <top (required)> at /home/dustin/Projects/game_night/config/environment.rb:5)
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <top (required)> at /home/dustin/Projects/game_night/config/environment.rb:5)
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <top (required)> at /home/dustin/Projects/game_night/config/environment.rb:5)
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <top (required)> at /home/dustin/Projects/game_night/config/environment.rb:5)
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <top (required)> at /home/dustin/Projects/game_night/config/environment.rb:5)
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <top (required)> at /home/dustin/Projects/game_night/config/environment.rb:5)
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <top (required)> at /home/dustin/Projects/game_night/config/environment.rb:5)
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <top (required)> at /home/dustin/Projects/game_night/config/environment.rb:5)
+  [1m[35m (249.7ms)[0m  [1m[35mCREATE DATABASE "game_night_development" ENCODING = 'unicode'[0m
+  [1m[35m (104.3ms)[0m  [1m[35mCREATE DATABASE "game_night_test" ENCODING = 'unicode'[0m
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <top (required)> at /home/dustin/Projects/game_night/config/environment.rb:5)
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <top (required)> at /home/dustin/Projects/game_night/config/environment.rb:5)
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <top (required)> at /home/dustin/Projects/game_night/config/environment.rb:5)
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <top (required)> at /home/dustin/Projects/game_night/config/environment.rb:5)
+  [1m[35m (10.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8350563894896004495)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (1.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-01-30 18:38:55.675940', '2024-01-30 18:38:55.675944') RETURNING "key"[0m
+Migrating to DeviseCreateUsers (20220126161943)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial NOT NULL PRIMARY KEY, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "username" character varying DEFAULT '' NOT NULL, "time_zone" character varying NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "confirmation_token" character varying, "confirmed_at" timestamp, "confirmation_sent_at" timestamp, "unconfirmed_email" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_confirmation_token" ON "users" ("confirmation_token")[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_username" ON "users" ("username")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20220126161943') RETURNING "version"[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateGames (20220129120904)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (11.5ms)[0m  [1m[35mCREATE TABLE "games" ("id" serial NOT NULL PRIMARY KEY, "game_name" character varying, "description" text, "video_game" boolean, "genre" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20220129120904') RETURNING "version"[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddDBconstraintsToGames (20220129121536)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "games" ALTER COLUMN "game_name" SET NOT NULL[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "games" ALTER COLUMN "description" SET NOT NULL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "games" ALTER COLUMN "video_game" SET NOT NULL[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "games" ALTER COLUMN "genre" SET NOT NULL[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20220129121536') RETURNING "version"[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangeTimeZoneToLocationOnUsers (20220131152715)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.8ms)[0m  [1m[35mALTER TABLE "users" RENAME COLUMN "time_zone" TO "location"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20220131152715') RETURNING "version"[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddTimeZoneToUsers (20220131203551)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (10.5ms)[0m  [1m[35mALTER TABLE "users" RENAME COLUMN "location" TO "time_zone"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20220131203551') RETURNING "version"[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateFriends (20220201102103)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "friends" ("id" serial NOT NULL PRIMARY KEY, "friend_1_id" integer NOT NULL, "friend_2_id" integer NOT NULL, "pending" boolean NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE INDEX "index_friends_on_friend_1_id" ON "friends" ("friend_1_id")[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE INDEX "index_friends_on_friend_2_id" ON "friends" ("friend_2_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20220201102103') RETURNING "version"[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateGroupMembers (20220201103253)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "group_members" ("id" serial NOT NULL PRIMARY KEY, "group_id" integer NOT NULL, "user_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE INDEX "index_group_members_on_group_id" ON "group_members" ("group_id")[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE INDEX "index_group_members_on_user_id" ON "group_members" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20220201103253') RETURNING "version"[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateGroups (20220201104604)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.7ms)[0m  [1m[35mCREATE TABLE "groups" ("id" serial NOT NULL PRIMARY KEY, "admin_id" integer NOT NULL, "group_name" character varying NOT NULL, "description" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE INDEX "index_groups_on_admin_id" ON "groups" ("admin_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20220201104604') RETURNING "version"[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddPendingToGroupMembers (20220201105213)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "group_members" ADD "pending" boolean NOT NULL[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20220201105213') RETURNING "version"[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateFavoriteGames (20220201105606)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "favorite_games" ("id" serial NOT NULL PRIMARY KEY, "game_id" integer NOT NULL, "user_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE INDEX "index_favorite_games_on_game_id" ON "favorite_games" ("game_id")[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE INDEX "index_favorite_games_on_user_id" ON "favorite_games" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20220201105606') RETURNING "version"[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateEvents (20220201105923)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.5ms)[0m  [1m[35mCREATE TABLE "events" ("id" serial NOT NULL PRIMARY KEY, "group_id" integer NOT NULL, "game_id" integer NOT NULL, "required_players" integer NOT NULL, "details" text NOT NULL, "date" timestamp NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE INDEX "index_events_on_group_id" ON "events" ("group_id")[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE INDEX "index_events_on_game_id" ON "events" ("game_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20220201105923') RETURNING "version"[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAttendees (20220201110003)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "attendees" ("id" serial NOT NULL PRIMARY KEY, "event_id" integer NOT NULL, "user_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE INDEX "index_attendees_on_event_id" ON "attendees" ("event_id")[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE INDEX "index_attendees_on_user_id" ON "attendees" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20220201110003') RETURNING "version"[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddDefaultToFriends (20220202143921)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "friends" ALTER COLUMN "pending" SET DEFAULT TRUE[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "group_members" ALTER COLUMN "pending" SET DEFAULT TRUE[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20220202143921') RETURNING "version"[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddGroupAdminIdToEvents (20220213050823)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "events" ADD "group_admin_id" integer NOT NULL[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20220213050823') RETURNING "version"[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddIndexOnGroupAdminIdToEvents (20220213051110)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE INDEX "index_events_on_group_admin_id" ON "events" ("group_admin_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20220213051110') RETURNING "version"[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddAuthorIdAndAdminIdToEvents (20220213090447)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "events" ADD "author_id" integer NOT NULL[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "events" ADD "admin_id" integer NOT NULL[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE INDEX "index_events_on_author_id" ON "events" ("author_id")[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE INDEX "index_events_on_admin_id" ON "events" ("admin_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20220213090447') RETURNING "version"[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to RemoveRedundantColumnFromEvents (20220213091136)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.4ms)[0m  [1m[35mALTER TABLE "events" DROP COLUMN "group_admin_id"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20220213091136') RETURNING "version"[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddTitleToEvents (20220215161139)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "events" ADD "title" character varying DEFAULT 'Game Night!' NOT NULL[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20220215161139') RETURNING "version"[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateChats (20220216025633)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.0ms)[0m  [1m[35mCREATE TABLE "chats" ("id" serial NOT NULL PRIMARY KEY, "event_id" integer NOT NULL, "author_id" integer NOT NULL, "comment" text NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE INDEX "index_chats_on_event_id" ON "chats" ("event_id")[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE INDEX "index_chats_on_author_id" ON "chats" ("author_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20220216025633') RETURNING "version"[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddServiceNameToActiveStorageBlobs (20240130183627)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240130183627') RETURNING "version"[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateActiveStorageVariantRecords (20240130183628)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240130183628') RETURNING "version"[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to RemoveNotNullOnActiveStorageBlobsChecksum (20240130183629)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240130183629') RETURNING "version"[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8350563894896004495)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <top (required)> at /home/dustin/Projects/game_night/config/environment.rb:5)
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <top (required)> at /home/dustin/Projects/game_night/config/environment.rb:5)
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <top (required)> at /home/dustin/Projects/game_night/config/environment.rb:5)
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <top (required)> at /home/dustin/Projects/game_night/config/environment.rb:5)
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Delete All (0.3ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "demo@demo.demo"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "username", "time_zone", "reset_password_token", "reset_password_sent_at", "remember_created_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["email", "demo@demo.demo"], ["encrypted_password", "[FILTERED]"], ["username", "Demo"], ["time_zone", "America/Chicago"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", nil], ["confirmation_sent_at", "2024-01-30 18:39:15.990945"], ["unconfirmed_email", nil], ["created_at", "2024-01-30 18:39:15.990802"], ["updated_at", "2024-01-30 18:39:15.990802"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  Rendering devise/mailer/confirmation_instructions.html.haml
+  Rendered devise/mailer/confirmation_instructions.html.haml (Duration: 10.5ms | Allocations: 11343)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 42.0ms
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <top (required)> at /home/dustin/Projects/game_night/config/environment.rb:5)
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <top (required)> at /home/dustin/Projects/game_night/config/environment.rb:5)
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Delete All (1.6ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (6.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "demo@demo.demo"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "username", "time_zone", "reset_password_token", "reset_password_sent_at", "remember_created_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["email", "demo@demo.demo"], ["encrypted_password", "[FILTERED]"], ["username", "Demo"], ["time_zone", "America/Chicago"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", nil], ["confirmation_sent_at", "2024-01-30 18:55:41.511255"], ["unconfirmed_email", nil], ["created_at", "2024-01-30 18:55:41.511092"], ["updated_at", "2024-01-30 18:55:41.511092"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  Rendering devise/mailer/confirmation_instructions.html.haml
+  Rendered devise/mailer/confirmation_instructions.html.haml (Duration: 6.9ms | Allocations: 9177)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 36.7ms
+Delivered mail 65b9462d93373_7f8a14dc9679c@FirstZion.mail (15.8ms)
+Date: Tue, 30 Jan 2024 12:55:41 -0600
+From: game-night-dev@example.com
+Reply-To: game-night-dev@example.com
+To: demo@demo.demo
+Message-ID: <65b9462d93373_7f8a14dc9679c@FirstZion.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>
+Welcome demo@demo.demo!
+</p>
+<p>You can confirm your account email through the link below:</p>
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=1Ysq3A8XjxfuNokGF3p1">Confirm my account</a></p>
+
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "probablydustin@yahoo.demo"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "username", "time_zone", "reset_password_token", "reset_password_sent_at", "remember_created_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["email", "probablydustin@yahoo.demo"], ["encrypted_password", "[FILTERED]"], ["username", "FirstZion"], ["time_zone", "America/Chicago"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", nil], ["confirmation_sent_at", "2024-01-30 18:55:41.809285"], ["unconfirmed_email", nil], ["created_at", "2024-01-30 18:55:41.809210"], ["updated_at", "2024-01-30 18:55:41.809210"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  Rendering devise/mailer/confirmation_instructions.html.haml
+  Rendered devise/mailer/confirmation_instructions.html.haml (Duration: 0.2ms | Allocations: 120)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1.8ms
+Delivered mail 65b9462dc7035_7f8a14dc96886@FirstZion.mail (1.0ms)
+Date: Tue, 30 Jan 2024 12:55:41 -0600
+From: game-night-dev@example.com
+Reply-To: game-night-dev@example.com
+To: probablydustin@yahoo.demo
+Message-ID: <65b9462dc7035_7f8a14dc96886@FirstZion.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>
+Welcome probablydustin@yahoo.demo!
+</p>
+<p>You can confirm your account email through the link below:</p>
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=e7vA86AxqNGgGWooNA-z">Confirm my account</a></p>
+
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "punisher@yahoo.demo"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "username", "time_zone", "reset_password_token", "reset_password_sent_at", "remember_created_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["email", "punisher@yahoo.demo"], ["encrypted_password", "[FILTERED]"], ["username", "PunisherOfTruth"], ["time_zone", "America/Chicago"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", nil], ["confirmation_sent_at", "2024-01-30 18:55:42.005174"], ["unconfirmed_email", nil], ["created_at", "2024-01-30 18:55:42.005108"], ["updated_at", "2024-01-30 18:55:42.005108"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  Rendering devise/mailer/confirmation_instructions.html.haml
+  Rendered devise/mailer/confirmation_instructions.html.haml (Duration: 0.2ms | Allocations: 80)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1.6ms
+Delivered mail 65b9462e299b_7f8a14dc9697c@FirstZion.mail (1.0ms)
+Date: Tue, 30 Jan 2024 12:55:42 -0600
+From: game-night-dev@example.com
+Reply-To: game-night-dev@example.com
+To: punisher@yahoo.demo
+Message-ID: <65b9462e299b_7f8a14dc9697c@FirstZion.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>
+Welcome punisher@yahoo.demo!
+</p>
+<p>You can confirm your account email through the link below:</p>
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=s6N4VHwD_B6zL4A2NJDR">Confirm my account</a></p>
+
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "midwestluvaffair@yahoo.demo"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "username", "time_zone", "reset_password_token", "reset_password_sent_at", "remember_created_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["email", "midwestluvaffair@yahoo.demo"], ["encrypted_password", "[FILTERED]"], ["username", "MidwestLuvAffair"], ["time_zone", "America/Chicago"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", nil], ["confirmation_sent_at", "2024-01-30 18:55:42.201257"], ["unconfirmed_email", nil], ["created_at", "2024-01-30 18:55:42.201186"], ["updated_at", "2024-01-30 18:55:42.201186"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  Rendering devise/mailer/confirmation_instructions.html.haml
+  Rendered devise/mailer/confirmation_instructions.html.haml (Duration: 0.2ms | Allocations: 80)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1.7ms
+Delivered mail 65b9462e32852_7f8a14dc97043@FirstZion.mail (1.0ms)
+Date: Tue, 30 Jan 2024 12:55:42 -0600
+From: game-night-dev@example.com
+Reply-To: game-night-dev@example.com
+To: midwestluvaffair@yahoo.demo
+Message-ID: <65b9462e32852_7f8a14dc97043@FirstZion.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>
+Welcome midwestluvaffair@yahoo.demo!
+</p>
+<p>You can confirm your account email through the link below:</p>
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=CyBhUyw4ZxqYpLKZXpnw">Confirm my account</a></p>
+
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "peanut@yahoo.demo"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "username", "time_zone", "reset_password_token", "reset_password_sent_at", "remember_created_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["email", "peanut@yahoo.demo"], ["encrypted_password", "[FILTERED]"], ["username", "Peanut"], ["time_zone", "America/Chicago"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", nil], ["confirmation_sent_at", "2024-01-30 18:55:42.397125"], ["unconfirmed_email", nil], ["created_at", "2024-01-30 18:55:42.397057"], ["updated_at", "2024-01-30 18:55:42.397057"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  Rendering devise/mailer/confirmation_instructions.html.haml
+  Rendered devise/mailer/confirmation_instructions.html.haml (Duration: 0.2ms | Allocations: 80)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1.7ms
+Delivered mail 65b9462e6253c_7f8a14dc97116@FirstZion.mail (1.0ms)
+Date: Tue, 30 Jan 2024 12:55:42 -0600
+From: game-night-dev@example.com
+Reply-To: game-night-dev@example.com
+To: peanut@yahoo.demo
+Message-ID: <65b9462e6253c_7f8a14dc97116@FirstZion.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>
+Welcome peanut@yahoo.demo!
+</p>
+<p>You can confirm your account email through the link below:</p>
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=MvZsVxtz15KQbw4kzvaf">Confirm my account</a></p>
+
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foxgirl4eva@yahoo.demo"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "username", "time_zone", "reset_password_token", "reset_password_sent_at", "remember_created_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["email", "foxgirl4eva@yahoo.demo"], ["encrypted_password", "[FILTERED]"], ["username", "FoxGirl4Eva"], ["time_zone", "America/Chicago"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", nil], ["confirmation_sent_at", "2024-01-30 18:55:42.593128"], ["unconfirmed_email", nil], ["created_at", "2024-01-30 18:55:42.593062"], ["updated_at", "2024-01-30 18:55:42.593062"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  Rendering devise/mailer/confirmation_instructions.html.haml
+  Rendered devise/mailer/confirmation_instructions.html.haml (Duration: 0.2ms | Allocations: 80)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1.7ms
+Delivered mail 65b9462e9242a_7f8a14dc9729d@FirstZion.mail (1.0ms)
+Date: Tue, 30 Jan 2024 12:55:42 -0600
+From: game-night-dev@example.com
+Reply-To: game-night-dev@example.com
+To: foxgirl4eva@yahoo.demo
+Message-ID: <65b9462e9242a_7f8a14dc9729d@FirstZion.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>
+Welcome foxgirl4eva@yahoo.demo!
+</p>
+<p>You can confirm your account email through the link below:</p>
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=a36zpUp5hYQ5BqTo29Ro">Confirm my account</a></p>
+
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "fatedwing@yahoo.demo"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "username", "time_zone", "reset_password_token", "reset_password_sent_at", "remember_created_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["email", "fatedwing@yahoo.demo"], ["encrypted_password", "[FILTERED]"], ["username", "FatedWing"], ["time_zone", "America/Chicago"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", nil], ["confirmation_sent_at", "2024-01-30 18:55:42.788760"], ["unconfirmed_email", nil], ["created_at", "2024-01-30 18:55:42.788692"], ["updated_at", "2024-01-30 18:55:42.788692"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  Rendering devise/mailer/confirmation_instructions.html.haml
+  Rendered devise/mailer/confirmation_instructions.html.haml (Duration: 0.2ms | Allocations: 80)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1.7ms
+Delivered mail 65b9462ec1f70_7f8a14dc97397@FirstZion.mail (1.1ms)
+Date: Tue, 30 Jan 2024 12:55:42 -0600
+From: game-night-dev@example.com
+Reply-To: game-night-dev@example.com
+To: fatedwing@yahoo.demo
+Message-ID: <65b9462ec1f70_7f8a14dc97397@FirstZion.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>
+Welcome fatedwing@yahoo.demo!
+</p>
+<p>You can confirm your account email through the link below:</p>
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=vo657wr1fse_4yJvBzoJ">Confirm my account</a></p>
+
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bobsaget@yahoo.demo"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "username", "time_zone", "reset_password_token", "reset_password_sent_at", "remember_created_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["email", "bobsaget@yahoo.demo"], ["encrypted_password", "[FILTERED]"], ["username", "BobSaget"], ["time_zone", "America/Chicago"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", nil], ["confirmation_sent_at", "2024-01-30 18:55:42.984261"], ["unconfirmed_email", nil], ["created_at", "2024-01-30 18:55:42.984194"], ["updated_at", "2024-01-30 18:55:42.984194"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  Rendering devise/mailer/confirmation_instructions.html.haml
+  Rendered devise/mailer/confirmation_instructions.html.haml (Duration: 0.2ms | Allocations: 80)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1.6ms
+Delivered mail 65b9462ef1b73_7f8a14dc9744a@FirstZion.mail (1.0ms)
+Date: Tue, 30 Jan 2024 12:55:42 -0600
+From: game-night-dev@example.com
+Reply-To: game-night-dev@example.com
+To: bobsaget@yahoo.demo
+Message-ID: <65b9462ef1b73_7f8a14dc9744a@FirstZion.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>
+Welcome bobsaget@yahoo.demo!
+</p>
+<p>You can confirm your account email through the link below:</p>
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=y26bS3fbpdZ8XkWzNYxd">Confirm my account</a></p>
+
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "lvl99pikachu@yahoo.demo"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "username", "time_zone", "reset_password_token", "reset_password_sent_at", "remember_created_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["email", "lvl99pikachu@yahoo.demo"], ["encrypted_password", "[FILTERED]"], ["username", "LVL99Pikachu"], ["time_zone", "America/Chicago"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", nil], ["confirmation_sent_at", "2024-01-30 18:55:43.179976"], ["unconfirmed_email", nil], ["created_at", "2024-01-30 18:55:43.179908"], ["updated_at", "2024-01-30 18:55:43.179908"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  Rendering devise/mailer/confirmation_instructions.html.haml
+  Rendered devise/mailer/confirmation_instructions.html.haml (Duration: 0.2ms | Allocations: 80)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1.8ms
+Delivered mail 65b9462f2d660_7f8a14dc9753@FirstZion.mail (1.3ms)
+Date: Tue, 30 Jan 2024 12:55:43 -0600
+From: game-night-dev@example.com
+Reply-To: game-night-dev@example.com
+To: lvl99pikachu@yahoo.demo
+Message-ID: <65b9462f2d660_7f8a14dc9753@FirstZion.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>
+Welcome lvl99pikachu@yahoo.demo!
+</p>
+<p>You can confirm your account email through the link below:</p>
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=jqdCuTx7TEXJsdKx5ZQy">Confirm my account</a></p>
+
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "breakah@yahoo.demo"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "username", "time_zone", "reset_password_token", "reset_password_sent_at", "remember_created_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["email", "breakah@yahoo.demo"], ["encrypted_password", "[FILTERED]"], ["username", "Breakkah"], ["time_zone", "America/Chicago"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", nil], ["confirmation_sent_at", "2024-01-30 18:55:43.375666"], ["unconfirmed_email", nil], ["created_at", "2024-01-30 18:55:43.375599"], ["updated_at", "2024-01-30 18:55:43.375599"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  Rendering devise/mailer/confirmation_instructions.html.haml
+  Rendered devise/mailer/confirmation_instructions.html.haml (Duration: 0.2ms | Allocations: 80)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1.7ms
+Delivered mail 65b9462f5d19b_7f8a14dc9766e@FirstZion.mail (1.0ms)
+Date: Tue, 30 Jan 2024 12:55:43 -0600
+From: game-night-dev@example.com
+Reply-To: game-night-dev@example.com
+To: breakah@yahoo.demo
+Message-ID: <65b9462f5d19b_7f8a14dc9766e@FirstZion.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>
+Welcome breakah@yahoo.demo!
+</p>
+<p>You can confirm your account email through the link below:</p>
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=cuZCSzuaokPfBe1h3Db1">Confirm my account</a></p>
+
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "littlekittenmittens@yahoo.demo"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "username", "time_zone", "reset_password_token", "reset_password_sent_at", "remember_created_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["email", "littlekittenmittens@yahoo.demo"], ["encrypted_password", "[FILTERED]"], ["username", "LittleKittenMittens"], ["time_zone", "America/Chicago"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", nil], ["confirmation_sent_at", "2024-01-30 18:55:43.570720"], ["unconfirmed_email", nil], ["created_at", "2024-01-30 18:55:43.570653"], ["updated_at", "2024-01-30 18:55:43.570653"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  Rendering devise/mailer/confirmation_instructions.html.haml
+  Rendered devise/mailer/confirmation_instructions.html.haml (Duration: 0.2ms | Allocations: 80)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 2.0ms
+Delivered mail 65b9462f8cc96_7f8a14dc97768@FirstZion.mail (1.0ms)
+Date: Tue, 30 Jan 2024 12:55:43 -0600
+From: game-night-dev@example.com
+Reply-To: game-night-dev@example.com
+To: littlekittenmittens@yahoo.demo
+Message-ID: <65b9462f8cc96_7f8a14dc97768@FirstZion.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>
+Welcome littlekittenmittens@yahoo.demo!
+</p>
+<p>You can confirm your account email through the link below:</p>
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=yp1J2sU-Cp7-LznvZtQt">Confirm my account</a></p>
+
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "asbestix@yahoo.demo"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "username", "time_zone", "reset_password_token", "reset_password_sent_at", "remember_created_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["email", "asbestix@yahoo.demo"], ["encrypted_password", "[FILTERED]"], ["username", "Asbestix"], ["time_zone", "America/Chicago"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", nil], ["confirmation_sent_at", "2024-01-30 18:55:43.767179"], ["unconfirmed_email", nil], ["created_at", "2024-01-30 18:55:43.767112"], ["updated_at", "2024-01-30 18:55:43.767112"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  Rendering devise/mailer/confirmation_instructions.html.haml
+  Rendered devise/mailer/confirmation_instructions.html.haml (Duration: 0.2ms | Allocations: 80)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1.7ms
+Delivered mail 65b9462fbcada_7f8a14dc978c@FirstZion.mail (1.0ms)
+Date: Tue, 30 Jan 2024 12:55:43 -0600
+From: game-night-dev@example.com
+Reply-To: game-night-dev@example.com
+To: asbestix@yahoo.demo
+Message-ID: <65b9462fbcada_7f8a14dc978c@FirstZion.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>
+Welcome asbestix@yahoo.demo!
+</p>
+<p>You can confirm your account email through the link below:</p>
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=3LxivsnkPZ5yqbsU3EjR">Confirm my account</a></p>
+
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <top (required)> at /home/dustin/Projects/game_night/config/environment.rb:5)
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <top (required)> at /home/dustin/Projects/game_night/config/environment.rb:5)
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <top (required)> at /home/dustin/Projects/game_night/config/environment.rb:5)
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <top (required)> at /home/dustin/Projects/game_night/config/environment.rb:5)
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <top (required)> at /home/dustin/Projects/game_night/config/environment.rb:5)
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <top (required)> at /home/dustin/Projects/game_night/config/environment.rb:5)
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <top (required)> at /home/dustin/Projects/game_night/config/environment.rb:5)
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <top (required)> at /home/dustin/Projects/game_night/config/environment.rb:5)
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <top (required)> at /home/dustin/Projects/game_night/config/environment.rb:5)
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <top (required)> at /home/dustin/Projects/game_night/config/environment.rb:5)
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <top (required)> at /home/dustin/Projects/game_night/config/environment.rb:5)
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <top (required)> at /home/dustin/Projects/game_night/config/environment.rb:5)
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <top (required)> at /home/dustin/Projects/game_night/config/environment.rb:5)
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <top (required)> at /home/dustin/Projects/game_night/config/environment.rb:5)
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <top (required)> at /home/dustin/Projects/game_night/config/environment.rb:5)
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <top (required)> at /home/dustin/Projects/game_night/config/environment.rb:5)
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <top (required)> at /home/dustin/Projects/game_night/config/environment.rb:5)
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <top (required)> at /home/dustin/Projects/game_night/config/environment.rb:5)
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <top (required)> at /home/dustin/Projects/game_night/config/environment.rb:5)
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <top (required)> at /home/dustin/Projects/game_night/config/environment.rb:5)
+Started GET "/" for 127.0.0.1 at 2024-01-30 21:45:31 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering home/index.html.haml within layouts/application
+  Rendered home/index.html.haml within layouts/application (Duration: 7.6ms | Allocations: 7919)
+  Rendered dashboards/_navbar.html.haml (Duration: 6.7ms | Allocations: 14065)
+  Rendered dashboards/_footer.html.haml (Duration: 3.1ms | Allocations: 7161)
+  Rendered layout layouts/application.html.haml (Duration: 366.7ms | Allocations: 160193)
+Completed 200 OK in 391ms (Views: 371.2ms | ActiveRecord: 0.0ms | Allocations: 169254)
+
+
+Started GET "/home" for 127.0.0.1 at 2024-01-30 21:48:45 -0600
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering home/index.html.haml within layouts/application
+  Rendered home/index.html.haml within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered dashboards/_navbar.html.haml (Duration: 0.3ms | Allocations: 91)
+  Rendered dashboards/_footer.html.haml (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.haml (Duration: 6.3ms | Allocations: 4908)
+Completed 200 OK in 10ms (Views: 7.0ms | ActiveRecord: 0.0ms | Allocations: 7001)
+
+
