@@ -9,21 +9,18 @@ ruby '3.2.2'
 
 gem 'coffee-rails', '~> 4.2'
 gem 'haml', '>=3.0.0'
-# gem 'pg', '~> 0.18'
 gem 'pg', '~> 1.5', '>= 1.5.4'
 gem 'puma', '~> 3.0'
 gem 'rails', '~> 7.1.2'
 gem 'sass-rails', '~> 6.0'
 gem 'uglifier', '>= 4.2.0'
-# gem 'therubyracer', platforms: :ruby
 gem 'jbuilder', '~> 2.11.5'
 gem 'jquery-rails', '4.6.0'
 gem 'turbolinks', '~> 5.2.1'
-# gem 'redis', '~> 3.0'
 gem 'bootstrap-email', '1.4.1'
 gem 'devise', '4.9.3'
 gem 'email_address', '0.2.4'
-gem 'ipinfo-rails', '1.0.1'
+gem 'ipinfo-rails'
 gem 'simple_calendar', '~> 3.0.2'
 
 # gem 'capistrano-rails', group: :development
@@ -42,6 +39,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
+  gem "letter_opener"
 end
 
 group :test do

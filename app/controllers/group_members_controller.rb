@@ -1,5 +1,5 @@
 class GroupMembersController < ApplicationController
-  before_action :set_group_member, only: %i[show edit update destroy]
+  before_action :set_group_member, only: %i[update destroy]
 
   def create
     @group_member = GroupMember.new(group_member_params)

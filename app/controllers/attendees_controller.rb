@@ -1,5 +1,5 @@
 class AttendeesController < ApplicationController
-  before_action :set_attendee, only: %i[show edit update destroy]
+  before_action :set_attendee, only: %i[destroy]
 
   def create
     @attendee = Attendee.new
@@ -18,10 +18,11 @@ class AttendeesController < ApplicationController
   end
 
   def destroy
+    event_id = @attendee.event_id
     @attendee.destroy
 
     respond_to do |format|
-      format.html { redirect_to "/events/#{@attendee.event_id}}", notice: 'Your schedule was successfully updated.' }
+      format.html { redirect_to "/events/#{event_id}}", notice: 'Your schedule was successfully updated.' }
       format.json { head :no_content }
     end
   end

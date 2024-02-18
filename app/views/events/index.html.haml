@@ -1,4 +1,3 @@
-%p#notice= notice
 %h1 Events
 %table
   %thead
@@ -12,13 +11,11 @@
   %tbody
     - @events.each do |event|
       %tr
-        %td= event.group_id
-        %td= event.game_id
+        %td= event.group.group_name
+        %td= event.game.game_name
         %td= event.required_players
         %td= event.details
         %td= event.date
         %td= link_to 'Show', event
         %td= link_to 'Edit', edit_event_path(event)
         %td= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }
-%br/
-= link_to 'New Event', new_event_path

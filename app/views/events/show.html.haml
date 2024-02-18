@@ -4,6 +4,8 @@
       %h1.h1.text-success.text-center.my-4
         %strong
           =@group.group_name
+    .col-12.text-center
+      = link_to "Update Event", edit_event_path(@event), class: "btn btn-primary w-50 my-3 text-light"
   .row
     .col-lg-8
       .card.border-success

@@ -221,6 +221,10 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (2.7.1)
+    launchy (2.5.2)
+      addressable (~> 2.8)
+    letter_opener (1.9.0)
+      launchy (>= 2.2, < 3)
     listen (3.8.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -426,9 +430,10 @@ DEPENDENCIES
   email_address (= 0.2.4)
   erb2haml
   haml (>= 3.0.0)
-  ipinfo-rails (= 1.0.1)
+  ipinfo-rails
   jbuilder (~> 2.11.5)
   jquery-rails (= 4.6.0)
+  letter_opener
   listen (>= 3.5)
   pg (~> 1.5, >= 1.5.4)
   pry-rails

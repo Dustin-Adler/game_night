@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
   resources :chats
   resources :attendees, only: [:destroy]
-  resources :events, only: %i[destroy index show update] do
+  resources :events, only: %i[destroy index edit show update] do
     resources :attendees, only: [:create]
     resources :chats, only: [:create]
   end
   resources :favorite_games
   resources :groups do
-    resources :events, only: [:create]
+    resources :events, only: [:create, :update]
   end
   resources :group_members
   resources :friends

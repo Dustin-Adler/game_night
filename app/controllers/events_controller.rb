@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: %i[show edit update destroy]
 
   def index
-    @events = Event.all
+    @events = Event.all.includes(:group, :game)
   end
 
   def show
@@ -22,7 +22,10 @@ class EventsController < ApplicationController
     @event = Event.new
   end
 
-  def edit; end
+  def edit
+    @group = Group.find(@event.group_id)
+    @games = Game.all.pluck(:game_name, :id)
+  end
 
   def create
     game_id = params[:event][:game_id]
