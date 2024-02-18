@@ -1,7 +1,6 @@
 module ApplicationHelper
   def time_zone
-    debugger
-    request.env['ipinfo'].timezone if request.env['ipinfo']&.timezone
+    request.env['ipinfo'].ip == "127.0.0.1" ? 'America/Chicago' : request.env['ipinfo']&.timezone
   end
 
   def readable_time(time)
